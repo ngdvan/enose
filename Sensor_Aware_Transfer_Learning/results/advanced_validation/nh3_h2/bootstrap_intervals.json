@@ -1,0 +1,92 @@
+{
+  "5": {
+    "NH3": {
+      "mean_paired_mae_improvement_ppm": 9.908116279271756,
+      "bootstrap_95_ci_ppm": [
+        5.021662686798045,
+        15.082999303076264
+      ],
+      "n_paired_predictions": 1134
+    },
+    "H2": {
+      "mean_paired_mae_improvement_ppm": 27.322297857105205,
+      "bootstrap_95_ci_ppm": [
+        21.785436546116593,
+        32.73052390227505
+      ],
+      "n_paired_predictions": 1134
+    }
+  },
+  "10": {
+    "NH3": {
+      "mean_paired_mae_improvement_ppm": 5.417680247987389,
+      "bootstrap_95_ci_ppm": [
+        1.1623629304729866,
+        9.666488699636025
+      ],
+      "n_paired_predictions": 1134
+    },
+    "H2": {
+      "mean_paired_mae_improvement_ppm": 39.78706008587459,
+      "bootstrap_95_ci_ppm": [
+        33.89417464651522,
+        45.6900917975025
+      ],
+      "n_paired_predictions": 1134
+    }
+  },
+  "20": {
+    "NH3": {
+      "mean_paired_mae_improvement_ppm": 2.0316358352937396,
+      "bootstrap_95_ci_ppm": [
+        0.09288968751223411,
+        3.9503251532851538
+      ],
+      "n_paired_predictions": 1134
+    },
+    "H2": {
+      "mean_paired_mae_improvement_ppm": 18.14377818870271,
+      "bootstrap_95_ci_ppm": [
+        14.61573894576053,
+        21.83359389086722
+      ],
+      "n_paired_predictions": 1134
+    }
+  },
+  "40": {
+    "NH3": {
+      "mean_paired_mae_improvement_ppm": 7.0849270609320785,
+      "bootstrap_95_ci_ppm": [
+        5.418835978722446,
+        8.745884518612446
+      ],
+      "n_paired_predictions": 1134
+    },
+    "H2": {
+      "mean_paired_mae_improvement_ppm": 11.681669155572667,
+      "bootstrap_95_ci_ppm": [
+        8.9623271244583,
+        14.548620300904911
+      ],
+      "n_paired_predictions": 1134
+    }
+  },
+  "57": {
+    "NH3": {
+      "mean_paired_mae_improvement_ppm": 5.409308061792106,
+      "bootstrap_95_ci_ppm": [
+        3.7379166308376526,
+        7.101950829200827
+      ],
+      "n_paired_predictions": 1134
+    },
+    "H2": {
+      "mean_paired_mae_improvement_ppm": 9.807028783324323,
+      "bootstrap_95_ci_ppm": [
+        7.560532527554918,
+        11.936017404093255
+      ],
+      "n_paired_predictions": 1134
+    }
+  }
+}

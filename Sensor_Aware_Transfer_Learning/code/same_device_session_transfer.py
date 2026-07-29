@@ -123,8 +123,10 @@ class SensorScaler:
 
 
 class SensorAwareEncoder(nn.Module):
-    def __init__(self):
+    def __init__(self, use_sensor_ids: bool = True, use_attention: bool = True):
         super().__init__()
+        self.use_sensor_ids = use_sensor_ids
+        self.use_attention = use_attention
         self.temporal = nn.Sequential(
             nn.Conv1d(2, 24, 5, padding=2), nn.GELU(),
             nn.Conv1d(24, 32, 5, padding=4, dilation=2), nn.GELU(),
@@ -149,14 +151,17 @@ class SensorAwareEncoder(nn.Module):
         h = self.temporal(torch.stack([signal * mask, mask], dim=1))
         token = self.project(torch.cat([h.mean(2), h.amax(2)], dim=1))
         token = token.reshape(batch, N_SENSORS, TOKEN)
-        token = token + self.sensor_embedding[None]
-        return self.norm(self.context(token))
+        if self.use_sensor_ids:
+            token = token + self.sensor_embedding[None]
+        if self.use_attention:
+            token = self.context(token)
+        return self.norm(token)
 
 
 class MaskedAutoencoder(nn.Module):
-    def __init__(self):
+    def __init__(self, use_sensor_ids: bool = True, use_attention: bool = True):
         super().__init__()
-        self.encoder = SensorAwareEncoder()
+        self.encoder = SensorAwareEncoder(use_sensor_ids, use_attention)
         self.decoder = nn.Sequential(
             nn.Linear(TOKEN, 96), nn.GELU(), nn.Linear(96, STEPS)
         )
@@ -179,27 +184,36 @@ class Regressor(nn.Module):
         return self.head(self.encoder(x).flatten(1))
 
 
-def random_mask(x: torch.Tensor) -> torch.Tensor:
-    observed = torch.ones_like(x)
+def random_mask(x: torch.Tensor, temporal_mask: bool = True,
+                sensor_masking: bool = True) -> torch.Tensor:
+    # Construct the stochastic mask on CPU. Drawing scalar CUDA values inside
+    # this Python loop forces a device synchronization for every span and was
+    # the dominant runtime cost of pretraining; the mask distribution is
+    # unchanged and the completed mask is transferred once per batch.
+    observed = torch.ones(x.shape, dtype=x.dtype, device="cpu")
     b, _, s = x.shape
     # Mask three contiguous time spans per example.
     for i in range(b):
-        for _ in range(3):
-            width = int(torch.randint(6, 17, (1,), device=x.device))
-            start = int(torch.randint(0, STEPS - width + 1, (1,), device=x.device))
-            sensor_mask = torch.rand(s, device=x.device) < 0.45
-            observed[i, start:start + width, sensor_mask] = 0
+        if temporal_mask:
+            for _ in range(3):
+                width = int(torch.randint(6, 17, (1,)))
+                start = int(torch.randint(0, STEPS - width + 1, (1,)))
+                span_sensors = torch.rand(s) < 0.45
+                observed[i, start:start + width, span_sensors] = 0
         # Also hide 1-3 complete sensors to force cross-sensor learning.
-        count = int(torch.randint(1, 4, (1,), device=x.device))
-        hidden = torch.randperm(s, device=x.device)[:count]
-        observed[i, :, hidden] = 0
-    return observed
+        if sensor_masking:
+            count = int(torch.randint(1, 4, (1,)))
+            hidden = torch.randperm(s)[:count]
+            observed[i, :, hidden] = 0
+    return observed.to(x.device, non_blocking=True)
 
 
-def pretrain(x: np.ndarray, epochs: int, seed: int):
+def pretrain(x: np.ndarray, epochs: int, seed: int, *,
+             use_sensor_ids: bool = True, use_attention: bool = True,
+             temporal_mask: bool = True, sensor_masking: bool = True):
     seed_all(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = MaskedAutoencoder().to(device)
+    model = MaskedAutoencoder(use_sensor_ids, use_attention).to(device)
     loader = DataLoader(
         TensorDataset(torch.from_numpy(x)), batch_size=64, shuffle=True,
         generator=torch.Generator().manual_seed(seed),
@@ -211,7 +225,7 @@ def pretrain(x: np.ndarray, epochs: int, seed: int):
         model.train()
         for (xb,) in loader:
             xb = xb.to(device)
-            observed = random_mask(xb)
+            observed = random_mask(xb, temporal_mask, sensor_masking)
             pred = model(xb, observed)
             hidden = 1 - observed
             masked_loss = ((pred - xb).square() * hidden).sum() / hidden.sum().clamp_min(1)
@@ -245,11 +259,15 @@ def farthest_subset(targets: np.ndarray, budget: int, seed: int) -> np.ndarray:
     return first[np.asarray(selected)]
 
 
-def fit_neural(x: np.ndarray, y: np.ndarray, initial: dict | None,
-               frozen: bool, epochs: int, seed: int) -> Regressor:
+def fit_neural_with_history(x: np.ndarray, y: np.ndarray, initial: dict | None,
+                            frozen: bool, epochs: int, seed: int,
+                            *, val_x: np.ndarray | None = None,
+                            val_y: np.ndarray | None = None,
+                            use_sensor_ids: bool = True,
+                            use_attention: bool = True) -> tuple[Regressor, dict]:
     seed_all(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    encoder = SensorAwareEncoder()
+    encoder = SensorAwareEncoder(use_sensor_ids, use_attention)
     if initial is not None:
         encoder.load_state_dict(initial)
     model = Regressor(encoder).to(device)
@@ -270,8 +288,12 @@ def fit_neural(x: np.ndarray, y: np.ndarray, initial: dict | None,
         batch_size=min(64, len(x)), shuffle=True,
         generator=torch.Generator().manual_seed(seed),
     )
-    for _ in range(epochs):
+    history = {"train_loss": [], "validation_loss": [], "best_epoch": None,
+               "best_validation_loss": None}
+    best_state, best_val = None, float("inf")
+    for epoch in range(epochs):
         model.train()
+        epoch_total, epoch_count = 0.0, 0
         for xb, yb in loader:
             xb, yb = xb.to(device), yb.to(device)
             pred = model(xb)
@@ -280,6 +302,31 @@ def fit_neural(x: np.ndarray, y: np.ndarray, initial: dict | None,
             loss.backward()
             nn.utils.clip_grad_norm_(model.parameters(), 2.0)
             opt.step()
+            epoch_total += float(loss.detach()) * len(xb)
+            epoch_count += len(xb)
+        history["train_loss"].append(epoch_total / max(epoch_count, 1))
+        if val_x is not None and val_y is not None and len(val_x):
+            model.eval()
+            with torch.no_grad():
+                vx = torch.from_numpy(val_x).to(device)
+                vy = torch.from_numpy(val_y / TARGET_SCALE).to(device)
+                value = float(nn.functional.huber_loss(model(vx), vy, delta=0.1).cpu())
+            history["validation_loss"].append(value)
+            if value < best_val:
+                best_val = value
+                history["best_epoch"] = epoch + 1
+                history["best_validation_loss"] = value
+                best_state = deepcopy(model.state_dict())
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    return model, history
+
+
+def fit_neural(x: np.ndarray, y: np.ndarray, initial: dict | None,
+               frozen: bool, epochs: int, seed: int) -> Regressor:
+    model, _ = fit_neural_with_history(
+        x, y, initial, frozen, epochs, seed
+    )
     return model
 
 
