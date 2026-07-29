@@ -1,0 +1,2 @@
+# Large raw datasets must be stored with Git LFS for GitHub compatibility.
+ethylene_CO.txt filter=lfs diff=lfs merge=lfs -text

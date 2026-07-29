@@ -1,0 +1,1164 @@
+{
+  "experiment": "same-device sensor-aware chronological transfer for CO/ethylene",
+  "protocol": {
+    "session_warning": "No explicit sessions exist; contiguous chronological acquisition blocks are used.",
+    "unlabeled_pretraining_blocks": [
+      1,
+      2,
+      3
+    ],
+    "labeled_adaptation_block": 4,
+    "untouched_future_test_block": 5,
+    "label_budgets_unique_pairs": [
+      5,
+      10,
+      20,
+      24
+    ],
+    "subset_selection": "seeded farthest-point coverage in gas concentration space",
+    "repeats": 1,
+    "pretrain_epochs": 1,
+    "finetune_epochs": 2,
+    "encoder": "shared temporal CNN + sensor identity embeddings + cross-sensor Transformer",
+    "ssl_objective": "masked temporal spans and complete-sensor reconstruction",
+    "test_concentration_mean_ppm": {
+      "CO": 145.30552673339844,
+      "Ethylene": 7.8573479652404785
+    },
+    "full_scale_ppm": {
+      "CO": 533.3300170898438,
+      "Ethylene": 20.0
+    }
+  },
+  "data_audit": {
+    "sequence_windows": 1225,
+    "exposure_runs": 245,
+    "sensor_channels": 16,
+    "chronological_blocks": 5,
+    "exposures_per_block": {
+      "1": 49,
+      "2": 49,
+      "3": 49,
+      "4": 49,
+      "5": 49
+    },
+    "unique_pairs_per_block": {
+      "1": 26,
+      "2": 27,
+      "3": 31,
+      "4": 24,
+      "5": 26
+    },
+    "offsets": [
+      0,
+      20,
+      40,
+      60,
+      80
+    ]
+  },
+  "pretraining_loss": [
+    1.950489618340317
+  ],
+  "runs": [
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 5,
+      "model": "scratch",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 142.256591796875,
+          "rmse_ppm": 155.95945486728274,
+          "r2": -0.009894847869873047,
+          "mae_percent_test_mean": 97.90171813964844,
+          "mae_percent_full_scale": 26.673276901245117
+        },
+        "Ethylene": {
+          "mae_ppm": 5.406745910644531,
+          "rmse_ppm": 6.002862247592745,
+          "r2": -0.4779318571090698,
+          "mae_percent_test_mean": 68.81134033203125,
+          "mae_percent_full_scale": 27.033727645874023
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 5,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 197.3285675048828,
+          "rmse_ppm": 235.11720813777114,
+          "r2": -1.2952055931091309,
+          "mae_percent_test_mean": 135.8025360107422,
+          "mae_percent_full_scale": 36.99933624267578
+        },
+        "Ethylene": {
+          "mae_ppm": 4.023414611816406,
+          "rmse_ppm": 5.411464579789415,
+          "r2": -0.20106709003448486,
+          "mae_percent_test_mean": 51.20576477050781,
+          "mae_percent_full_scale": 20.11707305908203
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 5,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 164.87840270996094,
+          "rmse_ppm": 201.31833079106335,
+          "r2": -0.6827492713928223,
+          "mae_percent_test_mean": 113.47016143798828,
+          "mae_percent_full_scale": 30.914892196655273
+        },
+        "Ethylene": {
+          "mae_ppm": 3.803774118423462,
+          "rmse_ppm": 5.158796201942255,
+          "r2": -0.09152674674987793,
+          "mae_percent_test_mean": 48.4104118347168,
+          "mae_percent_full_scale": 19.018871307373047
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 5,
+      "model": "physics_extratrees",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 85.64316909478634,
+          "rmse_ppm": 105.3776593814422,
+          "r2": 0.5389480837185772,
+          "mae_percent_test_mean": 58.94007110595703,
+          "mae_percent_full_scale": 16.058195114135742
+        },
+        "Ethylene": {
+          "mae_ppm": 3.2574489803703464,
+          "rmse_ppm": 3.9953642964905187,
+          "r2": 0.3452877973920212,
+          "mae_percent_test_mean": 41.457366943359375,
+          "mae_percent_full_scale": 16.28724479675293
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 10,
+      "model": "scratch",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 143.3740234375,
+          "rmse_ppm": 173.41801129244044,
+          "r2": -0.24865126609802246,
+          "mae_percent_test_mean": 98.67073822021484,
+          "mae_percent_full_scale": 26.882797241210938
+        },
+        "Ethylene": {
+          "mae_ppm": 4.361404895782471,
+          "rmse_ppm": 5.173759002050995,
+          "r2": -0.09786772727966309,
+          "mae_percent_test_mean": 55.50735092163086,
+          "mae_percent_full_scale": 21.807025909423828
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 10,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 139.1827392578125,
+          "rmse_ppm": 159.00439754138878,
+          "r2": -0.049714088439941406,
+          "mae_percent_test_mean": 95.78627014160156,
+          "mae_percent_full_scale": 26.096925735473633
+        },
+        "Ethylene": {
+          "mae_ppm": 3.817289352416992,
+          "rmse_ppm": 4.888570043011524,
+          "r2": 0.01983022689819336,
+          "mae_percent_test_mean": 48.582420349121094,
+          "mae_percent_full_scale": 19.08644676208496
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 10,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 139.65232849121094,
+          "rmse_ppm": 159.4432268179649,
+          "r2": -0.05551624298095703,
+          "mae_percent_test_mean": 96.10944366455078,
+          "mae_percent_full_scale": 26.184972763061523
+        },
+        "Ethylene": {
+          "mae_ppm": 6.420030117034912,
+          "rmse_ppm": 7.21944777514032,
+          "r2": -1.1376943588256836,
+          "mae_percent_test_mean": 81.70735168457031,
+          "mae_percent_full_scale": 32.10015106201172
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 10,
+      "model": "physics_extratrees",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 103.90208358640085,
+          "rmse_ppm": 125.96439984057417,
+          "r2": 0.3412079051885588,
+          "mae_percent_test_mean": 71.50594329833984,
+          "mae_percent_full_scale": 19.481761932373047
+        },
+        "Ethylene": {
+          "mae_ppm": 3.2707563199672567,
+          "rmse_ppm": 4.13603553475985,
+          "r2": 0.29837316760746535,
+          "mae_percent_test_mean": 41.62672424316406,
+          "mae_percent_full_scale": 16.35378074645996
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 20,
+      "model": "scratch",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 182.3482208251953,
+          "rmse_ppm": 219.279893914148,
+          "r2": -0.996412992477417,
+          "mae_percent_test_mean": 125.49298095703125,
+          "mae_percent_full_scale": 34.19050598144531
+        },
+        "Ethylene": {
+          "mae_ppm": 4.334170818328857,
+          "rmse_ppm": 5.589383941441904,
+          "r2": -0.28134334087371826,
+          "mae_percent_test_mean": 55.16073989868164,
+          "mae_percent_full_scale": 21.670854568481445
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 20,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 217.76913452148438,
+          "rmse_ppm": 253.93079304458135,
+          "r2": -1.6772165298461914,
+          "mae_percent_test_mean": 149.86984252929688,
+          "mae_percent_full_scale": 40.831966400146484
+        },
+        "Ethylene": {
+          "mae_ppm": 6.192730903625488,
+          "rmse_ppm": 7.140675484042683,
+          "r2": -1.0912995338439941,
+          "mae_percent_test_mean": 78.81452178955078,
+          "mae_percent_full_scale": 30.963653564453125
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 20,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 169.33583068847656,
+          "rmse_ppm": 206.45246691127235,
+          "r2": -0.7696725130081177,
+          "mae_percent_test_mean": 116.53779602050781,
+          "mae_percent_full_scale": 31.750667572021484
+        },
+        "Ethylene": {
+          "mae_ppm": 4.837738513946533,
+          "rmse_ppm": 5.8926732880946835,
+          "r2": -0.42417168617248535,
+          "mae_percent_test_mean": 61.569618225097656,
+          "mae_percent_full_scale": 24.18869400024414
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 20,
+      "model": "physics_extratrees",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 69.70175878594846,
+          "rmse_ppm": 94.21345073053939,
+          "r2": 0.6314651544722394,
+          "mae_percent_test_mean": 47.96910858154297,
+          "mae_percent_full_scale": 13.069160461425781
+        },
+        "Ethylene": {
+          "mae_ppm": 2.5767876436142694,
+          "rmse_ppm": 3.600270103217447,
+          "r2": 0.4683720141341564,
+          "mae_percent_test_mean": 32.79462814331055,
+          "mae_percent_full_scale": 12.883938789367676
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 24,
+      "model": "scratch",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 156.22377014160156,
+          "rmse_ppm": 191.5575142091795,
+          "r2": -0.5235303640365601,
+          "mae_percent_test_mean": 107.51399993896484,
+          "mae_percent_full_scale": 29.292139053344727
+        },
+        "Ethylene": {
+          "mae_ppm": 6.0190019607543945,
+          "rmse_ppm": 6.67922090384232,
+          "r2": -0.8297393321990967,
+          "mae_percent_test_mean": 76.6034927368164,
+          "mae_percent_full_scale": 30.09501075744629
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 24,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 239.6333770751953,
+          "rmse_ppm": 271.66944815805107,
+          "r2": -2.064321517944336,
+          "mae_percent_test_mean": 164.9169158935547,
+          "mae_percent_full_scale": 44.93153762817383
+        },
+        "Ethylene": {
+          "mae_ppm": 4.536704063415527,
+          "rmse_ppm": 5.695097156529856,
+          "r2": -0.3302704095840454,
+          "mae_percent_test_mean": 57.73836898803711,
+          "mae_percent_full_scale": 22.683521270751953
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 24,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 195.40260314941406,
+          "rmse_ppm": 230.37989176846577,
+          "r2": -1.203646183013916,
+          "mae_percent_test_mean": 134.47706604003906,
+          "mae_percent_full_scale": 36.638214111328125
+        },
+        "Ethylene": {
+          "mae_ppm": 4.161248207092285,
+          "rmse_ppm": 5.527797332592768,
+          "r2": -0.253261923789978,
+          "mae_percent_test_mean": 52.959964752197266,
+          "mae_percent_full_scale": 20.80624008178711
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 24,
+      "model": "physics_extratrees",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 76.30786407003598,
+          "rmse_ppm": 98.22699195392043,
+          "r2": 0.5993967900034195,
+          "mae_percent_test_mean": 52.515464782714844,
+          "mae_percent_full_scale": 14.30781364440918
+        },
+        "Ethylene": {
+          "mae_ppm": 2.6849534215732493,
+          "rmse_ppm": 3.730316136469555,
+          "r2": 0.42927230886960965,
+          "mae_percent_test_mean": 34.17124557495117,
+          "mae_percent_full_scale": 13.424766540527344
+        }
+      }
+    }
+  ],
+  "summary": {
+    "5": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 164.87840270996094,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 201.31833079106335,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.6827492713928223,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 113.47016143798828,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 30.914892196655273,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 3.803774118423462,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 5.158796201942255,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.09152674674987793,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 48.4104118347168,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 19.018871307373047,
+            "sd": 0.0
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 197.3285675048828,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 235.11720813777114,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -1.2952055931091309,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 135.8025360107422,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 36.99933624267578,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 4.023414611816406,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 5.411464579789415,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.20106709003448486,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 51.20576477050781,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 20.11707305908203,
+            "sd": 0.0
+          }
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 85.64316909478634,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 105.3776593814422,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.5389480837185772,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 58.94007110595703,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 16.058195114135742,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 3.2574489803703464,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 3.9953642964905187,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.3452877973920212,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 41.457366943359375,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 16.28724479675293,
+            "sd": 0.0
+          }
+        }
+      },
+      "scratch": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 142.256591796875,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 155.95945486728274,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.009894847869873047,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 97.90171813964844,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 26.673276901245117,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 5.406745910644531,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 6.002862247592745,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.4779318571090698,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 68.81134033203125,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 27.033727645874023,
+            "sd": 0.0
+          }
+        }
+      }
+    },
+    "10": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 139.65232849121094,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 159.4432268179649,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.05551624298095703,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 96.10944366455078,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 26.184972763061523,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 6.420030117034912,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 7.21944777514032,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -1.1376943588256836,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 81.70735168457031,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 32.10015106201172,
+            "sd": 0.0
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 139.1827392578125,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 159.00439754138878,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.049714088439941406,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 95.78627014160156,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 26.096925735473633,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 3.817289352416992,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 4.888570043011524,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.01983022689819336,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 48.582420349121094,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 19.08644676208496,
+            "sd": 0.0
+          }
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 103.90208358640085,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 125.96439984057417,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.3412079051885588,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 71.50594329833984,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 19.481761932373047,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 3.2707563199672567,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 4.13603553475985,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.29837316760746535,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 41.62672424316406,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 16.35378074645996,
+            "sd": 0.0
+          }
+        }
+      },
+      "scratch": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 143.3740234375,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 173.41801129244044,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.24865126609802246,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 98.67073822021484,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 26.882797241210938,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 4.361404895782471,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 5.173759002050995,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.09786772727966309,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 55.50735092163086,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 21.807025909423828,
+            "sd": 0.0
+          }
+        }
+      }
+    },
+    "20": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 169.33583068847656,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 206.45246691127235,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.7696725130081177,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 116.53779602050781,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 31.750667572021484,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 4.837738513946533,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 5.8926732880946835,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.42417168617248535,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 61.569618225097656,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 24.18869400024414,
+            "sd": 0.0
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 217.76913452148438,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 253.93079304458135,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -1.6772165298461914,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 149.86984252929688,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 40.831966400146484,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 6.192730903625488,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 7.140675484042683,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -1.0912995338439941,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 78.81452178955078,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 30.963653564453125,
+            "sd": 0.0
+          }
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 69.70175878594846,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 94.21345073053939,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.6314651544722394,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 47.96910858154297,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 13.069160461425781,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 2.5767876436142694,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 3.600270103217447,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.4683720141341564,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 32.79462814331055,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 12.883938789367676,
+            "sd": 0.0
+          }
+        }
+      },
+      "scratch": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 182.3482208251953,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 219.279893914148,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.996412992477417,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 125.49298095703125,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 34.19050598144531,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 4.334170818328857,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 5.589383941441904,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.28134334087371826,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 55.16073989868164,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 21.670854568481445,
+            "sd": 0.0
+          }
+        }
+      }
+    },
+    "24": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 195.40260314941406,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 230.37989176846577,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -1.203646183013916,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 134.47706604003906,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 36.638214111328125,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 4.161248207092285,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 5.527797332592768,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.253261923789978,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 52.959964752197266,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 20.80624008178711,
+            "sd": 0.0
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 239.6333770751953,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 271.66944815805107,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -2.064321517944336,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 164.9169158935547,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 44.93153762817383,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 4.536704063415527,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 5.695097156529856,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.3302704095840454,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 57.73836898803711,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 22.683521270751953,
+            "sd": 0.0
+          }
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 76.30786407003598,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 98.22699195392043,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.5993967900034195,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 52.515464782714844,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 14.30781364440918,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 2.6849534215732493,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 3.730316136469555,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": 0.42927230886960965,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 34.17124557495117,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 13.424766540527344,
+            "sd": 0.0
+          }
+        }
+      },
+      "scratch": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 156.22377014160156,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 191.5575142091795,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.5235303640365601,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 107.51399993896484,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 29.292139053344727,
+            "sd": 0.0
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 6.0190019607543945,
+            "sd": 0.0
+          },
+          "rmse_ppm": {
+            "mean": 6.67922090384232,
+            "sd": 0.0
+          },
+          "r2": {
+            "mean": -0.8297393321990967,
+            "sd": 0.0
+          },
+          "mae_percent_test_mean": {
+            "mean": 76.6034927368164,
+            "sd": 0.0
+          },
+          "mae_percent_full_scale": {
+            "mean": 30.09501075744629,
+            "sd": 0.0
+          }
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 6.160035400011111
+}

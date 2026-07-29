@@ -1,0 +1,1386 @@
+{
+  "experiment": "ntxent plus masked reconstruction sensor-aware transfer",
+  "dataset": "co_ethylene",
+  "protocol": {
+    "pretraining": "chronological blocks 1-3",
+    "adaptation": "chronological block 4",
+    "test": "untouched chronological block 5",
+    "warning": "The source has no explicit session identifiers."
+  },
+  "architecture": "temporal CNN + sensor identities + cross-sensor Transformer",
+  "objective": {
+    "reconstruction": "masked temporal spans and complete sensors",
+    "contrastive": "ntxent",
+    "augmentations": "offset windows, mild gain, baseline drift, noise, masks, sensor dropout"
+  },
+  "settings": {
+    "seed": 42,
+    "repeats": 3,
+    "pretrain_epochs": 60,
+    "finetune_epochs": 120,
+    "budgets": [
+      5,
+      10,
+      20,
+      24
+    ]
+  },
+  "data_audit": {
+    "sequence_windows": 1225,
+    "exposure_runs": 245,
+    "sensor_channels": 16,
+    "chronological_blocks": 5,
+    "exposures_per_block": {
+      "1": 49,
+      "2": 49,
+      "3": 49,
+      "4": 49,
+      "5": 49
+    },
+    "unique_pairs_per_block": {
+      "1": 26,
+      "2": 27,
+      "3": 31,
+      "4": 24,
+      "5": 26
+    },
+    "offsets": [
+      0,
+      20,
+      40,
+      60,
+      80
+    ]
+  },
+  "pretraining_history": [
+    {
+      "epoch": 1,
+      "loss": 2.7239740545099433,
+      "reconstruction": 2.0918627218766646,
+      "contrastive": 4.189757932316173,
+      "sensor_consistency": 0.182377503676848
+    },
+    {
+      "epoch": 2,
+      "loss": 2.430503151633523,
+      "reconstruction": 1.9564540602944114,
+      "contrastive": 3.1334412314675073,
+      "sensor_consistency": 0.20164773139086636
+    },
+    {
+      "epoch": 3,
+      "loss": 2.147829836065119,
+      "reconstruction": 1.7411734732714566,
+      "contrastive": 2.689275763251565,
+      "sensor_consistency": 0.1632496795871041
+    },
+    {
+      "epoch": 4,
+      "loss": 2.002707773988897,
+      "reconstruction": 1.6371915990656072,
+      "contrastive": 2.4162978909232398,
+      "sensor_consistency": 0.15357071703130548
+    },
+    {
+      "epoch": 5,
+      "loss": 1.8601681644266301,
+      "reconstruction": 1.5276248129931362,
+      "contrastive": 2.195193897594105,
+      "sensor_consistency": 0.16321229257366873
+    },
+    {
+      "epoch": 6,
+      "loss": 1.5157416408712214,
+      "reconstruction": 1.234079816124656,
+      "contrastive": 1.8540809479626743,
+      "sensor_consistency": 0.17748342589898544
+    },
+    {
+      "epoch": 7,
+      "loss": 1.348743286999789,
+      "reconstruction": 1.1033987673846157,
+      "contrastive": 1.6100278767672451,
+      "sensor_consistency": 0.19201632927764545
+    },
+    {
+      "epoch": 8,
+      "loss": 1.261780153621327,
+      "reconstruction": 1.0336993390863591,
+      "contrastive": 1.4954784349961714,
+      "sensor_consistency": 0.18795173005624252
+    },
+    {
+      "epoch": 9,
+      "loss": 1.1098104227672925,
+      "reconstruction": 0.8996847217733209,
+      "contrastive": 1.3789869655262341,
+      "sensor_consistency": 0.16388332030989908
+    },
+    {
+      "epoch": 10,
+      "loss": 0.858526116067713,
+      "reconstruction": 0.6730078756809235,
+      "contrastive": 1.215294902974909,
+      "sensor_consistency": 0.1611994979056445
+    },
+    {
+      "epoch": 11,
+      "loss": 0.8024751273068514,
+      "reconstruction": 0.6124697896567258,
+      "contrastive": 1.244151928208091,
+      "sensor_consistency": 0.16912784766067157
+    },
+    {
+      "epoch": 12,
+      "loss": 0.7156280116601423,
+      "reconstruction": 0.520870260216973,
+      "contrastive": 1.276281107555736,
+      "sensor_consistency": 0.16577896882187237
+    },
+    {
+      "epoch": 13,
+      "loss": 0.5994335846467451,
+      "reconstruction": 0.4177085039290515,
+      "contrastive": 1.1913001537322998,
+      "sensor_consistency": 0.15150197798555548
+    },
+    {
+      "epoch": 14,
+      "loss": 0.5161473236300729,
+      "reconstruction": 0.335442914204164,
+      "contrastive": 1.184021602977406,
+      "sensor_consistency": 0.15505784072659232
+    },
+    {
+      "epoch": 15,
+      "loss": 0.5905051041733135,
+      "reconstruction": 0.41316883672367444,
+      "contrastive": 1.1619567762721668,
+      "sensor_consistency": 0.1521375680511648
+    },
+    {
+      "epoch": 16,
+      "loss": 0.5180836374109442,
+      "reconstruction": 0.35215915875001386,
+      "contrastive": 1.0846113670956006,
+      "sensor_consistency": 0.1616381068121303
+    },
+    {
+      "epoch": 17,
+      "loss": 0.5213262113657865,
+      "reconstruction": 0.34958495606075635,
+      "contrastive": 1.123657930981029,
+      "sensor_consistency": 0.1596276272426952
+    },
+    {
+      "epoch": 18,
+      "loss": 0.5039877999912609,
+      "reconstruction": 0.3416539593176408,
+      "contrastive": 1.062051003629511,
+      "sensor_consistency": 0.15130869366905905
+    },
+    {
+      "epoch": 19,
+      "loss": 0.4323007247664712,
+      "reconstruction": 0.2801502997224981,
+      "contrastive": 0.9954895322973077,
+      "sensor_consistency": 0.14134965430606494
+    },
+    {
+      "epoch": 20,
+      "loss": 0.4693988697095351,
+      "reconstruction": 0.310706611384045,
+      "contrastive": 1.0390935811129483,
+      "sensor_consistency": 0.1414105309681459
+    },
+    {
+      "epoch": 21,
+      "loss": 0.4339435181834481,
+      "reconstruction": 0.2865801047195088,
+      "contrastive": 0.9631387157873674,
+      "sensor_consistency": 0.1446305364370346
+    },
+    {
+      "epoch": 22,
+      "loss": 0.44773856889117847,
+      "reconstruction": 0.2953982095826756,
+      "contrastive": 0.9960182471708818,
+      "sensor_consistency": 0.14688118344003503
+    },
+    {
+      "epoch": 23,
+      "loss": 0.39168268713084137,
+      "reconstruction": 0.24291804297403854,
+      "contrastive": 0.9720990441062234,
+      "sensor_consistency": 0.14748888936909763
+    },
+    {
+      "epoch": 24,
+      "loss": 0.37270522117614746,
+      "reconstruction": 0.23939960924061862,
+      "contrastive": 0.8692507527091287,
+      "sensor_consistency": 0.14589954777197403
+    },
+    {
+      "epoch": 25,
+      "loss": 0.4237744212150574,
+      "reconstruction": 0.28507288748567755,
+      "contrastive": 0.9054108695550398,
+      "sensor_consistency": 0.1444948505271565
+    },
+    {
+      "epoch": 26,
+      "loss": 0.3648841950026425,
+      "reconstruction": 0.2219054319641807,
+      "contrastive": 0.9334541071544994,
+      "sensor_consistency": 0.14803201502019708
+    },
+    {
+      "epoch": 27,
+      "loss": 0.3760954629291188,
+      "reconstruction": 0.24058815091848373,
+      "contrastive": 0.8840277249162848,
+      "sensor_consistency": 0.14515732499686154
+    },
+    {
+      "epoch": 28,
+      "loss": 0.4010872515765103,
+      "reconstruction": 0.27297560464252124,
+      "contrastive": 0.8347573226148431,
+      "sensor_consistency": 0.14490233497186142
+    },
+    {
+      "epoch": 29,
+      "loss": 0.39248778467828577,
+      "reconstruction": 0.265933941711079,
+      "contrastive": 0.8246578790924766,
+      "sensor_consistency": 0.1427578330039978
+    },
+    {
+      "epoch": 30,
+      "loss": 0.3851782882755453,
+      "reconstruction": 0.2543960620056499,
+      "contrastive": 0.8523725650527261,
+      "sensor_consistency": 0.1463168588551608
+    },
+    {
+      "epoch": 31,
+      "loss": 0.3086699355732311,
+      "reconstruction": 0.18050620366226544,
+      "contrastive": 0.8356527252630754,
+      "sensor_consistency": 0.14079111543568698
+    },
+    {
+      "epoch": 32,
+      "loss": 0.36750963872129266,
+      "reconstruction": 0.24381022290749985,
+      "contrastive": 0.8055653843012723,
+      "sensor_consistency": 0.14323013749989597
+    },
+    {
+      "epoch": 33,
+      "loss": 0.3517878001386469,
+      "reconstruction": 0.23102292012084613,
+      "contrastive": 0.785851001739502,
+      "sensor_consistency": 0.14436124807054346
+    },
+    {
+      "epoch": 34,
+      "loss": 0.3893869708884846,
+      "reconstruction": 0.2536636387759989,
+      "contrastive": 0.8862217989834872,
+      "sensor_consistency": 0.13950282741676678
+    },
+    {
+      "epoch": 35,
+      "loss": 0.3664577007293701,
+      "reconstruction": 0.24660060487010263,
+      "contrastive": 0.7802803353829817,
+      "sensor_consistency": 0.14075170050967822
+    },
+    {
+      "epoch": 36,
+      "loss": 0.2981945438818498,
+      "reconstruction": 0.1763894720511003,
+      "contrastive": 0.7937806627967141,
+      "sensor_consistency": 0.13689877092838287
+    },
+    {
+      "epoch": 37,
+      "loss": 0.3540756539864974,
+      "reconstruction": 0.228049328381365,
+      "contrastive": 0.8217784708196466,
+      "sensor_consistency": 0.13797755945812573
+    },
+    {
+      "epoch": 38,
+      "loss": 0.325620018623092,
+      "reconstruction": 0.19819786264137787,
+      "contrastive": 0.8308769356120717,
+      "sensor_consistency": 0.13953051106496292
+    },
+    {
+      "epoch": 39,
+      "loss": 0.34060565720904956,
+      "reconstruction": 0.22304956073110754,
+      "contrastive": 0.764984049580314,
+      "sensor_consistency": 0.14042430845173923
+    },
+    {
+      "epoch": 40,
+      "loss": 0.3058216097680005,
+      "reconstruction": 0.1917293295264244,
+      "contrastive": 0.7416368451985446,
+      "sensor_consistency": 0.14233768663623117
+    },
+    {
+      "epoch": 41,
+      "loss": 0.31564459204673767,
+      "reconstruction": 0.20675973865118893,
+      "contrastive": 0.7067747170274908,
+      "sensor_consistency": 0.14343201030384412
+    },
+    {
+      "epoch": 42,
+      "loss": 0.3215462335131385,
+      "reconstruction": 0.20167887617241254,
+      "contrastive": 0.7806218103928999,
+      "sensor_consistency": 0.13870373368263245
+    },
+    {
+      "epoch": 43,
+      "loss": 0.34558200158856134,
+      "reconstruction": 0.22771273417906326,
+      "contrastive": 0.7679539106108926,
+      "sensor_consistency": 0.13380872255021875
+    },
+    {
+      "epoch": 44,
+      "loss": 0.2735851461237127,
+      "reconstruction": 0.15651601485230707,
+      "contrastive": 0.762216410853646,
+      "sensor_consistency": 0.13683323697610336
+    },
+    {
+      "epoch": 45,
+      "loss": 0.2710194845091213,
+      "reconstruction": 0.1640616628256711,
+      "contrastive": 0.6943713534962047,
+      "sensor_consistency": 0.1401058096777309
+    },
+    {
+      "epoch": 46,
+      "loss": 0.32410037382082507,
+      "reconstruction": 0.20381143824620682,
+      "contrastive": 0.7828559550372037,
+      "sensor_consistency": 0.1430270875042135
+    },
+    {
+      "epoch": 47,
+      "loss": 0.32407508113167505,
+      "reconstruction": 0.2059445489536632,
+      "contrastive": 0.7693440805781971,
+      "sensor_consistency": 0.13644574311646548
+    },
+    {
+      "epoch": 48,
+      "loss": 0.2975658178329468,
+      "reconstruction": 0.18404412675987591,
+      "contrastive": 0.7385587204586376,
+      "sensor_consistency": 0.13689393482424997
+    },
+    {
+      "epoch": 49,
+      "loss": 0.41170812194997614,
+      "reconstruction": 0.30410716140812094,
+      "contrastive": 0.698246110569347,
+      "sensor_consistency": 0.1432017832994461
+    },
+    {
+      "epoch": 50,
+      "loss": 0.28543313254009595,
+      "reconstruction": 0.17729946022683923,
+      "contrastive": 0.7025889537551187,
+      "sensor_consistency": 0.13726613873785193
+    },
+    {
+      "epoch": 51,
+      "loss": 0.33200864629311994,
+      "reconstruction": 0.22112666747786783,
+      "contrastive": 0.7209781408309937,
+      "sensor_consistency": 0.13676253773949362
+    },
+    {
+      "epoch": 52,
+      "loss": 0.35922190140594135,
+      "reconstruction": 0.2481069273569367,
+      "contrastive": 0.7226407853039828,
+      "sensor_consistency": 0.13594240898435767
+    },
+    {
+      "epoch": 53,
+      "loss": 0.2753578451546756,
+      "reconstruction": 0.1711109145121141,
+      "contrastive": 0.6770515062592246,
+      "sensor_consistency": 0.13445969874208624
+    },
+    {
+      "epoch": 54,
+      "loss": 0.2695352706042203,
+      "reconstruction": 0.16612798517400568,
+      "contrastive": 0.6717043248089877,
+      "sensor_consistency": 0.13258159296079117
+    },
+    {
+      "epoch": 55,
+      "loss": 0.30309043011882086,
+      "reconstruction": 0.19920309565284036,
+      "contrastive": 0.6749226613478227,
+      "sensor_consistency": 0.13244654780084436
+    },
+    {
+      "epoch": 56,
+      "loss": 0.2885601981119676,
+      "reconstruction": 0.17760087549686432,
+      "contrastive": 0.7219305580312555,
+      "sensor_consistency": 0.13348644971847534
+    },
+    {
+      "epoch": 57,
+      "loss": 0.3006422641602429,
+      "reconstruction": 0.19494439932433041,
+      "contrastive": 0.686913555318659,
+      "sensor_consistency": 0.13304148478941483
+    },
+    {
+      "epoch": 58,
+      "loss": 0.30142782764001325,
+      "reconstruction": 0.1924652247266336,
+      "contrastive": 0.7084562615914778,
+      "sensor_consistency": 0.1347080333666368
+    },
+    {
+      "epoch": 59,
+      "loss": 0.30696582794189453,
+      "reconstruction": 0.2056001824411479,
+      "contrastive": 0.658280686898665,
+      "sensor_consistency": 0.131177004088055
+    },
+    {
+      "epoch": 60,
+      "loss": 0.280563396486369,
+      "reconstruction": 0.17553329196843234,
+      "contrastive": 0.6822811310941522,
+      "sensor_consistency": 0.13439643653956326
+    }
+  ],
+  "runs": [
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 5,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 105.02497100830078,
+          "rmse_ppm": 129.21313848154142,
+          "r2": 0.30678790807724,
+          "mae_percent_test_mean": 72.27872467041016,
+          "mae_percent_full_scale": 19.692304611206055
+        },
+        "Ethylene": {
+          "mae_ppm": 2.675189971923828,
+          "rmse_ppm": 3.513432747473688,
+          "r2": 0.49370819330215454,
+          "mae_percent_test_mean": 34.0469856262207,
+          "mae_percent_full_scale": 13.375948905944824
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 5,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 107.65270233154297,
+          "rmse_ppm": 134.9443389304457,
+          "r2": 0.24392986297607422,
+          "mae_percent_test_mean": 74.08714294433594,
+          "mae_percent_full_scale": 20.185007095336914
+        },
+        "Ethylene": {
+          "mae_ppm": 2.0843987464904785,
+          "rmse_ppm": 3.026438561749105,
+          "r2": 0.624334454536438,
+          "mae_percent_test_mean": 26.52802276611328,
+          "mae_percent_full_scale": 10.42199420928955
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 10,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 67.98551940917969,
+          "rmse_ppm": 88.08532462369938,
+          "r2": 0.6778486967086792,
+          "mae_percent_test_mean": 46.78798294067383,
+          "mae_percent_full_scale": 12.747364044189453
+        },
+        "Ethylene": {
+          "mae_ppm": 2.616530656814575,
+          "rmse_ppm": 3.3899532654728213,
+          "r2": 0.528670072555542,
+          "mae_percent_test_mean": 33.30043411254883,
+          "mae_percent_full_scale": 13.082653999328613
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 10,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 64.96971130371094,
+          "rmse_ppm": 86.84706160472558,
+          "r2": 0.6868423223495483,
+          "mae_percent_test_mean": 44.71249008178711,
+          "mae_percent_full_scale": 12.181897163391113
+        },
+        "Ethylene": {
+          "mae_ppm": 2.1488757133483887,
+          "rmse_ppm": 2.800883484148986,
+          "r2": 0.6782432198524475,
+          "mae_percent_test_mean": 27.348617553710938,
+          "mae_percent_full_scale": 10.744379043579102
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 20,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 47.83646011352539,
+          "rmse_ppm": 69.36914037753928,
+          "r2": 0.8002046346664429,
+          "mae_percent_test_mean": 32.92129898071289,
+          "mae_percent_full_scale": 8.969391822814941
+        },
+        "Ethylene": {
+          "mae_ppm": 1.836606740951538,
+          "rmse_ppm": 2.9509173825681185,
+          "r2": 0.6428490877151489,
+          "mae_percent_test_mean": 23.374387741088867,
+          "mae_percent_full_scale": 9.18303394317627
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 20,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 45.3734245300293,
+          "rmse_ppm": 71.155663288095,
+          "r2": 0.7897811532020569,
+          "mae_percent_test_mean": 31.22622299194336,
+          "mae_percent_full_scale": 8.507569313049316
+        },
+        "Ethylene": {
+          "mae_ppm": 1.6009469032287598,
+          "rmse_ppm": 2.516284548147545,
+          "r2": 0.7403088808059692,
+          "mae_percent_test_mean": 20.375158309936523,
+          "mae_percent_full_scale": 8.004734992980957
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 24,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 50.49965286254883,
+          "rmse_ppm": 76.03124357788711,
+          "r2": 0.7599858045578003,
+          "mae_percent_test_mean": 34.754119873046875,
+          "mae_percent_full_scale": 9.468744277954102
+        },
+        "Ethylene": {
+          "mae_ppm": 2.1180055141448975,
+          "rmse_ppm": 3.283665812226,
+          "r2": 0.5577625036239624,
+          "mae_percent_test_mean": 26.955734252929688,
+          "mae_percent_full_scale": 10.590027809143066
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "seed": 42,
+      "budget": 24,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 43.5330924987793,
+          "rmse_ppm": 69.04098576095036,
+          "r2": 0.8020904660224915,
+          "mae_percent_test_mean": 29.959697723388672,
+          "mae_percent_full_scale": 8.162505149841309
+        },
+        "Ethylene": {
+          "mae_ppm": 1.769062876701355,
+          "rmse_ppm": 2.629214853932335,
+          "r2": 0.7164760231971741,
+          "mae_percent_test_mean": 22.514759063720703,
+          "mae_percent_full_scale": 8.845314025878906
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 5,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 89.64825439453125,
+          "rmse_ppm": 110.67358572904828,
+          "r2": 0.4914417266845703,
+          "mae_percent_test_mean": 61.696388244628906,
+          "mae_percent_full_scale": 16.809152603149414
+        },
+        "Ethylene": {
+          "mae_ppm": 3.4610185623168945,
+          "rmse_ppm": 4.3875178410094,
+          "r2": 0.2104576826095581,
+          "mae_percent_test_mean": 44.04818344116211,
+          "mae_percent_full_scale": 17.30509376525879
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 5,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 97.33464050292969,
+          "rmse_ppm": 123.55789223831475,
+          "r2": 0.3661394715309143,
+          "mae_percent_test_mean": 66.98619842529297,
+          "mae_percent_full_scale": 18.25035858154297
+        },
+        "Ethylene": {
+          "mae_ppm": 3.399871587753296,
+          "rmse_ppm": 4.130080591112831,
+          "r2": 0.3003920912742615,
+          "mae_percent_test_mean": 43.26996612548828,
+          "mae_percent_full_scale": 16.999357223510742
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 10,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 74.80255126953125,
+          "rmse_ppm": 99.05163583959632,
+          "r2": 0.5926421880722046,
+          "mae_percent_test_mean": 51.47949981689453,
+          "mae_percent_full_scale": 14.025565147399902
+        },
+        "Ethylene": {
+          "mae_ppm": 2.598463296890259,
+          "rmse_ppm": 3.76371102344877,
+          "r2": 0.41900795698165894,
+          "mae_percent_test_mean": 33.070491790771484,
+          "mae_percent_full_scale": 12.992317199707031
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 10,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 82.78141021728516,
+          "rmse_ppm": 106.5261714101868,
+          "r2": 0.5288432836532593,
+          "mae_percent_test_mean": 56.97058868408203,
+          "mae_percent_full_scale": 15.521610260009766
+        },
+        "Ethylene": {
+          "mae_ppm": 2.851043939590454,
+          "rmse_ppm": 3.9428126507375314,
+          "r2": 0.3623976707458496,
+          "mae_percent_test_mean": 36.285072326660156,
+          "mae_percent_full_scale": 14.255220413208008
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 20,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 52.050533294677734,
+          "rmse_ppm": 78.09941456046582,
+          "r2": 0.7467507123947144,
+          "mae_percent_test_mean": 35.82144546508789,
+          "mae_percent_full_scale": 9.759535789489746
+        },
+        "Ethylene": {
+          "mae_ppm": 1.8177099227905273,
+          "rmse_ppm": 2.8547404100080125,
+          "r2": 0.6657504439353943,
+          "mae_percent_test_mean": 23.13389015197754,
+          "mae_percent_full_scale": 9.088549613952637
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 20,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 47.933250427246094,
+          "rmse_ppm": 75.00497053841666,
+          "r2": 0.7664214968681335,
+          "mae_percent_test_mean": 32.987911224365234,
+          "mae_percent_full_scale": 8.987540245056152
+        },
+        "Ethylene": {
+          "mae_ppm": 1.9915599822998047,
+          "rmse_ppm": 2.850460477069529,
+          "r2": 0.6667518615722656,
+          "mae_percent_test_mean": 25.34646987915039,
+          "mae_percent_full_scale": 9.957799911499023
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 24,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 51.43061447143555,
+          "rmse_ppm": 77.91229168310029,
+          "r2": 0.7479627728462219,
+          "mae_percent_test_mean": 35.394813537597656,
+          "mae_percent_full_scale": 9.64330005645752
+        },
+        "Ethylene": {
+          "mae_ppm": 2.059666395187378,
+          "rmse_ppm": 3.1915927118111322,
+          "r2": 0.5822153091430664,
+          "mae_percent_test_mean": 26.213254928588867,
+          "mae_percent_full_scale": 10.298332214355469
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "seed": 142,
+      "budget": 24,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 41.9964485168457,
+          "rmse_ppm": 67.8337920202295,
+          "r2": 0.8089509010314941,
+          "mae_percent_test_mean": 28.902172088623047,
+          "mae_percent_full_scale": 7.874383449554443
+        },
+        "Ethylene": {
+          "mae_ppm": 1.8257777690887451,
+          "rmse_ppm": 2.7917028586096055,
+          "r2": 0.6803490519523621,
+          "mae_percent_test_mean": 23.2365665435791,
+          "mae_percent_full_scale": 9.128889083862305
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 5,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 97.98350524902344,
+          "rmse_ppm": 122.27668180835829,
+          "r2": 0.37921667098999023,
+          "mae_percent_test_mean": 67.43275451660156,
+          "mae_percent_full_scale": 18.372020721435547
+        },
+        "Ethylene": {
+          "mae_ppm": 3.0958406925201416,
+          "rmse_ppm": 3.7153114642144134,
+          "r2": 0.43385446071624756,
+          "mae_percent_test_mean": 39.40058517456055,
+          "mae_percent_full_scale": 15.479204177856445
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 5,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 92.96372985839844,
+          "rmse_ppm": 115.87363470069454,
+          "r2": 0.4425293803215027,
+          "mae_percent_test_mean": 63.978118896484375,
+          "mae_percent_full_scale": 17.43080711364746
+        },
+        "Ethylene": {
+          "mae_ppm": 3.01496958732605,
+          "rmse_ppm": 3.5929390697244563,
+          "r2": 0.47053492069244385,
+          "mae_percent_test_mean": 38.371341705322266,
+          "mae_percent_full_scale": 15.074847221374512
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 10,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 67.6582260131836,
+          "rmse_ppm": 88.54932473009747,
+          "r2": 0.6744458675384521,
+          "mae_percent_test_mean": 46.562740325927734,
+          "mae_percent_full_scale": 12.685997009277344
+        },
+        "Ethylene": {
+          "mae_ppm": 2.946453809738159,
+          "rmse_ppm": 4.035347209300505,
+          "r2": 0.3321183919906616,
+          "mae_percent_test_mean": 37.49934768676758,
+          "mae_percent_full_scale": 14.732269287109375
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 10,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 63.552120208740234,
+          "rmse_ppm": 83.96353084356774,
+          "r2": 0.7072923183441162,
+          "mae_percent_test_mean": 43.73689651489258,
+          "mae_percent_full_scale": 11.916096687316895
+        },
+        "Ethylene": {
+          "mae_ppm": 2.6978909969329834,
+          "rmse_ppm": 3.6888850568907214,
+          "r2": 0.44187963008880615,
+          "mae_percent_test_mean": 34.33590316772461,
+          "mae_percent_full_scale": 13.48945426940918
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 20,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 40.60594177246094,
+          "rmse_ppm": 68.38521475915864,
+          "r2": 0.8058322072029114,
+          "mae_percent_test_mean": 27.945219039916992,
+          "mae_percent_full_scale": 7.613661766052246
+        },
+        "Ethylene": {
+          "mae_ppm": 1.6892306804656982,
+          "rmse_ppm": 2.659255268705312,
+          "r2": 0.7099601030349731,
+          "mae_percent_test_mean": 21.498741149902344,
+          "mae_percent_full_scale": 8.44615364074707
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 20,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 45.15533447265625,
+          "rmse_ppm": 71.27635888523979,
+          "r2": 0.7890673875808716,
+          "mae_percent_test_mean": 31.07613182067871,
+          "mae_percent_full_scale": 8.46667766571045
+        },
+        "Ethylene": {
+          "mae_ppm": 1.9887887239456177,
+          "rmse_ppm": 2.9064304746971064,
+          "r2": 0.6535364389419556,
+          "mae_percent_test_mean": 25.311199188232422,
+          "mae_percent_full_scale": 9.943943977355957
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 24,
+      "model": "frozen_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 48.722721099853516,
+          "rmse_ppm": 74.67081730523144,
+          "r2": 0.7684981226921082,
+          "mae_percent_test_mean": 33.531227111816406,
+          "mae_percent_full_scale": 9.135566711425781
+        },
+        "Ethylene": {
+          "mae_ppm": 2.041271686553955,
+          "rmse_ppm": 3.1022150616743827,
+          "r2": 0.6052869558334351,
+          "mae_percent_test_mean": 25.97914695739746,
+          "mae_percent_full_scale": 10.206357955932617
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "seed": 242,
+      "budget": 24,
+      "model": "finetuned_transfer",
+      "metrics": {
+        "CO": {
+          "mae_ppm": 43.93988800048828,
+          "rmse_ppm": 73.07526353442046,
+          "r2": 0.778285801410675,
+          "mae_percent_test_mean": 30.239656448364258,
+          "mae_percent_full_scale": 8.23878002166748
+        },
+        "Ethylene": {
+          "mae_ppm": 1.6792478561401367,
+          "rmse_ppm": 2.6451523472659533,
+          "r2": 0.7130283117294312,
+          "mae_percent_test_mean": 21.37169075012207,
+          "mae_percent_full_scale": 8.396239280700684
+        }
+      }
+    }
+  ],
+  "summary": {
+    "5": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 99.31702423095703,
+            "sd": 7.542470551023725
+          },
+          "rmse_ppm": {
+            "mean": 124.79195528981832,
+            "sd": 9.595057251834245
+          },
+          "r2": {
+            "mean": 0.35086623827616376,
+            "sd": 0.1001768227336034
+          },
+          "mae_percent_test_mean": {
+            "mean": 68.3504867553711,
+            "sd": 5.190766204107137
+          },
+          "mae_percent_full_scale": {
+            "mean": 18.62205759684245,
+            "sd": 1.414222225559158
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 2.833079973856608,
+            "sd": 0.6763357691569066
+          },
+          "rmse_ppm": {
+            "mean": 3.583152740862131,
+            "sd": 0.5518860946055554
+          },
+          "r2": {
+            "mean": 0.4650871555010478,
+            "sd": 0.16203987869705538
+          },
+          "mae_percent_test_mean": {
+            "mean": 36.056443532307945,
+            "sd": 8.607684475263888
+          },
+          "mae_percent_full_scale": {
+            "mean": 14.165399551391602,
+            "sd": 3.381678185980923
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 97.55224355061848,
+            "sd": 7.697424468250879
+          },
+          "rmse_ppm": {
+            "mean": 120.72113533964932,
+            "sd": 9.367152591788694
+          },
+          "r2": {
+            "mean": 0.39248210191726685,
+            "sd": 0.0930389000624576
+          },
+          "mae_percent_test_mean": {
+            "mean": 67.13595581054688,
+            "sd": 5.29740768310699
+          },
+          "mae_percent_full_scale": {
+            "mean": 18.29115931193034,
+            "sd": 1.4432758922155655
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 3.0773497422536216,
+            "sd": 0.3932404859638789
+          },
+          "rmse_ppm": {
+            "mean": 3.8720873508991667,
+            "sd": 0.4576463663896792
+          },
+          "r2": {
+            "mean": 0.37934011220932007,
+            "sd": 0.14928688353889377
+          },
+          "mae_percent_test_mean": {
+            "mean": 39.16525141398112,
+            "sd": 5.004750335186415
+          },
+          "mae_percent_full_scale": {
+            "mean": 15.386748949686686,
+            "sd": 1.966203399519053
+          }
+        }
+      }
+    },
+    "10": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 70.43441390991211,
+            "sd": 10.716278714593411
+          },
+          "rmse_ppm": {
+            "mean": 92.44558795282671,
+            "sd": 12.279080188979872
+          },
+          "r2": {
+            "mean": 0.6409926414489746,
+            "sd": 0.09766094114095969
+          },
+          "mae_percent_test_mean": {
+            "mean": 48.47332509358724,
+            "sd": 7.37499573536845
+          },
+          "mae_percent_full_scale": {
+            "mean": 13.206534703572592,
+            "sd": 2.009314210689804
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 2.565936883290609,
+            "sd": 0.3692139902093915
+          },
+          "rmse_ppm": {
+            "mean": 3.4775270639257463,
+            "sd": 0.599587113161248
+          },
+          "r2": {
+            "mean": 0.4941735068957011,
+            "sd": 0.16428813069188264
+          },
+          "mae_percent_test_mean": {
+            "mean": 32.6565310160319,
+            "sd": 4.698965215358852
+          },
+          "mae_percent_full_scale": {
+            "mean": 12.829684575398764,
+            "sd": 1.8460698300783187
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 70.14876556396484,
+            "sd": 4.033617642608967
+          },
+          "rmse_ppm": {
+            "mean": 91.89542839779772,
+            "sd": 6.201798347030041
+          },
+          "r2": {
+            "mean": 0.6483122507731119,
+            "sd": 0.0482417010731655
+          },
+          "mae_percent_test_mean": {
+            "mean": 48.27674102783203,
+            "sd": 2.775955953282082
+          },
+          "mae_percent_full_scale": {
+            "mean": 13.1529754002889,
+            "sd": 0.7563075619851415
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 2.720482587814331,
+            "sd": 0.1959052123527337
+          },
+          "rmse_ppm": {
+            "mean": 3.7296704994073657,
+            "sd": 0.32404074379639797
+          },
+          "r2": {
+            "mean": 0.42659880717595416,
+            "sd": 0.09849546455661735
+          },
+          "mae_percent_test_mean": {
+            "mean": 34.6234245300293,
+            "sd": 2.4932747282306655
+          },
+          "mae_percent_full_scale": {
+            "mean": 13.602413495381674,
+            "sd": 0.9795257867544587
+          }
+        }
+      }
+    },
+    "20": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 46.15400314331055,
+            "sd": 1.5447269957261898
+          },
+          "rmse_ppm": {
+            "mean": 72.47899757058381,
+            "sd": 2.188389003915718
+          },
+          "r2": {
+            "mean": 0.7817566792170206,
+            "sd": 0.01328545176483325
+          },
+          "mae_percent_test_mean": {
+            "mean": 31.7634220123291,
+            "sd": 1.063090876979739
+          },
+          "mae_percent_full_scale": {
+            "mean": 8.653929074605307,
+            "sd": 0.2896382942442337
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 1.8604318698247273,
+            "sd": 0.22472484483296284
+          },
+          "rmse_ppm": {
+            "mean": 2.7577251666380604,
+            "sd": 0.21095814597075804
+          },
+          "r2": {
+            "mean": 0.6868657271067301,
+            "sd": 0.04675243156045253
+          },
+          "mae_percent_test_mean": {
+            "mean": 23.677609125773113,
+            "sd": 2.8600606722016004
+          },
+          "mae_percent_full_scale": {
+            "mean": 9.302159627278646,
+            "sd": 1.1236240510017632
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 46.83097839355469,
+            "sd": 5.788170168066552
+          },
+          "rmse_ppm": {
+            "mean": 71.95125656572124,
+            "sd": 5.34714058650814
+          },
+          "r2": {
+            "mean": 0.7842625180880228,
+            "sd": 0.03260780685576237
+          },
+          "mae_percent_test_mean": {
+            "mean": 32.22932116190592,
+            "sd": 3.983448336734232
+          },
+          "mae_percent_full_scale": {
+            "mean": 8.780863126118978,
+            "sd": 1.0852885022999046
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 1.7811824480692546,
+            "sd": 0.08019113484803915
+          },
+          "rmse_ppm": {
+            "mean": 2.8216376870938142,
+            "sd": 0.14862213786640532
+          },
+          "r2": {
+            "mean": 0.6728532115618387,
+            "sd": 0.03411464605240499
+          },
+          "mae_percent_test_mean": {
+            "mean": 22.66900634765625,
+            "sd": 1.0205881869772853
+          },
+          "mae_percent_full_scale": {
+            "mean": 8.905912399291992,
+            "sd": 0.40095561993977064
+          }
+        }
+      }
+    },
+    "24": {
+      "finetuned_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 43.15647633870443,
+            "sd": 1.0249971003214533
+          },
+          "rmse_ppm": {
+            "mean": 69.98334710520011,
+            "sd": 2.744866041516591
+          },
+          "r2": {
+            "mean": 0.7964423894882202,
+            "sd": 0.016093870264527077
+          },
+          "mae_percent_test_mean": {
+            "mean": 29.70050875345866,
+            "sd": 0.7054078924552271
+          },
+          "mae_percent_full_scale": {
+            "mean": 8.09188954035441,
+            "sd": 0.19218776930215278
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 1.7580295006434123,
+            "sd": 0.07388542067017469
+          },
+          "rmse_ppm": {
+            "mean": 2.6886900199359647,
+            "sd": 0.08956692817184798
+          },
+          "r2": {
+            "mean": 0.7032844622929891,
+            "sd": 0.01993731336491724
+          },
+          "mae_percent_test_mean": {
+            "mean": 22.374338785807293,
+            "sd": 0.9403344203486639
+          },
+          "mae_percent_full_scale": {
+            "mean": 8.790147463480631,
+            "sd": 0.36942718595593715
+          }
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "mae_ppm": {
+            "mean": 50.2176628112793,
+            "sd": 1.3757944685619723
+          },
+          "rmse_ppm": {
+            "mean": 76.20478418873961,
+            "sd": 1.6276904783484987
+          },
+          "r2": {
+            "mean": 0.7588155666987101,
+            "sd": 0.01031756952040406
+          },
+          "mae_percent_test_mean": {
+            "mean": 34.56005350748698,
+            "sd": 0.9468288690519813
+          },
+          "mae_percent_full_scale": {
+            "mean": 9.415870348612467,
+            "sd": 0.25796322745170025
+          }
+        },
+        "Ethylene": {
+          "mae_ppm": {
+            "mean": 2.0729811986287436,
+            "sd": 0.04006223991741809
+          },
+          "rmse_ppm": {
+            "mean": 3.1924911952371713,
+            "sd": 0.090728711956505
+          },
+          "r2": {
+            "mean": 0.5817549228668213,
+            "sd": 0.023765570813576702
+          },
+          "mae_percent_test_mean": {
+            "mean": 26.38271204630534,
+            "sd": 0.5098700545308752
+          },
+          "mae_percent_full_scale": {
+            "mean": 10.364905993143717,
+            "sd": 0.20031148265199855
+          }
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 287.72878849998233
+}
