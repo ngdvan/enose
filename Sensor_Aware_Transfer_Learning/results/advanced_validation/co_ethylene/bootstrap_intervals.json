@@ -1,0 +1,110 @@
+{
+  "5": {
+    "CO": {
+      "mean_paired_mae_improvement_ppm": 44.32406067862397,
+      "bootstrap_95_ci_ppm": [
+        31.604574855518717,
+        57.25674343998115
+      ],
+      "n_paired_predictions": 315
+    },
+    "Ethylene": {
+      "mean_paired_mae_improvement_ppm": 0.33218724278230527,
+      "bootstrap_95_ci_ppm": [
+        -0.08206583813897182,
+        0.745128325460449
+      ],
+      "n_paired_predictions": 315
+    }
+  },
+  "10": {
+    "CO": {
+      "mean_paired_mae_improvement_ppm": 49.79666018866239,
+      "bootstrap_95_ci_ppm": [
+        37.698438009127734,
+        62.16407762775314
+      ],
+      "n_paired_predictions": 315
+    },
+    "Ethylene": {
+      "mean_paired_mae_improvement_ppm": 0.4402291947059216,
+      "bootstrap_95_ci_ppm": [
+        0.034240642328052,
+        0.853932282472887
+      ],
+      "n_paired_predictions": 315
+    }
+  },
+  "18": {
+    "CO": {
+      "mean_paired_mae_improvement_ppm": -4.832142039281981,
+      "bootstrap_95_ci_ppm": [
+        -29.738543552596656,
+        19.650774813344064
+      ],
+      "n_paired_predictions": 105
+    },
+    "Ethylene": {
+      "mean_paired_mae_improvement_ppm": -0.43798735677486367,
+      "bootstrap_95_ci_ppm": [
+        -0.9505308800722868,
+        0.03185635424618117
+      ],
+      "n_paired_predictions": 105
+    }
+  },
+  "20": {
+    "CO": {
+      "mean_paired_mae_improvement_ppm": 20.528298605245258,
+      "bootstrap_95_ci_ppm": [
+        10.507387808097734,
+        30.446197347385542
+      ],
+      "n_paired_predictions": 315
+    },
+    "Ethylene": {
+      "mean_paired_mae_improvement_ppm": 0.38599069948707315,
+      "bootstrap_95_ci_ppm": [
+        0.12093757244566136,
+        0.6607529019428389
+      ],
+      "n_paired_predictions": 315
+    }
+  },
+  "21": {
+    "CO": {
+      "mean_paired_mae_improvement_ppm": 46.91931620195863,
+      "bootstrap_95_ci_ppm": [
+        31.672562953233278,
+        63.09786943392159
+      ],
+      "n_paired_predictions": 105
+    },
+    "Ethylene": {
+      "mean_paired_mae_improvement_ppm": 1.8278053397224066,
+      "bootstrap_95_ci_ppm": [
+        1.5098620318231128,
+        2.1403763386749084
+      ],
+      "n_paired_predictions": 105
+    }
+  },
+  "22": {
+    "CO": {
+      "mean_paired_mae_improvement_ppm": 25.3434923853193,
+      "bootstrap_95_ci_ppm": [
+        13.058929989905584,
+        38.17038575476124
+      ],
+      "n_paired_predictions": 105
+    },
+    "Ethylene": {
+      "mean_paired_mae_improvement_ppm": 0.9826827755996161,
+      "bootstrap_95_ci_ppm": [
+        0.3737509119155863,
+        1.5923469224785054
+      ],
+      "n_paired_predictions": 105
+    }
+  }
+}
