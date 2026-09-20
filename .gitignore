@@ -25,3 +25,4 @@ Thumbs.db
 # Local document renderer installations and profiles
 Sensor_Aware_Transfer_Learning/v2.2/revision_artifacts/render_tools/
 ~$*.docx
+*.csv
