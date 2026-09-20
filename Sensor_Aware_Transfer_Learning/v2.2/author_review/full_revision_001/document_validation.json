@@ -1,0 +1,110 @@
+{
+  "clean_highlighted_identical_except_highlight": true,
+  "clean_highlights": 0,
+  "highlighted_runs": 510,
+  "original_equation_objects_preserved": 64,
+  "original_section_settings_preserved": true,
+  "figure2_preserved": true,
+  "original_sha256": "74266aaef6ef5f5b315f7149ffe8997007de96caae3a6ea5a292b899c52d7194",
+  "clean_sha256": "0e62285ffbcc6195798eb087043250015ae879440b26c02c88fca6e7e850cd37",
+  "highlighted_sha256": "04b3a3c0e9cfc9cc96decb84857be547bb4b949f5c860dc4353c5f0a645416ba",
+  "private_characterization_complete": false,
+  "all_word_xml_parts_match_except_highlight": 12,
+  "total_highlights_including_headers": 510,
+  "dataset_doi": "10.7910/DVN/LWUSKO",
+  "dataset_description_condensed": true,
+  "detailed_dataset_metadata_in_supplement": true,
+  "windowing_reference_doi": "10.1109/JSEN.2025.3642226",
+  "figure_readability_update": {
+    "fig3_band": "mean +/- sample SD, unchanged bounds; orange 0.68 alpha with outline",
+    "fig4_legend": "8.5 pt bold text, 7 pt opaque distinct symbols",
+    "figure_dimensions_unchanged": true,
+    "embedded_assets_verified": true,
+    "numerical_tables_unchanged": true
+  },
+  "clean_synced_to_current_highlighted_formatting": true,
+  "section_vi_study_level_discussion": true,
+  "acquisition_documentation_update": {
+    "source": "Thu th\u00e1\u00ba\u00adp d\u00e1\u00bb\u00af li\u00e1\u00bb\u2021u NH3_H2.docx",
+    "source_sha256": "80f3fa4a94585ff4dc778459b9fde99606efcfd7fe84e919579c741f163b5cd6",
+    "protected_main_paper_hashes": {
+      "IEEE_Full_Revision_Clean.docx": "450250b27b096bb2123c2f709b3f01e8509724e9e3260667a313ab21c4669af0",
+      "IEEE_Full_Revision_Highlighted.docx": "fe8781865e80e6c21c7db7668e0394cd74b06fff3c3fb21b4f9feca206e655d3",
+      "IEEE_Full_Revision_Clean.pdf": "ca6706ef3b8f67a203c7bf6396b680dd5f3c84a59bd35aa17d8349f79ab37049",
+      "IEEE_Full_Revision_Highlighted.pdf": "879618716331394658d1f2de6b974777096a4d925f81d34fb6b1f0d8e857fdb7"
+    },
+    "scope": "Supplement and response only; source inconsistencies retained explicitly."
+  },
+  "acquisition_section_author_perspective": {
+    "protected_main_paper_hashes": {
+      "IEEE_Full_Revision_Clean.docx": "450250b27b096bb2123c2f709b3f01e8509724e9e3260667a313ab21c4669af0",
+      "IEEE_Full_Revision_Highlighted.docx": "fe8781865e80e6c21c7db7668e0394cd74b06fff3c3fb21b4f9feca206e655d3",
+      "IEEE_Full_Revision_Clean.pdf": "ca6706ef3b8f67a203c7bf6396b680dd5f3c84a59bd35aa17d8349f79ab37049",
+      "IEEE_Full_Revision_Highlighted.pdf": "879618716331394658d1f2de6b974777096a4d925f81d34fb6b1f0d8e857fdb7"
+    },
+    "images": [
+      "Fig. S2",
+      "Fig. S3"
+    ],
+    "source_sha256": "80f3fa4a94585ff4dc778459b9fde99606efcfd7fe84e919579c741f163b5cd6",
+    "standalone_files_created": false,
+    "main_paper_unchanged_verified": true,
+    "supplement_embedded_images": 5,
+    "reproduction_section_removed": true
+  },
+  "submission_sync": "Latest highlighted formatting propagated to clean; all five existing submission DOCX files exported to their existing PDFs.",
+  "paragraph_layout_update": {
+    "empty_body_paragraphs_removed": 2,
+    "body_spacing": "0 pt before/after",
+    "headings": "6 pt before main, 3 pt before subheadings, 1 pt after",
+    "figure_captions": "Kept with figure, not with next section/table",
+    "biographies": "Kept with corresponding photograph/text",
+    "font_sizes_margins_columns_unchanged": true,
+    "numerical_tables_unchanged": true
+  },
+  "nine_page_compression": {
+    "words_removed": 1418,
+    "all_ten_tables_match_manifest": true,
+    "all_30_references_cited": true,
+    "all_64_equations_preserved": true,
+    "graphics_styles_sections_unchanged": true,
+    "rendered_pages": 9,
+    "historical_note": "Nine-page layout before author Table IV placement update; current authoritative source renders to 10 pages."
+  },
+  "authoritative_source_sync": {
+    "file": "IEEE_Full_Revision_Highlighted.docx",
+    "sha256": "cd4697ae44808296d5a90db213d7ac53d2d7d4581b6bc0c43dac41ce059d0711",
+    "change": "User-requested third-person author wording",
+    "source_modified": true
+  },
+  "submission_pairs": {
+    "IEEE_Full_Revision_Clean": {
+      "pages": 10,
+      "docx_sha256": "5f96099e74a33f5c89b9cd2350f18e0cf4bb3a12a513b2a65f635a6cfc9e9a93",
+      "pdf_sha256": "38ac9913f5471217b7f1bcb1780854248c6e42cf53de44313bbb2bcd2776e7af"
+    },
+    "IEEE_Full_Revision_Highlighted": {
+      "pages": 10,
+      "docx_sha256": "cd4697ae44808296d5a90db213d7ac53d2d7d4581b6bc0c43dac41ce059d0711",
+      "pdf_sha256": "2b4e51b6d80147cb269f2d50866714722d4036d2784db7be4f804d389da579b7"
+    },
+    "RESPONSE_TO_REVIEWERS": {
+      "pages": 10,
+      "docx_sha256": "bccff4a88b3fe9f13f255939916fc1aac360c0388347442decd61e1b52d895aa",
+      "pdf_sha256": "7bbb71f5b2409f55e04e1b1fa5ff6913dfc32447da4af28dc347143b9fee0902"
+    },
+    "SUPPLEMENTARY_EVIDENCE": {
+      "pages": 14,
+      "docx_sha256": "b265a1a7804d650e99fdffebdb4127acfed0de705e2f56dbfdc4d7784e008830",
+      "pdf_sha256": "4a970fa05c40255d92255a7fc9b86abc9f36db4b490f1698429887bb1894c759"
+    },
+    "SEED_STABILITY": {
+      "pages": 2,
+      "docx_sha256": "392625c2646f076fcebb703c5ee555d7ef1a572198a97759064cca2e7ad3491f",
+      "pdf_sha256": "5090c78de66e2fb4a0af1e2f1508cb1793f10e58f750360b9b6c707c689240db"
+    }
+  },
+  "current_manuscript_pages": 10,
+  "authoritative_source_unchanged": false,
+  "author_voice_update": "Replaced first-person we with the authors; possessives adjusted to third person; no remaining whole-word we in DOCX/PDF."
+}

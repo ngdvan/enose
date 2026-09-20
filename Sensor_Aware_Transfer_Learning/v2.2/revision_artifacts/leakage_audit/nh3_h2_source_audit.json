@@ -1,0 +1,22 @@
+{
+  "rows": 162404,
+  "exposures": 378,
+  "sessions": 6,
+  "exposures_per_session": {
+    "1": 63,
+    "2": 63,
+    "3": 63,
+    "4": 63,
+    "5": 63,
+    "6": 63
+  },
+  "unique_pairs_per_session": {
+    "1": 57,
+    "2": 57,
+    "3": 57,
+    "4": 57,
+    "5": 57,
+    "6": 57
+  },
+  "label_transition_rows_corrected": 11
+}

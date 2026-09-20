@@ -1,0 +1,37 @@
+{
+  "seeds": [
+    42,
+    142,
+    242,
+    342,
+    442,
+    542,
+    642,
+    742,
+    842,
+    942
+  ],
+  "primary_policy": "fine_tuned",
+  "pretrain_epochs": 60,
+  "epochs": 120,
+  "smoke": false,
+  "input_hashes": {
+    "E:\\projects\\ENose\\2407\\TONG_NH3H2_CHUAN.xlsx": "7c12395722c5ae434c71baa3c94d8a8d7d5d4b582f98f60e84a2f8a6dd5bacb1",
+    "E:\\projects\\ENose\\Hoi quy\\ec_improvements\\raw_sequences.npz": "10ebd262d4eda9d027acd718f72bc61d7f31a6a398dbd7d503de30eaeafe281c"
+  },
+  "code_hashes": {
+    "advanced_validation.py": "638f6b16dd8bd317dffa41b42a45f24995021327eb0ade9b25f7c75ba185b71e",
+    "compare_co_transfer_physics_xgboost.py": "5368b94a5c019075024e9c2bee3679e9f4f4e46b3f5ce523432ffa0257e73f4c",
+    "compare_nh3_h2_transfer_physics_xgboost.py": "46c010ba22a0fa701ab67883b95cf66abe7cbe1543a73cddd79742028388bf2b",
+    "co_ethylene_session_transfer.py": "6e386261630e3edc7b63a5ad086f63146b20cf00a7c0a84fa1ce543fcc23e1fc",
+    "ec_improvement_benchmark.py": "77421543b2e4a26bd8dfbccacef6362fc1e669502897cf28f83dd58f940f5d72",
+    "generic_ssl.py": "7d8f83f2d0feeda2cee6c8dbac8dc2affbfd73cdd75d2b39c490da86f41dd3a6",
+    "nh3h2_physics_ae_xgboost.py": "3c978a4b71ddf388462b3e7ba75e34e36f16196d26a00deb064f55913dfb7101",
+    "revision_common.py": "8e4ed97bbd68262b886848703f5e53d0746b2efa994ddb5e7603b5eaf0821cb5",
+    "revision_drift.py": "5c9cc92fe522f1b667fb526d7a4d369367129cefa7b79266d63cdc75546de327",
+    "run_major_revision.py": "8eb3f5d17d1cfa385501be942e16bc6bf530477f84e6557ad5ba4ce0ad8eceea",
+    "same_device_session_transfer.py": "558b5433174d8bb788c3cb60691a9772dbeb5195f551f80f94c5728a41285166",
+    "sensor_drift_transfer.py": "26395bf72f28427bf9e37220360228986c9e00c696bd8f031f1d72eb516d5f50",
+    "split-to-5-lstm-co-ethy.py": "aff805ed2e9e4aa0f217d3a0a2187bb646d66f2a4b95004cf5aafea4cfe39e35"
+  }
+}

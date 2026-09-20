@@ -1,0 +1,29 @@
+{
+  "status": "PASS: rendered PDF checks and page proof",
+  "renderer": "LibreOffice 25.2.7.2, isolated local administrative extraction; PyMuPDF",
+  "documents": {
+    "IEEE_Full_Revision_Clean": {
+      "pages": 10,
+      "blank_pages": 0,
+      "text_outside_page": 0
+    },
+    "IEEE_Full_Revision_Highlighted": {
+      "pages": 10,
+      "blank_pages": 0,
+      "text_outside_page": 0
+    },
+    "RESPONSE_TO_REVIEWERS": {
+      "pages": 10,
+      "blank_pages": 0,
+      "text_outside_page": 0
+    },
+    "SUPPLEMENTARY_EVIDENCE": {
+      "pages": 14,
+      "blank_pages": 0,
+      "text_outside_page": 0
+    }
+  },
+  "clean_highlighted_pdf_text_identical": true,
+  "proof": "Contact sheets for all pages; detailed checks of front matter, figures and results tables. Original Word PDF automation stalled; alternate renderer succeeded.",
+  "limitations": "PDFs are proofs from LibreOffice; exact pagination can vary in Microsoft Word or publisher typesetting."
+}

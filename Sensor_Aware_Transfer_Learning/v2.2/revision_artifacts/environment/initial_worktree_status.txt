@@ -1,0 +1,46 @@
+ M Sensor_Aware_Transfer_Learning/paper_draft/figure_manifest.md
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/architectural_ablation.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/baseline_comparison.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/co_ethylene_label_efficiency.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/dataset_splits.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/dataset_structure.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/freeze_vs_finetune.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/full_budget_metrics.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/method_pipeline.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/multifold_validation.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/nh3_h2_label_efficiency.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/prediction_scatter.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/pretraining_loss.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/figures/supervised_learning_curves.svg
+ M Sensor_Aware_Transfer_Learning/paper_draft/generate_figures.py
+ M Sensor_Aware_Transfer_Learning/paper_draft/sensor_aware_transfer_learning_report.md
+?? "Bat thuong/UCI_dataset_description.md"
+?? Sensor_Aware_Transfer_Learning/BASELINE_COMPARISON.md
+?? Sensor_Aware_Transfer_Learning/IEEE_Sensors_full_manuscript_draft_v1.docx
+?? Sensor_Aware_Transfer_Learning/IEEE_Sensors_full_manuscript_draft_v1.md
+?? Sensor_Aware_Transfer_Learning/IEEE_Sensors_manuscript_bullet_outline.md
+?? Sensor_Aware_Transfer_Learning/RESEARCH_CONTRIBUTIONS_AND_FINDINGS.md
+?? Sensor_Aware_Transfer_Learning/SENSOR_DRIFT_DATASET_FEASIBILITY.md
+?? "Sensor_Aware_Transfer_Learning/Sensor-Aware Self-Supervised Transfer Learning IEEE_V2.2.docx"
+?? Sensor_Aware_Transfer_Learning/bin/
+?? Sensor_Aware_Transfer_Learning/build_reconstruction_bin.py
+?? Sensor_Aware_Transfer_Learning/code/sensor_drift_transfer.py
+?? Sensor_Aware_Transfer_Learning/fix.md
+?? Sensor_Aware_Transfer_Learning/paper_draft/add_pretraining_convergence_to_v21.py
+?? Sensor_Aware_Transfer_Learning/paper_draft/assemble_fig01_pipeline.py
+?? Sensor_Aware_Transfer_Learning/paper_draft/draft1/
+?? Sensor_Aware_Transfer_Learning/paper_draft/export_manuscript_docx.py
+?? Sensor_Aware_Transfer_Learning/paper_draft/figures/pretraining_loss.pdf
+?? Sensor_Aware_Transfer_Learning/paper_draft/figures/pretraining_loss.png
+?? Sensor_Aware_Transfer_Learning/paper_draft/fix_v21_docx.py
+?? Sensor_Aware_Transfer_Learning/paper_draft/generate_fig01_blocks.py
+?? Sensor_Aware_Transfer_Learning/paper_draft/generate_graphical_abstract.py
+?? Sensor_Aware_Transfer_Learning/paper_draft/generate_recommended_figures.py
+?? Sensor_Aware_Transfer_Learning/paper_draft/recommended_figures/
+?? Sensor_Aware_Transfer_Learning/paper_draft/replace_v21_graphical_abstract.ps1
+?? Sensor_Aware_Transfer_Learning/reports/SENSOR_DRIFT_RESULTS.md
+?? Sensor_Aware_Transfer_Learning/results/sensor_drift/
+?? Sensor_Aware_Transfer_Learning/v2.2/
+?? UCI_ENose_NH3_H2/
+?? UCI_ENose_VOC/
+?? sensor_drift/

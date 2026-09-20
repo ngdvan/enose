@@ -1,0 +1,12 @@
+dataset,fold,overlapping_exposure_ids,pre_exposures,adapt_exposures,test_exposures
+nh3_h2,0,0,252,63,63
+nh3_h2,1,0,252,63,63
+nh3_h2,2,0,252,63,63
+nh3_h2,3,0,252,63,63
+nh3_h2,4,0,252,63,63
+nh3_h2,5,0,252,63,63
+nh3_h2,6,0,252,63,63
+co_ethylene,0,0,147,49,49
+co_ethylene,1,0,105,35,35
+co_ethylene,2,0,105,35,35
+co_ethylene,3,0,105,35,35

@@ -1,0 +1,27 @@
+{
+  "sequence_windows": 1225,
+  "exposure_runs": 245,
+  "sensor_channels": 16,
+  "chronological_blocks": 5,
+  "exposures_per_block": {
+    "1": 49,
+    "2": 49,
+    "3": 49,
+    "4": 49,
+    "5": 49
+  },
+  "unique_pairs_per_block": {
+    "1": 26,
+    "2": 27,
+    "3": 31,
+    "4": 24,
+    "5": 26
+  },
+  "offsets": [
+    0,
+    20,
+    40,
+    60,
+    80
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "source_manuscript": "author_review/full_revision_001/IEEE_Full_Revision_Clean.docx",
+  "figures": [
+    {
+      "language": "en",
+      "file": "figure/en/figure_01_pipeline.png",
+      "pixels": [
+        7419,
+        2444
+      ],
+      "dpi_metadata": [
+        599.9988,
+        599.9988
+      ],
+      "bytes": 1427778,
+      "sha256": "15ffa1afa0b7a1d9a8c87254eebab584084faaf31c393b3ec5fa504b28015359",
+      "caption": "Full sensor-aware pretraining and adaptation pipeline.",
+      "english_source": "byte-for-byte DOCX media export"
+    },
+    {
+      "language": "en",
+      "file": "figure/en/figure_02_evaluation_protocol.png",
+      "pixels": [
+        4152,
+        1444
+      ],
+      "dpi_metadata": [
+        599.9988,
+        599.9988
+      ],
+      "bytes": 194805,
+      "sha256": "de212925548bcda4e6228c29c454fbb500c961226b755bfd50a2807329eb1d50",
+      "caption": "Leakage-controlled secondary fixed splits and chronological drift roles; the primary multi-fold protocols are specified in Section IV.",
+      "english_source": "byte-for-byte DOCX media export"
+    },
+    {
+      "language": "en",
+      "file": "figure/en/figure_03_pretraining_loss.png",
+      "pixels": [
+        1380,
+        1680
+      ],
+      "dpi_metadata": [
+        399.9992,
+        399.9992
+      ],
+      "bytes": 155904,
+      "sha256": "a8f026955d05f2753705447684a503ecb7a655314c736a2479c5dab31c9c44ee",
+      "caption": "Reconstruction loss over 10 seeds: blue line, mean; orange band, mean ± one seed SD. Raw-response pretraining uses 60 epochs; descriptor pretraining uses 40.",
+      "english_source": "byte-for-byte DOCX media export"
+    },
+    {
+      "language": "en",
+      "file": "figure/en/figure_04_prediction_scatter.png",
+      "pixels": [
+        1380,
+        1420
+      ],
+      "dpi_metadata": [
+        399.9992,
+        399.9992
+      ],
+      "bytes": 224692,
+      "sha256": "3e1eebea78c1ff384a25f6fa355305c999db63754d90942c418083c97957f026",
+      "caption": "Secondary full-budget predictions from all 10 seeds: gray circles, Scratch; blue squares, Frozen; orange triangles, Fine-tuned. Points repeat test exposures across seeds; the dashed line is identity, not a fitted trend.",
+      "english_source": "byte-for-byte DOCX media export"
+    },
+    {
+      "language": "vn",
+      "file": "figure/vn/figure_01_pipeline.png",
+      "pixels": [
+        7419,
+        2444
+      ],
+      "dpi_metadata": [
+        599.9988,
+        599.9988
+      ],
+      "bytes": 693995,
+      "sha256": "cbebb620e643a876e9b4989020014f801741030f57484e456a31334d055a6f0a",
+      "caption": "Quy trình tiền huấn luyện và thích nghi đầy đủ có nhận biết cảm biến.",
+      "english_source": "translated redraw with unchanged scientific data and manuscript geometry"
+    },
+    {
+      "language": "vn",
+      "file": "figure/vn/figure_02_evaluation_protocol.png",
+      "pixels": [
+        4152,
+        1444
+      ],
+      "dpi_metadata": [
+        599.9988,
+        599.9988
+      ],
+      "bytes": 178846,
+      "sha256": "2a86153a9ac0d391117d34dc55c484200f10e1f20316b31ca57e4a32c8648741",
+      "caption": "Các phép chia cố định thứ cấp có kiểm soát rò rỉ và vai trò theo thời gian trong đánh giá độ trôi; các giao thức đa nếp chính được trình bày trong Mục IV.",
+      "english_source": "translated redraw with unchanged scientific data and manuscript geometry"
+    },
+    {
+      "language": "vn",
+      "file": "figure/vn/figure_03_pretraining_loss.png",
+      "pixels": [
+        1380,
+        1680
+      ],
+      "dpi_metadata": [
+        399.9992,
+        399.9992
+      ],
+      "bytes": 177986,
+      "sha256": "5e7f867e1ba0c58b7ded0cad2eab2dc46610a6c9cd8e993877abd1ce6f27ee90",
+      "caption": "Mất mát tái tạo trên 10 hạt giống: đường xanh là trung bình; dải cam là trung bình ± một độ lệch chuẩn giữa các hạt giống. Tiền huấn luyện đáp ứng thô dùng 60 vòng; tiền huấn luyện đặc trưng dùng 40 vòng.",
+      "english_source": "translated redraw with unchanged scientific data and manuscript geometry"
+    },
+    {
+      "language": "vn",
+      "file": "figure/vn/figure_04_prediction_scatter.png",
+      "pixels": [
+        1380,
+        1420
+      ],
+      "dpi_metadata": [
+        399.9992,
+        399.9992
+      ],
+      "bytes": 227670,
+      "sha256": "b1eb36f226d59e48d92c7f076e0649055cacf484e70266bd45a0f2f54c96af99",
+      "caption": "Dự đoán thứ cấp ở toàn bộ ngân sách từ cả 10 hạt giống: hình tròn xám là huấn luyện từ đầu; hình vuông xanh là đóng băng; tam giác cam là tinh chỉnh. Các điểm lặp lại lần phơi nhiễm kiểm thử theo hạt giống; đường đứt nét là đường đồng nhất, không phải xu hướng khớp dữ liệu.",
+      "english_source": "translated redraw with unchanged scientific data and manuscript geometry"
+    }
+  ]
+}

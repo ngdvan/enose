@@ -1,0 +1,66 @@
+[
+  {
+    "budget": 1,
+    "transform": "log_fixed_huber",
+    "fit": 6,
+    "validation": 0,
+    "selection": "fixed final epoch",
+    "finite": true
+  },
+  {
+    "budget": 2,
+    "transform": "log_fixed_huber",
+    "fit": 6,
+    "validation": 6,
+    "selection": "adaptation holdout",
+    "finite": true
+  },
+  {
+    "budget": 5,
+    "transform": "log_fixed_huber",
+    "fit": 24,
+    "validation": 6,
+    "selection": "adaptation holdout",
+    "finite": true
+  },
+  {
+    "budget": 10,
+    "transform": "log_fixed_huber",
+    "fit": 48,
+    "validation": 12,
+    "selection": "adaptation holdout",
+    "finite": true
+  },
+  {
+    "budget": 20,
+    "transform": "log_huber",
+    "fit": 96,
+    "validation": 24,
+    "selection": "adaptation holdout",
+    "finite": true
+  },
+  {
+    "budget": 20,
+    "transform": "log_fixed_huber",
+    "fit": 96,
+    "validation": 24,
+    "selection": "adaptation holdout",
+    "finite": true
+  },
+  {
+    "budget": 20,
+    "transform": "linear_huber",
+    "fit": 96,
+    "validation": 24,
+    "selection": "adaptation holdout",
+    "finite": true
+  },
+  {
+    "budget": 20,
+    "transform": "linear_mae",
+    "fit": 96,
+    "validation": 24,
+    "selection": "adaptation holdout",
+    "finite": true
+  }
+]

@@ -1,0 +1,383 @@
+{
+  "metrics_checked": 8000,
+  "issues": [
+    {
+      "file": "co_ethylene_f0_s142_b10_farthest_early_frozen.json",
+      "gas": "CO",
+      "fold": 0,
+      "saved": 147.85263061523438,
+      "recomputed": 147.852835083008,
+      "float32": 147.85263061523438,
+      "difference": 0.0002044677736137146
+    },
+    {
+      "file": "co_ethylene_f0_s142_b24_farthest_early_no_temporal_mask.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 3.0201516151428223,
+      "recomputed": 3.0201574325561578,
+      "float32": 3.0201516151428223,
+      "difference": 5.817413335496013e-06
+    },
+    {
+      "file": "co_ethylene_f0_s342_b20_farthest_early_scratch.json",
+      "gas": "CO",
+      "fold": 0,
+      "saved": 122.80683135986328,
+      "recomputed": 122.80695800781261,
+      "float32": 122.80683135986328,
+      "difference": 0.00012664794932959467
+    },
+    {
+      "file": "co_ethylene_f0_s42_b10_farthest_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 5.515780448913574,
+      "recomputed": 5.515787124633795,
+      "float32": 5.515780448913574,
+      "difference": 6.675720221060999e-06
+    },
+    {
+      "file": "co_ethylene_f0_s542_b10_farthest_early_generic_ssl.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 4.956000804901123,
+      "recomputed": 4.956007385253912,
+      "float32": 4.956000804901123,
+      "difference": 6.580352788887467e-06
+    },
+    {
+      "file": "co_ethylene_f0_s542_b24_farthest_early_generic_ssl.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 2.4244704246520996,
+      "recomputed": 2.424473476409915,
+      "float32": 2.4244704246520996,
+      "difference": 3.051757815342171e-06
+    },
+    {
+      "file": "co_ethylene_f0_s542_b24_farthest_early_no_attention.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 3.4626224040985107,
+      "recomputed": 3.4626262664794956,
+      "float32": 3.4626224040985107,
+      "difference": 3.8623809848203905e-06
+    },
+    {
+      "file": "co_ethylene_f0_s542_b24_farthest_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 4.715740203857422,
+      "recomputed": 4.715745735168462,
+      "float32": 4.715740203857422,
+      "difference": 5.531311040307685e-06
+    },
+    {
+      "file": "co_ethylene_f0_s542_b24_random_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 4.715740203857422,
+      "recomputed": 4.715745735168462,
+      "float32": 4.715740203857422,
+      "difference": 5.531311040307685e-06
+    },
+    {
+      "file": "co_ethylene_f0_s642_b24_farthest_early_no_temporal_mask.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 2.791043519973755,
+      "recomputed": 2.7910470962524445,
+      "float32": 2.791043519973755,
+      "difference": 3.576278689632062e-06
+    },
+    {
+      "file": "co_ethylene_f0_s742_b24_farthest_early_no_attention.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 2.6217756271362305,
+      "recomputed": 2.6217820167541563,
+      "float32": 2.6217756271362305,
+      "difference": 6.38961792587267e-06
+    },
+    {
+      "file": "co_ethylene_f0_s742_b24_farthest_early_no_sensor_ids.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 3.227008581161499,
+      "recomputed": 3.2270151138305723,
+      "float32": 3.227008581161499,
+      "difference": 6.53266907324479e-06
+    },
+    {
+      "file": "co_ethylene_f0_s742_b24_farthest_early_scratch.json",
+      "gas": "CO",
+      "fold": 0,
+      "saved": 127.19254302978516,
+      "recomputed": 127.19268035888685,
+      "float32": 127.19254302978516,
+      "difference": 0.0001373291016903977
+    },
+    {
+      "file": "co_ethylene_f0_s742_b24_farthest_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 5.039548873901367,
+      "recomputed": 5.03955478072167,
+      "float32": 5.039548873901367,
+      "difference": 5.9068203031031885e-06
+    },
+    {
+      "file": "co_ethylene_f0_s742_b24_random_early_scratch.json",
+      "gas": "CO",
+      "fold": 0,
+      "saved": 127.19254302978516,
+      "recomputed": 127.19268035888685,
+      "float32": 127.19254302978516,
+      "difference": 0.0001373291016903977
+    },
+    {
+      "file": "co_ethylene_f0_s742_b24_random_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 5.039548873901367,
+      "recomputed": 5.03955478072167,
+      "float32": 5.039548873901367,
+      "difference": 5.9068203031031885e-06
+    },
+    {
+      "file": "co_ethylene_f0_s942_b24_farthest_early_fine_tuned.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 3.343698263168335,
+      "recomputed": 3.343701744079593,
+      "float32": 3.343698263168335,
+      "difference": 3.480911257902619e-06
+    },
+    {
+      "file": "co_ethylene_f0_s942_b24_farthest_early_no_sensor_mask.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 3.034369468688965,
+      "recomputed": 3.0343746185302782,
+      "float32": 3.034369468688965,
+      "difference": 5.1498413133899135e-06
+    },
+    {
+      "file": "co_ethylene_f0_s942_b24_random_early_fine_tuned.json",
+      "gas": "Ethylene",
+      "fold": 0,
+      "saved": 3.343698263168335,
+      "recomputed": 3.343701744079593,
+      "float32": 3.343698263168335,
+      "difference": 3.480911257902619e-06
+    },
+    {
+      "file": "co_ethylene_f1_s242_b21_farthest_early_fine_tuned.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 7.3687028884887695,
+      "recomputed": 7.368714141845714,
+      "float32": 7.3687028884887695,
+      "difference": 1.1253356944074255e-05
+    },
+    {
+      "file": "co_ethylene_f1_s242_b21_farthest_early_frozen.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 8.016809463500977,
+      "recomputed": 8.016819381713876,
+      "float32": 8.016809463500977,
+      "difference": 9.918212899862056e-06
+    },
+    {
+      "file": "co_ethylene_f1_s342_b21_farthest_early_fine_tuned.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 7.72891092300415,
+      "recomputed": 7.728921508789073,
+      "float32": 7.72891092300415,
+      "difference": 1.0585784922412245e-05
+    },
+    {
+      "file": "co_ethylene_f1_s342_b21_farthest_early_frozen.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 8.004596710205078,
+      "recomputed": 8.004607582092294,
+      "float32": 8.004596710205078,
+      "difference": 1.0871887216268306e-05
+    },
+    {
+      "file": "co_ethylene_f1_s42_b21_farthest_early_scratch.json",
+      "gas": "CO",
+      "fold": 1,
+      "saved": 143.55307006835938,
+      "recomputed": 143.55323314666762,
+      "float32": 143.55307006835938,
+      "difference": 0.0001630783082475773
+    },
+    {
+      "file": "co_ethylene_f1_s42_b21_farthest_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 6.826555252075195,
+      "recomputed": 6.826564407348641,
+      "float32": 6.826555252075195,
+      "difference": 9.155273446026513e-06
+    },
+    {
+      "file": "co_ethylene_f1_s442_b21_farthest_early_fine_tuned.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 7.197297096252441,
+      "recomputed": 7.197307205200204,
+      "float32": 7.197297096252441,
+      "difference": 1.0108947762432763e-05
+    },
+    {
+      "file": "co_ethylene_f1_s542_b21_farthest_early_frozen.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 5.901930332183838,
+      "recomputed": 5.901936721801764,
+      "float32": 5.901930332183838,
+      "difference": 6.38961792631676e-06
+    },
+    {
+      "file": "co_ethylene_f1_s642_b21_farthest_early_frozen.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 10.995288848876953,
+      "recomputed": 10.99530029296876,
+      "float32": 10.995288848876953,
+      "difference": 1.1444091807533141e-05
+    },
+    {
+      "file": "co_ethylene_f1_s642_b21_farthest_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 6.255870342254639,
+      "recomputed": 6.255876922607428,
+      "float32": 6.255870342254639,
+      "difference": 6.580352788887467e-06
+    },
+    {
+      "file": "co_ethylene_f1_s842_b21_farthest_early_fine_tuned.json",
+      "gas": "CO",
+      "fold": 1,
+      "saved": 144.75372314453125,
+      "recomputed": 144.7538915634157,
+      "float32": 144.75372314453125,
+      "difference": 0.00016841888444218966
+    },
+    {
+      "file": "co_ethylene_f1_s942_b21_farthest_early_fine_tuned.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 6.241729259490967,
+      "recomputed": 6.241740226745616,
+      "float32": 6.241729259490967,
+      "difference": 1.0967254649330016e-05
+    },
+    {
+      "file": "co_ethylene_f1_s942_b21_farthest_early_frozen.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 6.816744804382324,
+      "recomputed": 6.8167545318603615,
+      "float32": 6.816744804382324,
+      "difference": 9.727478037291348e-06
+    },
+    {
+      "file": "co_ethylene_f1_s942_b21_farthest_early_scratch.json",
+      "gas": "Ethylene",
+      "fold": 1,
+      "saved": 7.262018203735352,
+      "recomputed": 7.262029266357432,
+      "float32": 7.262018203735352,
+      "difference": 1.106262208061537e-05
+    },
+    {
+      "file": "s242_b1_log_fixed_huber_fine_tuned.json",
+      "gas": "Ethanol",
+      "fold": 10,
+      "saved": 190.9670867919922,
+      "recomputed": 190.96734342575095,
+      "float32": 190.9670867919922,
+      "difference": 0.0002566337587666112
+    },
+    {
+      "file": "s242_b2_log_fixed_huber_frozen.json",
+      "gas": "Ethanol",
+      "fold": 10,
+      "saved": 204.63621520996094,
+      "recomputed": 204.6367143630986,
+      "float32": 204.63621520996094,
+      "difference": 0.0004991531376674629
+    },
+    {
+      "file": "s342_b5_log_fixed_huber_fine_tuned.json",
+      "gas": "Ethanol",
+      "fold": 10,
+      "saved": 191.2773895263672,
+      "recomputed": 191.2776579856875,
+      "float32": 191.2773895263672,
+      "difference": 0.00026845932032415476
+    },
+    {
+      "file": "s542_b20_linear_mae_frozen.json",
+      "gas": "Acetone",
+      "fold": 10,
+      "saved": 468.6882019042969,
+      "recomputed": 468.68876419067436,
+      "float32": 468.6882019042969,
+      "difference": 0.0005622863774874531
+    },
+    {
+      "file": "s542_b5_log_fixed_huber_fine_tuned.json",
+      "gas": "Toluene",
+      "fold": 10,
+      "saved": 56.29435729980469,
+      "recomputed": 56.29441604614263,
+      "float32": 56.29435729980469,
+      "difference": 5.874633794178408e-05
+    },
+    {
+      "file": "s642_b5_log_fixed_huber_fine_tuned.json",
+      "gas": "Toluene",
+      "fold": 10,
+      "saved": 78.1927490234375,
+      "recomputed": 78.19285469055185,
+      "float32": 78.1927490234375,
+      "difference": 0.00010566711435444631
+    },
+    {
+      "file": "s742_b20_log_huber_fine_tuned.json",
+      "gas": "Toluene",
+      "fold": 10,
+      "saved": 35.13893508911133,
+      "recomputed": 35.13897933959965,
+      "float32": 35.13893508911133,
+      "difference": 4.425048832246148e-05
+    },
+    {
+      "file": "s942_b20_linear_huber_fine_tuned.json",
+      "gas": "Ethanol",
+      "fold": 10,
+      "saved": 123.50606536865234,
+      "recomputed": 123.5063072204592,
+      "float32": 123.50606536865234,
+      "difference": 0.00024185180686231433
+    },
+    {
+      "file": "s942_b5_log_fixed_huber_scratch.json",
+      "gas": "Ethylene",
+      "fold": 10,
+      "saved": 112.51637268066406,
+      "recomputed": 112.5169330596929,
+      "float32": 112.51637268066406,
+      "difference": 0.0005603790288404298
+    }
+  ]
+}

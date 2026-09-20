@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-09-20T13:40:44Z",
+  "status": "PASS",
+  "cleanup": {
+    "manifest_entries": 114,
+    "active_files_excluding_git": 2482,
+    "active_bytes_excluding_git": 936831913,
+    "active_gib_excluding_git": 0.872,
+    "archive_files": 40380,
+    "archive_bytes": 5533380603,
+    "archive_gib": 5.153,
+    "archive": "E:/projects/ENose_cleanup_archive_2026-09-20",
+    "recoverable": true
+  },
+  "checks": {
+    "python_syntax": "PASS",
+    "frozen_experiment_code_hashes": "PASS: 13 files match major_revision_001/protocol.json",
+    "revision_protocol": "PASS: 7 tests",
+    "experiment_manuscript_consistency": "PASS",
+    "full_document_verification": "PASS: source hashes, 139 raw configurations, 29 drift configurations, ten manuscript tables, reviewer response, and 30 references",
+    "render_verification": "PASS: four PDFs, no blank pages or content outside page bounds, clean/highlighted PDF text identical",
+    "figure_regeneration": "PASS: six PNG/PDF/SVG exports created in a fresh temporary directory"
+  },
+  "notes": [
+    "The validated full-revision package was restored from the archived delivery ZIP after later active copies failed clean/highlighted and reviewer-table checks.",
+    "Those later active copies remain recoverable at E:/projects/ENose_cleanup_archive_2026-09-20/post_delivery_active_2026-09-20.",
+    "The delivery ZIP remains in the recovery archive and is not duplicated in the active project.",
+    "The authoritative 30-reference builder and verifier were promoted from author_review/full_revision_001/evidence/generating_scripts.",
+    "No experiment code, source data, numerical result, or scientific claim was changed.",
+    "Archive size is recoverable storage and has not been reclaimed from disk."
+  ]
+}

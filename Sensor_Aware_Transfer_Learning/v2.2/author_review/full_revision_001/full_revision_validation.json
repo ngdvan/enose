@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": [
+    "All source data hashes, including all ten drift partitions, match the frozen input manifest",
+    "139 raw-response configurations have ten distinct seeds and common policy holdouts",
+    "29 drift configurations have ten seeds; fitting is partition 7 only; test identities/labels and shared holdouts verified",
+    "All ten delivered DOCX tables independently match final CSVs or recomputed paired ablation differences",
+    "Response covers nine major, eleven moderate and six presentation points; its numerical tables match the manuscript",
+    "All 30 references are cited; no undefined citations"
+  ],
+  "raw_jobs": 1390,
+  "drift_jobs": 290,
+  "source_docx_sha256": "74266aaef6ef5f5b315f7149ffe8997007de96caae3a6ea5a292b899c52d7194",
+  "private_characterization": "Harvard Dataverse dataset citation, design reference and companion Nano MEMS description added; dataset-specific settings remain unverified",
+  "precision_note": "Recorded neural/drift Q90 uses NumPy float32 arithmetic. The consistency checker reproduces this arithmetic; scientific results were not changed."
+}

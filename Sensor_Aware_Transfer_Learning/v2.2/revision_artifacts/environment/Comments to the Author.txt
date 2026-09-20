@@ -1,0 +1,57 @@
+Comments to the Author
+The manuscript proposes sensor-aware masked-reconstruction pretraining for gas sensor arrays, 
+with a shared dilated 1-D CNN, learned per-channel identity embeddings, and cross-sensor 
+attention, followed by low-label adaptation for concentration regression. The leakage-control 
+protocol is careful and above the norm for this literature, and the authors report inconvenient results 
+rather than suppressing them. Major revision is needed for the following reasons.
+Major
+1. The premise is not tested. Pretraining reuses controlled exposures with labels withheld, so 
+the labels already exist. The real cost in this field is generating the exposure, not annotating 
+it. Either pretrain on genuinely unlabeled data (ambient, disjoint concentration regime, or 
+a different array) or drop all language implying reduced calibration cost.
+2. The "Best policy" column in Table I selects between frozen and fine-tuned transfer on the 
+test partition (frozen for CO, fine-tuned elsewhere), contradicting the statement in Section 
+V.B. All four abstract gains inherit this. Pre-register one policy, or select on the adaptation-
+only validation split, and recompute the abstract.
+3. Three seeds is not enough. NH3 and H2 scratch and transfer distributions overlap at about 
+one standard deviation, no hypothesis tests are given, and Table III has no error bars and 
+is non-monotonic in several places (CO 20 vs 24 pairs, ethylene 5 vs 10 pairs). Use at least 
+10 seeds with error bars on Tables III and IV.
+4. The multi-fold results in Section V.D are the most credible in the paper and are currently 
+subordinated. They show smaller gains (16.4 percent for NH3, 14.5 percent for ethylene) 
+and roughly double the absolute error, with an across-fold standard deviation of 17.81 ppm. 
+The paired bootstrap intervals all exclude zero and are a defensible result. Promote this 
+analysis to primary and demote the single-split tables.
+5. Drift partition 10 (146.95 plus or minus 8.71 against 142.78 plus or minus 1.13) is a null, 
+not a 2.8 percent gain, and should be stated as such. This section also needs a constant-
+predictor control emitting the per-gas mean from the adaptation set.
+6. The sensor-aware claim needs a sensor-agnostic masked self-supervised baseline (for 
+example TST, TS2Vec, or PatchTST). Internal ablations do not establish it. The feature 
+representation given to Extra Trees and XGBoost is never stated, and a PLSR or SVR 
+chemometric baseline is missing.
+7. Equation (16) selects calibration pairs using the concentration labels it is meant to 
+economize, so it is a design-of-experiments choice, not label selection. A random-selection 
+control is also absent.
+8. Learned per-channel identity embeddings bind the encoder to one array and preclude cross-
+device transfer. State this limitation, and ideally test pretrain on array A, adapt on array B.
+9. The private array is not characterized: no sensing material, operating temperature, sampling 
+rate, baseline convention, or humidity and temperature conditions. Humidity in particular 
+cannot be omitted for MOX sensors. Also, only about 68 of roughly 430 samples per 
+exposure are used, with no justification for the window placement, and the 0 to 500 ppm 
+NH3 range does not match the environmental monitoring framing.
+Moderate
+CO performance is weak (R squared 0.776, Q0.9 of 118.82 ppm on a 0 to 533 ppm scale) and 
+should be acknowledged as such. The conformal coverage failure is structurally guaranteed given 
+the non-exchangeable design and needs either a shift-aware variant or an explicit statement of the 
+violated assumption. Table IV needs error bars, and the 25-fold spread in the sensor identity effect 
+between H2 and NH3 needs explanation or attribution to noise. MacroMAE in ppm is dominated 
+by high-concentration analytes; report per-gas normalized error. The log-target Huber optimum is 
+biased for linear-space MAE and the per-gas scaling is estimated from only 16 records. Please 
+report parameter counts against effective sample size, clarify whether repeated exposures appear 
+in the test partition, add scratch Q0.9 values, and either reimplement one competing method or 
+evaluate on a published split. Seventeen references is thin.
+Presentation
+Section V.B states "increase MAE significantly" where "decrease" is meant, which is a sign error 
+in the sentence introducing the main result. Please correct "overal", "trainning", "comparision", 
+and "Multif-fold". The Keywords field contains only "SYST". Tables I and II largely duplicate 
+each other. Fig. 3 labels are unreadable at print size. Fig. 2 is clear and should be kept.
