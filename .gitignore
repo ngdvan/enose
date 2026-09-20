@@ -25,4 +25,32 @@ Thumbs.db
 # Local document renderer installations and profiles
 Sensor_Aware_Transfer_Learning/v2.2/revision_artifacts/render_tools/
 ~$*.docx
+
+# Large generated tables and prediction exports
 *.csv
+
+# Raw datasets and cached numerical arrays stay local
+*.xls
+*.xlsx
+*.dat
+*.npz
+
+# Generated model/checkpoint binaries stay local
+*.pt
+*.pth
+*.ckpt
+*.joblib
+*.keras
+*.h5
+*.hdf5
+
+# Large local archives
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Large source-document snapshots retained for local reproducibility
+/Sensor_Aware_Transfer_Learning/v2.2/revision_artifacts/environment/*.docx
+/Sensor_Aware_Transfer_Learning/v2.2/author_review/full_revision_001/Thu thập dữ liệu NH3_H2.docx
