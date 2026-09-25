@@ -1,0 +1,9 @@
+{
+  "method": "Post-review sensitivity: Bonferroni four-comparison family; crossed seed/fold percentile bootstrap, 200000 draws; second RNG seed checks Monte Carlo stability. Conditional descriptive inference; no claim of independent acquisition days.",
+  "inputs": {
+    "v2.2\\author_review\\full_revision_001\\evidence\\exports\\multifold\\nh3_h2_fold_results.csv": "1697daa2b8b9ca4106367c857e59729b83e7864d637c07ff315aeae13ee544a4",
+    "v2.2\\author_review\\full_revision_001\\evidence\\exports\\multifold\\co_ethylene_fold_results.csv": "e4151ca76a7bd4cd6cd14acf5b5d46caf898b73b10f61540bd61839d292ac3b3",
+    "v2.2\\author_review\\full_revision_001\\evidence\\exports\\10_seed_runs\\raw_response_all_runs.csv": "e8e952ba785e1f12d05fab28e2cb9ea8af8de56e6139fe5600e3bbaa5bf613f4",
+    "v2.2\\author_review\\full_revision_001\\evidence\\exports\\policy_selection\\all_policy_results.csv": "c81dead1b81c0d34062b0a3fde39044d3165d2498cc8331f3d2027b45e99fdca"
+  }
+}

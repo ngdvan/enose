@@ -1,0 +1,1 @@
+The exports and hardware/leakage notes copied from V2.2 are historical source records. Author-confirmed acquisition corrections are in the V3.0 manuscript/supplement and action plan. The variable `sessions` in inherited code denotes identifier partitions, not logged acquisition days.

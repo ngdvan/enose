@@ -1,0 +1,1401 @@
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  1
+Manuscript under review.
+I. Introduction
+lectronic noses estimate gas properties from partially 
+selective sensor arrays. Precise concentration labels 
+require controlled delivery or reference measurement, making 
+calibration costly across gases, mixtures and sessions. Sensor 
+aging can require repeated calibration.
+E
+We seek to learn from inexpensive mixture-response 
+recordings and reserve precise concentration measurements for 
+a small calibration set. Preparation settings do not substitute for 
+measured gas-phase ppm. Controlled-exposure datasets with 
+labels withheld during pretraining test this premise 
+retrospectively; they do not establish the cost or performance of 
+a prospectively acquired unquantified mixture pool.
+Limited-label electronic-nose research includes pseudo-
+labeling for recognition [1], [2] and domain adaptation, few-
+shot learning and meta-learning for drift [3]–[7]. Quantitative 
+calibration remains less studied.
+Temporal modeling [8]–[10], small-data transfer [11] and 
+domain-adaptive regression [12] motivate reusable 
+representations for concentration estimation.
+Our shared temporal encoder learns response dynamics, 
+while sensor identities and cross-sensor attention retain array 
+structure. Masked intervals and channels are reconstructed 
+Dinh-Van Nguyen is with School of Electrical and Electronic 
+Engineering, Hanoi University of Science and Technology, Ha Noi, Viet 
+Nam (e-mail: van.nguyendinh@hust.edu.vn).
+DangThiThu Ha is with Hoa Lu University, Ninh Binh, Viet Nam (e-
+mail: dttha.nnth@hluv.edu.vn), and Hanoi University of Science and 
+Technology, Hanoi, Viet Nam (ha.dtt230053d@sis.hust.edu.vn).
+Thu-Huong Nguyen is with School of Electrical and Electronic 
+Engineering, Hanoi University of Science and Technology, Ha Noi, Viet 
+Nam (e-mail: huong.nguyenthu4@hust.edu.vn).
+NguyenDuc Hoa is with School of Materials Science and Engineering, 
+Hanoi University of Science and Technology, Hanoi, Viet Nam (e-mail: 
+hoa.nguyenduc@hust.edu.vn).
+before frozen or fine-tuned concentration regression. Two raw-
+response datasets support label-budget and multi-fold 
+evaluation; a descriptor benchmark tests oracle-class regression 
+under future drift. Generic SSL, chemometric, calibration-
+design and ablation controls retain adverse and null results. 
+Figure 1 summarizes the pipeline.
+II. RELATED WORK
+Fonollosa et al. [8] used reservoir computing to recover 
+rapidly changing concentrations from slow sensor responses, 
+demonstrating transient information beyond steady-state 
+features.
+Quantitative models include GAF-MTF/CNN-LSTM feature 
+fusion [9], a lightweight transferred network with a single 
+MEMS sensor [10], small-data parameter-feature transfer [11], 
+and teacher-student domain-adaptive regression [12].
+M-Training [1] and M-S4VMs [2] use predicted labels for 
+gas recognition, with potential reinforcement of incorrect 
+pseudo-labels.
+Self-supervision instead derives targets from measurements. 
+Time-series objectives include reconstruction, masking, 
+contrastive and adversarial learning [13]. Masking intervals and 
+channels encourages temporal and cross-sensor inference 
+without concentration pseudo-labels.
+Self-Supervised Transfer Learning for Label-
+Efficient Multigas Electronic Nose Calibration
+Dinh-Van Nguyen, DangThiThu Ha, Thu-Huong Nguyen , and NguyenDuc Hoa
+Abstract— Self-supervised transfer reduces mean absolute concentration error relative to training from scratch by 
+13.9% for NH3, 21.5% for H2, 27.5% for CO, and 25.7% for ethylene in our primary multigas electronic-nose evaluation. 
+We pretrain a shared temporal encoder using masked sensor-response reconstruction, then fine-tune it with a limited 
+set of labeled concentration pairs. The evaluation uses ten seeds, six held-out identifier partitions for NH3/H2, and three 
+rolling chronological folds for CO/ethylene; the NH3/H2 results use a predefined early-response window. In secondary 
+fixed-split experiments, fine-tuning with 10 labeled pairs gives approximately the NH3 and ethylene errors of scratch 
+training with 20 pairs, a lower mean CO error, and a higher H2 error. These pair counts include validation labels. Sensor-
+identity and cross-sensor-attention ablations show target-dependent effects, with NH3 the weakest transfer case. In a 
+known-gas-identity drift benchmark, transfer improves concentration regression in partitions 8 and 9 but not clearly in 
+partition 10. The proposed model is not the best full-budget baseline on any of the four raw-response targets. The 
+findings support target-dependent label efficiency for same-system calibration; the NH3/H2 identifier partitions do not 
+establish between-day generalization.
+Index Terms— Electronic nose, self-supervised learning, transfer learning, gas concentration regression, sensor drift, 
+label-efficient calibration, sensor attention.
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  2
+Drift changes the response distribution. TDACNN [3] and 
+SAD-CNN [5] address domain differences; MDCN [4], 
+CEGNN [6] and meta-learning [7] use limited reference data or 
+transferable representations. Most 36-month-benchmark 
+studies emphasize gas identity. We examine concentration 
+regression in future partitions with true identity supplied.
+Our contribution is a controlled evaluation of masked self-
+supervised transfer for quantitative same-system recalibration, 
+with limited labels, held-out identifier partitions, chronological 
+tests and direct competing controls.
+PatchTST [18] and multivariate Transformers [19] use 
+masked time-series learning; TS2Vec [20] uses hierarchical 
+contrastive representations. Our compact PatchTST-style 
+regression control compares the complete sensor-aware design 
+with generic masking. Different encoders and capacities 
+prevent isolating sensor identity alone.
+PLSR [21] and SVR [22] provide chemometric controls 
+alongside Extra Trees [26] and XGBoost [27]. Farthest-point 
+design is related to concentration-space coverage methods [23]. 
+Nonexchangeable conformal inference [24] and covariate-shift 
+conformal prediction [25] motivate a cautious interpretation of 
+uncertainty under chronological sensor drift.
+III.
+PROPOSED METHOD
+A.Problem Formulation
+For the two raw-response datasets, one gas exposure is 
+represented as the multichannel time series in (1), with the 
+two-gas concentration target in (2)
+X i∈R
+T ×S ,(1)
+where T is the number of temporal samples and S is the 
+number of physical sensors. The target is a two-dimensional 
+concentration vector,
+yi=[
+yi 1
+yi 2]∈R
+2.(2)
+For the NH3/H2 dataset, T =64 and S=20. For the 
+dynamic gas mixture dataset, T =64 and S=16.
+Pretraining reconstructs responses without concentration labels, 
+emulating an unlabeled mixture pool. The small precisely 
+labeled adaptation set in (3) trains the encoder and regression 
+head under (4).
+AK={( X i , yi)}i=1
+K ,(3)
+where K controls the labeled calibration budget. After 
+pretraining, the encoder f θ and regression head g ϕ are 
+optimized by
+(θ
+¿ ,ϕ
+¿)=arg min
+θ ,ϕ
+∑
+( X i , yi)∈AK
+l Huber(g ϕ( f θ( X i)), yi)
+¿ AK∨¿(4)¿
+Depending on the adaptation policy, θ is either randomly 
+initialized, frozen after self-supervised pretraining, or updated 
+with a lower learning rate.
+B.Shared Temporal Sensor Encoder
+The first stage extracts a temporal representation for each 
+sensor. We use the same dilated 1-D convolutional encoder 
+ψθ for all physical channels. For sensor s in exposure i,
+H is=ψθ( X i[: , s]).(5)
+The per-sensor temporal encoding in (5) is summarized by 
+combining mean and maximum pooling into the sensor token in 
+(6),
+his=[ MeanPool( H is); MaxPool( H is)].(6)
+Shared weights learn common channel dynamics with fewer 
+sensor-specific parameters; mean and maximum pooling retain 
+overall and strong local responses.
+The implemented temporal encoder receives two channels 
+per sensor: the scaled signal and its binary observation mask. It 
+applies three convolutions with channel widths 
+2→24→32→32, kernel sizes (5 ,5 ,3), and dilations 
+(1 ,2 ,4), respectively. Padding preserves the 64-sample 
+length, and GELU follows each convolution. Mean and 
+maximum pooling produce 64 features, which are projected 
+through a GELU-activated linear layer to a 32-dimensional 
+sensor token.
+C.Physical Sensor Identity Encoding
+Sharing the temporal network introduces a possible 
+ambiguity. Two different physical sensors may produce 
+temporal features with a similar numerical pattern, even though 
+their selectivity is different. We therefore attach a learned 
+identity embedding es to each sensor token,
+zis=his+es.(7)
+The jointly learned embedding in (7) preserves physical 
+channel identity without hand-coded gas selectivity.
+Sensor identities encode channel correspondence, not one-
+sensor/one-gas selectivity. Experiments reuse the same array 
+within each dataset and do not establish cross-device transfer.
+D.Cross-sensor Self-Attention
+The sensor tokens are stacked as in (8)
+Z i=¿
+Fig.1.  Full sensor-aware pretraining, adaptation pipeline.
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  3
+Manuscript under review.
+We then apply Transformer-style self-attention across the 
+sensor dimension. Query, key, and value matrices are given by 
+(9),
+Q=Z iW Q , K=Z iW K ,V =Z iW V ,(9)
+and the attention output is given by (10)
+Ai=softmax(
+Q K
+⊤
+√d k )V .(10)
+Cross-sensor attention models the joint pattern of cross-
+sensitive responses used to infer gas mixtures.
+The implementation uses two pre-normalized Transformer 
+encoder layers. Each layer has a 32-dimensional token size, four 
+attention heads, a 96-unit feed-forward sublayer, GELU 
+activation, and dropout 0.1. A final layer normalization is 
+applied to the contextual sensor tokens. For raw-response 
+regression, the (S) token matrix is flattened; it is not pooled 
+across sensors. The regression head has dimensions (32S), 
+GELU activations, and dropout 0.15 after the 128-unit layer.
+E.Structured Masked Self-Supervision
+Pretraining reconstructs inputs corrupted by temporal-span 
+and complete-channel masks.
+First, contiguous temporal spans are removed. For mask M ,
+M bts=0if ak ≤t<ak+wk
+and Bbks=1 ,(11)
+The temporal-span mask in (11) uses a span length sampled as 
+in (12),
+wk ∼U {6 ,… ,16},(12)
+and per-sensor participation follows (13)
+Bbks∼Bernoulli(0.45).(13)
+Here b indexes examples in a minibatch, t the temporal 
+position, s the physical sensor, and k one of three spans sampled 
+independently for each example. Given span width w_k, its start 
+a_k is sampled uniformly from the integers 0 through T − w_k; 
+the example index on a_k and w_k is suppressed. B_bks 
+denotes sensor participation in span k. M is one for observed 
+entries and zero for hidden entries.
+We also hide one to three complete sensor channels, 
+requiring reconstruction from the remaining array responses.
+The masked reconstruction loss is given by (14):
+LSSL= ∑(1−M )(^X −X )
+2
+max(1 ,∑(1−M )) +0.05 ∑M (^X −X )
+2
+max(1 ,∑M ) .(14)
+The first term emphasizes the hidden entries. The second 
+provides a smaller consistency penalty on visible values. We 
+also concatenate the mask with the corrupted signal, as in (15),
+X
+in=[ X ⊙M , M ] ,(15)
+so that a masked value is not confused with a real zero. This 
+avoids the need for target pseudo-labels during pretraining.
+Both denominators in (14) are guarded against empty sets. In 
+the present raw-response mask, at most 48 of 64 positions are 
+covered by three spans and at most three of 16 or 20 sensors are 
+fully hidden, so visible entries always remain. The guard does 
+not change this protocol’s loss.
+F.Adaptation Policies and Calibration-Pair Design
+Scratch trains from random initialization; frozen transfer fits 
+only the head; fine-tuning updates the pretrained encoder at a 
+lower learning rate. Fine-tuning is predefined for every gas, 
+without test-based policy selection. Farthest-point design 
+requires known candidate concentrations, unlike label-free 
+pretraining. Its budget includes fitting and validation labels but 
+excludes candidate-pool quantification costs.
+Calibration pairs are designed using known concentration 
+coordinates by farthest-point sampling, following the limited-
+experiment calibration motivation in [14]. Let P be the 
+candidate set and S k the selected set after k steps. The next pair 
+is
+pk +1=arg max
+p∈P ∖S k
+min
+q∈S k
+∥~p−~q∥2 ,(16)
+where ~p denotes the normalized concentration pair.
+IV.
+DATASETS AND EXPERIMENT PROTOCOL
+A.NH3/H2 dataset
+The NH3/H2 dataset [29] contains 162,404 observations 
+from 20 Nano MEMS sensor channels, grouped into 378 
+recorded sequences, with concentrations of 0–500 ppm for each 
+gas. Acquisition took place over six days. The six partitions of 
+63 sequences were constructed from consecutive Combination 
+identifiers and were not designed as day splits. Day-by-day 
+mixture details were not logged, so a reliable exposure-to-day 
+mapping and leave-one-day-out evaluation cannot be 
+reconstructed. Training and test partitions may share 
+acquisition days; these folds do not establish between-day 
+generalization.
+The primary NH3/H2 evaluation holds out each of the six 
+partitions in turn, uses the preceding cyclic partition for 
+adaptation, and uses the remaining four for pretraining. Because 
+some pretraining partitions follow the test partition, this is held-
+partition validation, not prospective forecasting. The secondary 
+fixed split uses partitions 1–4 for pretraining (252 exposures; 
+1,260 windows), partition 5 for adaptation, and partition 6 for 
+testing. Five 64-sample training windows use offsets 0–4; tests 
+use offset zero only. Related image-based mixed-gas estimation 
+is described by Ha et al. [30].
+Within every fold, complete exposures are assigned before 
+window extraction. Response scaling is fitted exclusively to 
+that fold’s pretraining responses. Adaptation fitting and 
+validation exposures are disjoint, and all policies use identical 
+group assignments within each seed and budget. Test exposures 
+are excluded from preprocessing fits, pretraining, calibration 
+design, fitting, and checkpoint selection. A budget counts both 
+fitting and validation concentration pairs.
+B.Dynamic Gas Mixture Dataset
+The dynamic gas mixture dataset is publicly available from 
+the UCI Machine Learning Repository [15]. Its acquisition and 
+continuous-monitoring protocol are described in  [8]. This work 
+uses the CO and ethylene portion, prepared as 245 
+chronological exposure runs with 16 response channels and 
+1,225 stored windows. Each run contributes five 64-sample 
+windows at offsets 0, 20, 40, 60, and 80. The processed target 
+scale is 0–533.33 ppm for CO and 0–20 ppm for ethylene.
+Primary CO/ethylene validation divides the 245 acquisition-
+ordered groups into seven blocks and evaluates three rolling 
+folds, each with three pretraining blocks followed by one 
+adaptation block and one future test block. Secondary fixed-
+split experiments retain five blocks of 49 groups: blocks 1–3 
+pretrain, block 4 adapts, and block 5 tests. Budgets are 5, 10, 20, 
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  4
+and 24 unique concentration pairs. Training uses five stored 
+offsets; the test uses one window per group.
+C.Sensor Drift Dataset
+To evaluate long-term drift, we use the public sensor drift 
+dataset [16]. The drift-compensation setting is described by 
+Vergara et al. [17], and calibration with a limited number of 
+experiments is examined in [14]. The dataset contains 13,910 
+complete records organized into ten time-based partitions 
+spanning months 1–36. Each record holds 128 values: eight 
+engineered descriptors for each of 16 sensor channels, so that 
+each sample is a 16×8 matrix. The eight descriptors per sensor 
+are two resistance-change features, three rising-response 
+exponential-moving-average features, and three decaying-
+response exponential-moving-average features; they are 
+engineered descriptors rather than consecutive temporal 
+samples. The six gases are ethanol, ethylene, ammonia, 
+acetaldehyde, acetone, and toluene.
+Partitions 1–6 (months 1–20) pretrain the descriptor encoder; 
+partition 7 (month 21) provides adaptation labels; partitions 8–
+10 are separate future tests. We evaluate 1, 2, 5, 10, and 20 
+labels per gas with 10 seeds. At 20 labels/gas, 16 fit and four 
+validate each gas, identically across policies. One label/gas has 
+no disjoint holdout and therefore uses the predefined final 
+epoch; larger budgets select checkpoints using adaptation-only 
+validation.
+Raw temporal curves are unavailable in this benchmark, so 
+the self-supervised masking is adapted to the representation. A 
+complete sensor is masked independently with probability 0.18. 
+One descriptor group—the resistance pair, the rising 
+descriptors, or the decaying descriptors—is selected per record 
+and hidden independently on each sensor with probability 0.35, 
+and individual descriptors are additionally masked with 
+probability 0.08. The shared principle remains structured 
+reconstruction of physically grouped sensor information. The 
+descriptor encoder maps the eight scaled descriptors and eight 
+mask indicators through a shared 16→64→32 GELU 
+multilayer perceptron, adds a learned 32-dimensional sensor-
+identity embedding, applies the same two-layer four-head 
+Transformer, and pools mean and maximum across the 16 
+contextual tokens followed by a 64-unit GELU layer with 
+dropout 0.15.
+The supervised objective for this extension contains only the 
+gas-conditional concentration term. Six gas-conditional 
+regression heads output normalized log-concentration values, 
+and the known gas identity selects the corresponding output; no 
+gas-classification head is trained or evaluated. The reported 
+concentration MAE is therefore an oracle-class conditional 
+metric: it assumes gas identity is available and does not 
+represent end-to-end concentration prediction for an unknown 
+gas. The predefined 20-label analysis uses the normalized log 
+targets in (17); fixed-scale log and linear losses are additional 
+sensitivity controls.
+Figure 2 preserves the original secondary fixed-split 
+schematic and the primary chronological drift roles. Primary 
+NH3/H2 cyclic folds and CO/ethylene rolling folds are 
+specified above. Pretraining withholds concentration labels; 
+adaptation and test roles remain disjoint.
+Fig. 2. Leakage-controlled secondary fixed splits and chronological drift 
+roles; the primary multi-fold protocols are specified in Section IV.
+D.Preprocessing and Optimization
+For the two raw-response datasets, a per-sensor robust scaler 
+is fitted on unlabeled pretraining windows only. The center is 
+the median and the scale is the interquartile range; scaled values 
+are clipped to [−12 ,12]. Targets are divided by fixed 
+implementation scales before Huber training: [500 ,500] ppm 
+for the NH3/H2 dataset and [533.33 ,20] ppm for the 
+dynamic gas mixture dataset. Predictions are transformed back 
+to ppm and clipped to these ranges.
+Raw-response pretraining uses AdamW for 60 epochs with 
+learning rate 8×10
+−4, weight decay 10
+−4, batch size 64, and 
+gradient-norm clipping at 2. Supervised fitting uses 120 epochs 
+and Huber loss with δ=0.1 in normalized target space. Scratch 
+training uses learning rate 5×10
+−4. Frozen transfer trains only 
+the head at 10
+−3. Fine-tuning uses 8×10
+−5 for the encoder 
+and 8×10
+−4 for the head. All supervised policies use weight 
+decay 2×10
+−4 and batches of at most 64 samples.
+Sensor drift dataset features are robust-scaled using 
+partitions 1–6 with the 10th–90th percentile range and clipped 
+to [−10 ,10]. Descriptor pretraining uses 40 AdamW epochs, 
+learning rate 8×10
+−4, weight decay 10
+−4, batch size 256, and 
+gradient clipping at 2. Supervised sensor drift dataset fitting 
+uses 120 epochs, weight decay 2×10
+−4, and adaptation-only 
+minimum-loss checkpoint selection, except for the one-label 
+final-epoch protocol. The head learning rate is 8×10
+−4; the 
+encoder rate is 5×10
+−4 from scratch and 8×10
+−5 during 
+fine-tuning. Concentration is transformed per gas as
+ui=
+log(1+ci)−μri
+σ ri
+,(17)
+where ri is the true gas class and μr ,σ r are estimated from 
+the supervised fitting subset only. The sensor drift dataset 
+Huber term uses δ=0.5. 
+All revised experiments use seeds 42, 142, 242, 342, 442, 
+542, 642, 742, 842, and 942, with seed-specific pretraining. 
+Approximately 20% of selected exposure groups are reserved 
+for validation. Random and farthest-point calibration designs 
+are crossed with scratch and fine-tuning at every fixed-split 
+budget. Full multi-fold coverage uses all available adaptation 
+pairs, whose number can differ between rolling folds.
+The NH3/H2 array uses 20 MEMS SnO2 channels with 
+Pt/Ag modification, as described in Supplementary “NH3/H2 
+dataset and acquisition details.” Temperature and relative 
+humidity were neither controlled nor measured during 
+acquisition, so their variation and contribution to response 
+differences cannot be quantified retrospectively. Digital audits 
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  5
+Manuscript under review.
+found no identical stored signal fingerprints or identifier 
+overlap across 11 split definitions; they do not establish session 
+independence. The 0–500 ppm range does not validate low-
+concentration ambient monitoring.
+Each NH3/H2 sequence starts at gas delivery and contains 
+180 s of exposure followed by 700 s of recovery. The 
+configured sampling interval is 2.0 s. The predefined 64-sample 
+early window covers about 128 s nominally (approximately 131 
+s from aggregate sample counts), or roughly 71–73% of 
+exposure. Middle, late and full-cycle sensitivity inputs also 
+have 64 samples, with scalers refitted on their pretraining 
+windows. Full-cycle resampling includes recovery, rather than 
+only the 180-s gas exposure. Exact index definitions and the 
+approximate timing calculation are supplied in the supplement.
+The generic SSL control uses eight nonoverlapping length-8 
+patches per channel, 32-dimensional tokens, two four-head 
+Transformer layers, 96-unit feed-forward blocks, shared 
+channel weights, temporal positions, and three masked patches 
+per channel. It has no physical sensor embeddings or cross-
+channel attention. Temporal mean pooling feeds the same 
+concatenated-channel regression head, so channel ordering 
+remains available. Instance normalization is omitted to preserve 
+absolute responses and match preprocessing; capacity differs 
+and is reported. Pretraining/adaptation data, budgets, seeds, 
+scaling and checkpoint rules match the proposed model.
+Classical regressors receive flattened pretraining-scaled 
+windows: 1,280 NH3/H2 or 1,024 CO/ethylene features. PLSR 
+and separate-target RBF SVR additionally standardize features 
+using fitting data only. Hyperparameters are selected by 
+adaptation-validation normalized MAE. Tree settings are fixed. 
+At 20 drift labels/gas, historical log-Huber is compared with 
+log1p(c)/log1p(1000), linear c/1000 Huber, and linear c/1000 
+MAE. Below 20 labels/gas the fixed log scale avoids estimating 
+a standard deviation from tiny fitting sets. The 1000-ppm 
+divisor is a numerical unit, not an asserted physical maximum. 
+Constant controls use only the per-gas fitting mean.
+Representative seed-42 pretraining reruns on one NVIDIA 
+GeForce RTX 3060 took 38.8 s for NH3/H2 (1,260 windows) 
+and 19.9 s for CO/ethylene (735 windows), each for 60 epochs 
+with batch size 64. Timings include model initialization and 
+optimization but exclude data loading, scaling and checkpoint 
+writes. They are per-model measurements, not reconstructed 
+total campaign costs; checkpoints are reused across adaptation 
+budgets. Software and timing details are supplied in the 
+supplement.
+E.Evaluation Metrics
+Besides using standard metrics like MAE, RMSE and R2, 
+we also measure the 90th percentile of absolute error , given 
+by (18) to examine large errors.
+Q0.9 , j=quantile0.9¿
+Relative transfer gain is defined as in (19):
+Gain(%)=100 E scratch−Etransfer
+E scratch
+,(19)
+For sensor drift dataset concentration regression, we report 
+the unweighted mean across six gases in (20),
+MacroMAE=1
+6∑
+r=1
+6
+MAE r .(20)
+We report seed means and sample SD (ddof=1). Paired 95% 
+bootstrap intervals use 5,000 crossed seed-and-fold resamples, 
+weighting folds equally and conditioning on observed test 
+exposures. Repeated predictions are not independent exposures, 
+and overlapping training folds limit population inference. 
+Fixed-split controls resample paired seeds; the control 
+comparisons are exploratory and not multiplicity-adjusted. 
+Drift NMAE divides each gas MAE by its concentration range 
+in historical partitions 1–6, whose labels are used for reporting 
+only. This permits an equal-gas macro-NMAE when a test-
+partition range is zero; the test-range diagnostic is also retained.
+Primary intervals in Table I are unadjusted. As a post-review 
+multiplicity sensitivity check, we also report 98.75% marginal 
+percentile intervals for a four-comparison Bonferroni family, 
+using 200,000 crossed seed/fold draws. A second random-
+number seed checks numerical stability. This adjustment does 
+not remedy dependent training folds or missing acquisition-day 
+labels (Supplementary Table S9).
+V. RESULTS
+A.Self-Supervised Pretraining
+Figure 3 shows ten-seed reconstruction diagnostics. Losses 
+across differently scaled datasets are not concentration-
+accuracy comparisons; subsequent results use held-out 
+predictions.
+Fig. 3. Reconstruction loss over 10 seeds: blue line, mean; orange 
+band, mean ± one seed SD. Raw-response pretraining uses 60 epochs; 
+descriptor pretraining uses 40.
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  6
+B.Primary Multi-Fold Validation
+Table I compares fine-tuning with scratch under matched 
+adaptation groups and holdouts. The four unadjusted paired 
+95% intervals exclude zero. In a four-comparison Bonferroni 
+sensitivity analysis, the NH3 interval includes zero; the other 
+three remain positive (Supplementary Table S9). NH3 is 
+therefore the weakest primary case. CO/ethylene intervals are 
+indicative because they resample only three chronological 
+folds. Inference is conditional on observed exposures, not 
+independent acquisition campaigns.
+Table I. Primary Multi-Fold MAE and Paired Difference (ppm); 
+Unadjusted 95% Intervals
+Gas
+Scratch
+Fine-tuned
+Difference
+95% interval
+NH3
+31.01
+26.69
+4.31
+[0.38, 8.30]
+H2
+49.20
+38.63
+10.58
+[3.57, 18.78]
+CO
+89.95
+65.22
+24.74
+[12.85, 37.53]
+Ethylene
+2.611
+1.939
+0.672
+[0.247, 1.143]
+Relative reductions are NH3: 13.9%, H2: 21.5%, CO: 27.5%, 
+Ethylene: 25.7%. Across-fold SD of fine-tuned mean MAE is 
+NH3: 11.07 ppm, H2: 10.59 ppm, CO: 14.71 ppm, Ethylene: 
+0.448 ppm. NH3/H2 includes 378 distinct test identifiers over 
+six folds (3,780 predictions per gas across seeds); CO/ethylene 
+includes 105 identifiers over three rolling tests (1,050 
+predictions per gas). Supplementary Table S1 retains every fold 
+and all policies.
+Primary improvements do not erode systematically across 
+ten seeds. Supplementary Table S2 and Fig. S1 report seed 
+prefixes and random-order sensitivity; all ten seeds are retained.
+Transfer reverses in identifier fold 4: NH3 MAE increases 
+from 16.22 to 18.83 ppm and H2 from 25.70 to 26.36 ppm. 
+Aggregate gains therefore do not imply benefits in every 
+partition. The available records do not support attributing this 
+reversal to a particular day or environmental condition.
+C.Fixed-Split Label-Budget Analysis
+Table II reports all adaptation policies as mean ± seed SD. 
+Budgets include validation labels. These fixed-split 
+experiments are secondary to the multi-fold evaluation; neither 
+the policy nor the budget is chosen from test performance. At 
+full budget the paired means favor fine-tuning over scratch, but 
+errors do not decrease monotonically at every budget.
+Table II. Fixed-Split MAE (ppm), Farthest-Point Calibration-Pair 
+Design, Mean ± SD Over Ten Seeds
+Gas
+Pairs
+Scratch
+Frozen
+Fine-tuned
+NH3
+5
+86.39 ± 36.11
+82.85 ± 31.89
+86.02 ± 34.16
+NH3
+10
+67.52 ± 40.50
+41.08 ± 7.01
+38.92 ± 4.56
+NH3
+20
+36.84 ± 7.89
+31.10 ± 2.80
+29.53 ± 2.38
+NH3
+40
+29.86 ± 2.74
+25.09 ± 2.01
+25.22 ± 2.10
+NH3
+57
+21.59 ± 3.25
+19.26 ± 1.76
+17.36 ± 1.54
+H2
+5
+161.51 ± 22.40
+129.17 ± 12.17
+128.91 ± 16.84
+H2
+10
+124.16 ± 28.13
+78.73 ± 18.12
+81.88 ± 19.54
+H2
+20
+70.73 ± 30.45
+48.04 ± 8.65
+48.38 ± 9.70
+H2
+40
+51.53 ± 6.60
+41.26 ± 2.34
+41.67 ± 2.75
+H2
+57
+41.20 ± 4.27
+34.77 ± 2.70
+31.60 ± 2.29
+CO
+5
+163.06 ± 47.96
+125.10 ± 34.73
+111.46 ± 23.96
+CO
+10
+156.04 ± 27.60
+77.08 ± 25.00
+80.99 ± 27.98
+Gas
+Pairs
+Scratch
+Frozen
+Fine-tuned
+CO
+20
+89.30 ± 39.24
+49.96 ± 8.66
+47.42 ± 7.79
+CO
+24
+63.63 ± 10.68
+46.81 ± 9.60
+47.45 ± 7.38
+Ethylene
+5
+5.226 ± 1.469
+3.916 ± 1.680
+3.468 ± 1.248
+Ethylene
+10
+3.610 ± 1.421
+2.449 ± 0.464
+2.418 ± 0.484
+Ethylene
+20
+2.465 ± 0.745
+1.879 ± 0.534
+1.843 ± 0.506
+Ethylene
+24
+2.149 ± 0.359
+1.668 ± 0.241
+1.627 ± 0.275
+For example, fine-tuned CO MAE is 47.42 ± 7.79 ppm at 20 
+pairs and 47.45 ± 7.38 ppm at 24 pairs. Figure 4 retains all three 
+policies rather than a test-selected policy summary.
+Fixed-split gains attenuate with additional seeds, especially 
+NH3 (32.4% for the first three versus 19.6% for all ten). 
+Detailed seed sensitivity is supplementary; primary conclusions 
+use multi-fold evidence.
+Table IIa. Label-Budget Comparison, Farthest-Point Fixed Split; MAE 
+(ppm), Mean ± SD
+Gas
+Transfer: 10 pairs
+Scratch: 20 pairs
+NH3
+38.92 ± 4.56
+36.84 ± 7.89
+H2
+81.88 ± 19.54
+70.73 ± 30.45
+CO
+80.99 ± 27.98
+89.30 ± 39.24
+Ethylene
+2.418 ± 0.484
+2.465 ± 0.745
+Table IIa expresses label efficiency in labeled two-gas 
+concentration pairs, including fitting and validation. At 10 
+pairs, transfer approximately matches scratch at 20 for NH3 and 
+ethylene and has lower mean CO error, but higher H2 error. 
+These descriptive comparisons are not equivalence tests or a 
+universal 50% label-saving guarantee. Pairs, exposure records 
+and overlapping windows are distinct units.
+At five pairs, NH3 shows essentially no mean benefit (86.39 
+± 36.11 to 86.02 ± 34.16 ppm). An error near 86 ppm is 17.2% 
+of its 0–500 ppm range and does not demonstrate useful precise 
+quantitative calibration. Sparse calibration coverage and 
+training variability are possible contributors, not established 
+causes. This is consistent with NH3’s weak primary and 
+component-ablation evidence.
+D.Calibration-Design Control
+Calibration-design effects depend on both target and budget 
+(Supplementary Table S3). At five pairs, farthest-point design 
+reduces fine-tuned CO MAE relative to random by 31.61 ppm 
+(unadjusted 95% interval 13.34–51.92). At 40 pairs, random 
+design instead has lower MAE: random minus farthest-point 
+differences are −4.46 ppm for NH3 and −8.32 ppm for H2 under 
+scratch training, and −3.37 and −4.89 ppm under fine-tuning; all 
+four exploratory intervals exclude zero. These are known-
+coordinate calibration designs, not active acquisition of 
+unknown labels. Full-budget designs coincide when all 
+candidate pairs are used.
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  7
+Manuscript under review.
+Fig. 4. Secondary full-budget predictions from all 10 seeds: gray 
+circles, Scratch; blue squares, Frozen; orange triangles, Fine-tuned. 
+Points repeat test exposures across seeds; the dashed line is identity, 
+not a fitted trend.
+Table III. Five-Pair Design Control, MAE (ppm), Mean ± SD
+Gas
+Design
+Scratch
+Fine-tuned
+NH3
+Random
+98.51 ± 29.07
+89.75 ± 29.49
+NH3
+Farthest
+86.39 ± 36.11
+86.02 ± 34.16
+H2
+Random
+159.51 ± 12.93
+143.53 ± 30.16
+H2
+Farthest
+161.51 ± 22.40
+128.91 ± 16.84
+CO
+Random
+179.22 ± 31.43
+143.07 ± 22.16
+CO
+Farthest
+163.06 ± 47.96
+111.46 ± 23.96
+Ethylene
+Random
+4.890 ± 1.836
+4.323 ± 1.682
+Ethylene
+Farthest
+5.226 ± 1.469
+3.468 ± 1.248
+E.Baseline Comparison
+The proposed model has the lowest mean MAE on none of 
+the four targets at full budget (Table IV). Generic SSL leads on 
+NH3 (16.13 versus 17.36 ppm), SVR on H2 (31.37 versus 31.60 
+ppm), Extra Trees on ethylene (1.398 versus 1.627 ppm), and 
+PLSR on CO (25.57 versus 47.45 ppm). Proposed CO MAE is 
+1.86 times PLSR MAE despite improvement over scratch. A 
+lower-complexity latent linear model may better suit the small 
+calibration set and this response representation; this is a 
+possible explanation, not an identified mechanism. Close mean 
+rankings are not equivalence tests, and overlapping SDs do not 
+establish statistical ties. Tuning grids and all-budget results are 
+supplied in the supplement.
+Paired full-budget generic-SSL comparisons favor the 
+sensor-aware model on H2, favor generic SSL on NH3 and 
+ethylene, and are inconclusive for CO. Lower-budget effects 
+are also mixed (Supplementary Table S4). Encoder and 
+capacity differences preclude attributing these contrasts solely 
+to sensor identity.
+Table IV. Full-Budget Baseline MAE (ppm), Mean ± SD
+Model
+NH3
+H2
+CO
+Ethylene
+Scratch
+21.59 ± 3.25
+41.20 ± 4.27
+63.63 ± 10.68 2.149 ± 0.359
+Extra Trees
+21.63 ± 1.73
+37.33 ± 2.04
+90.46 ± 7.17
+1.398 ± 0.197
+XGBoost
+26.96 ± 4.61
+48.65 ± 2.38
+55.90 ± 11.13 2.491 ± 0.352
+PLSR
+28.44 ± 4.76
+75.50 ± 18.25 25.57 ± 8.48
+1.994 ± 0.377
+SVR
+20.74 ± 1.62
+31.37 ± 4.53
+53.01 ± 7.26
+2.013 ± 0.226
+Generic SSL
+16.13 ± 1.23
+35.18 ± 2.74
+52.52 ± 12.59 1.437 ± 0.275
+Fine-tuned
+17.36 ± 1.54
+31.60 ± 2.29
+47.45 ± 7.38
+1.627 ± 0.275
+F.Ablation and Window Sensitivity
+Table V. Full-Budget Ablation Minus Full-Model MAE (ppm), Mean ± 
+SD
+Removed
+NH3
+H2
+CO
+Ethylene
+No sensor ID
+-0.06 ± 1.66
+4.73 ± 3.73
+5.17 ± 10.05
+0.097 ± 
+0.462
+No attention
+-3.01 ± 1.49
+1.99 ± 3.50
+10.27 ± 
+12.18
+-0.140 ± 
+0.264
+No time mask
+2.10 ± 2.17
+1.73 ± 3.30
+7.93 ± 14.86
+-0.016 ± 
+0.360
+No sensor mask
+-0.78 ± 2.00
+4.34 ± 3.75
+1.83 ± 8.34
+0.027 ± 
+0.215
+Table V reports within-seed ablation-minus-full-model 
+differences: positive values favor the complete model. Effects 
+vary by gas; sampling and optimization cannot be separated 
+from physical selectivity, and no component is uniformly 
+beneficial.
+Removing sensor identity changes NH3 MAE by -0.06 ± 
+1.66 ppm, compared with 4.73 ± 3.73 ppm for H2. Removing 
+attention lowers NH3 error by 3.01 ppm on average. Thus the 
+original large cross-gas identity-effect ratio is not treated as a 
+stable physical constant, and the attention module is not 
+uniformly beneficial.
+CO ablations are variable: removing attention gives 10.27 ± 
+12.18 ppm and removing temporal masking 7.93 ± 14.86 ppm. 
+Exploratory paired-seed 95% bootstrap intervals are [2.68, 
+16.94] and [−0.33, 17.00] ppm, respectively (Supplementary 
+Table S10). Temporal masking is compatible with no effect; 
+attention has a positive conditional mean contrast, but its large 
+variability limits a robust component-benefit claim. Neither SD 
+overlap nor these unadjusted intervals establishes a general 
+physical mechanism.
+Table VI. Window Sensitivity, MAE (ppm), Mean ± SD
+Window
+NH3 scratch
+NH3 transfer
+H2 scratch
+H2 transfer
+Early
+21.59 ± 3.25
+17.36 ± 1.54
+41.20 ± 4.27
+31.60 ± 2.29
+Middle
+34.55 ± 5.01
+29.60 ± 3.23
+33.99 ± 4.10
+35.60 ± 3.08
+Late
+56.71 ± 5.88
+54.75 ± 4.40
+52.12 ± 7.87
+51.28 ± 4.89
+Full-cycle 20.24 ± 1.76
+18.05 ± 2.48
+38.36 ± 2.56
+35.75 ± 2.46
+Window placement materially changes both absolute error 
+and transfer effects (Table VI). Fixed-split early-window H2 
+improves from 41.20 to 31.60 ppm (23.3%); middle-window 
+transfer reverses the benefit (33.99 to 35.60 ppm, −4.7%); full-
+cycle resampling yields 38.36 to 35.75 ppm (6.8%). The 21.5% 
+headline instead comes from primary multi-fold evaluation 
+using the same predefined early-window definition. It should 
+not be generalized to other window placements. Middle/late 
+windows sample the recovery part of the recorded cycle; full-
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  8
+cycle resampling spans exposure and recovery. No window is 
+selected using test performance.
+G.
+Long-Term Drift
+The primary 20-label/gas transform is historical per-gas log-
+Huber; the constant predictor uses the same fitting records. 
+Scratch minus fine-tuned macro-MAE is partition 8: 4.50 ppm 
+(95% interval 2.55 to 6.19); partition 9: 4.16 ppm (95% interval 
+2.41 to 6.22); partition 10: -0.71 ppm (95% interval -8.40 to 
+6.91). These intervals resample seeds, conditional on each test 
+partition. The comparison describes concentration regression 
+with true gas identity supplied; it excludes classification errors.
+Table VII. Oracle-Class Drift Macro-MAE (ppm), Mean ± SD
+Policy
+Partition 8
+Partition 9
+Partition 10
+Constant
+52.91 ± 3.07
+46.13 ± 3.07
+181.05 ± 2.13
+Scratch
+23.95 ± 3.46
+22.68 ± 2.86
+142.34 ± 11.06
+Frozen
+19.09 ± 2.25
+18.91 ± 3.25
+137.43 ± 13.49
+Fine-tuned
+19.45 ± 3.37
+18.52 ± 4.60
+143.05 ± 12.49
+Partition 10 shows no clear improvement: its paired interval 
+includes zero. Constant and normalized-error controls remain 
+necessary; favorable conditional comparisons do not establish 
+severe-drift deployment robustness.
+Table VIII. Fine-Tuned Per-Gas NMAE (% of Historical Range), Mean 
+± SD
+Gas
+Partition 8
+Partition 9
+Partition 10
+Ethanol
+0.49 ± 0.52
+0.40 ± 0.45
+10.76 ± 0.90
+Ethylene
+5.04 ± 1.40
+4.23 ± 1.50
+21.72 ± 3.51
+Ammonia
+3.34 ± 0.93
+1.74 ± 1.02
+36.00 ± 3.06
+Acetaldehyde
+5.65 ± 2.43
+10.02 ± 2.92
+24.19 ± 2.34
+Acetone
+6.81 ± 0.33
+4.55 ± 1.27
+61.11 ± 12.72
+Toluene
+18.76 ± 8.32
+30.16 ± 11.61
+22.61 ± 4.58
+Macro
+6.68 ± 1.74
+8.52 ± 2.48
+29.40 ± 3.07
+Table VIII uses each gas’s fixed historical concentration 
+range and weights gases equally; it avoids allowing high-ppm 
+analytes to dominate the normalized macro score. All-policy 
+per-gas MAE and NMAE, reference ranges, and all five budgets 
+are in Supplementary Tables S5–S6. A one-label/gas run is a 
+fixed-epoch tiny-sample test, not a validated checkpoint 
+comparison.
+Under fixed-log scaling, fine-tuned one-label/gas macro-
+MAE is 8: 40.73 ± 24.75 ppm, 9: 39.47 ± 20.58 ppm, 10: 206.22 
+± 24.05 ppm. Its large seed variation and the substantial 
+partition-10 error limit claims of extreme label efficiency. 
+Budget effects are not uniformly monotonic. The fixed-log 20-
+label control is retained to separate budget effects from the 
+primary protocol’s change to fitted-log scaling at 20 labels.
+Table IX. Fine-Tuned Loss/Scaling Sensitivity, Macro-MAE (ppm), 
+Mean ± SD
+Target / loss
+Partition 8
+Partition 9
+Partition 10
+Log fitted SD
+19.45 ± 3.37
+18.52 ± 4.60
+143.05 ± 12.49
+Log fixed
+22.68 ± 5.59
+26.11 ± 6.19
+184.96 ± 9.99
+Linear Huber
+26.94 ± 4.16
+25.50 ± 6.16
+145.56 ± 11.05
+Linear MAE
+22.48 ± 4.17
+20.70 ± 4.75
+137.55 ± 12.87
+Log-Huber and linear MAE optimize different error 
+geometries. Table IX tests alternatives without choosing the 
+primary transform from test scores. Fixed scaling avoids fitting 
+log variance from 16 records per gas. Supplementary Table S7 
+retains every policy and fitted scale.
+Historical fitted-log Huber has the lowest observed fine-
+tuned macro-MAE among these transforms in partitions 8 and 
+9. In partition 10, linear MAE gives 137.55 ± 12.87 ppm versus 
+143.05 ± 12.49 ppm for fitted-log Huber, while fixed-log Huber 
+rises to 184.96 ± 9.99 ppm. The apparent severe-drift benefit of 
+changing the loss is therefore not a uniform scaling 
+improvement, and the linear-MAE transfer-versus-scratch 
+interval also includes zero.
+H.Tail Error, Capacity, and Uncertainty
+Table X. Full-Budget Mean R², RMSE and Q0.9 Across Ten Seeds
+Gas
+Policy
+R²
+RMSE
+Q0.9
+NH3
+Scratch
+0.962
+31.16
+48.79
+NH3
+Frozen
+0.975
+25.57
+44.64
+NH3
+Fine-tuned
+0.979
+23.29
+38.11
+H2
+Scratch
+0.881
+57.78
+96.54
+H2
+Frozen
+0.925
+46.01
+78.41
+H2
+Fine-tuned
+0.935
+42.90
+74.15
+CO
+Scratch
+0.617
+94.89
+162.79
+CO
+Frozen
+0.771
+73.58
+110.76
+CO
+Fine-tuned
+0.777
+72.93
+109.51
+Ethylene
+Scratch
+0.558
+3.257
+5.769
+Ethylene
+Frozen
+0.749
+2.457
+3.703
+Ethylene
+Fine-tuned
+0.742
+2.483
+4.130
+CO remains quantitatively limited even after transfer: mean 
+R² is 0.777, and Q0.9 is 109.51 ppm on the 0–533.33 ppm scale. 
+Relative improvement must not be equated with adequate 
+quantitative calibration. Table X includes scratch tail errors and 
+frozen transfer as well as fine-tuning.
+NH3/H2: 117,514 proposed parameters (31,272 encoder; 
+86,242 head), all trainable in fine-tuning versus 86,242 in 
+frozen transfer; generic SSL has 108,098. The seed-42 full-
+budget fitting subset has 46 distinct exposures, giving 2,555 
+proposed parameters per fitting exposure. CO/ethylene: 
+101,002 proposed parameters (31,144 encoder; 69,858 head), 
+all trainable in fine-tuning versus 69,858 in frozen transfer; 
+generic SSL has 91,714. The seed-42 full-budget fitting subset 
+has 19 distinct exposures, giving 5,316 proposed parameters per 
+fitting exposure. Five overlapping windows do not multiply the 
+independent sample count. Supplementary Table S8 gives 
+low/full-budget model sizes and drift counts; high parameter-to-
+exposure ratios remain an overfitting concern despite 
+regularization and validation.
+Chronological/session shift violates the exchangeability 
+assumption of standard split-conformal coverage [24], [25]. 
+Such intervals are diagnostic under shift, not deployment 
+guarantees. Shift-aware uncertainty remains unevaluated.
+VI.
+DISCUSSION AND CONCLUSION
+Masked self-supervised pretraining reduces mean error 
+against scratch in this same-system calibration evaluation. 
+Under predefined fine-tuning, primary reductions are 13.9% for 
+NH3, 21.5% for H2, 27.5% for CO and 25.7% for ethylene; 
+NH3/H2 uses the early-response window. Fixed-split pair-count 
+comparisons show approximately comparable NH3/ethylene 
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  9
+Manuscript under review.
+errors and lower mean CO error with 10 transfer pairs versus 20 
+scratch pairs, but not an H2 match at those budgets.
+The proposed model is not the best full-budget baseline on 
+any of the four targets; CO MAE is 1.86 times that of PLSR. 
+Sensor identity and attention are not uniformly beneficial, 
+particularly for NH3. NH3 also has negligible five-pair 
+improvement and is the weakest multiplicity-adjusted primary 
+case. Window and calibration-design effects vary with target 
+and budget. Remaining absolute and tail errors limit 
+quantitative usefulness.
+Oracle-class drift regression improves in partitions 8-9 but 
+not clearly in partition 10. The evaluation assumes known gas 
+identity. Constant, normalized-error and loss controls show that 
+representation reuse alone does not establish severe-drift 
+robustness.
+Ten seeds quantify training/design variability, not 
+independent acquisitions. NH3’s four-comparison adjusted 
+interval includes zero; CO/ethylene intervals remain indicative 
+with only three folds. NH3/H2 acquisition spanned six days, but 
+missing day-by-day mixture logs prevent reliable day-held-out 
+evaluation. Temperature and humidity were neither controlled 
+nor measured. Consequently these identifier folds cannot 
+establish between-day or environmental robustness. Cross-
+device transfer remains unevaluated.
+Label withholding tests the learning premise retrospectively, 
+not acquisition-cost savings. Known-coordinate calibration 
+design excludes candidate-pool quantification costs. Future 
+experiments will measure and record environmental conditions; 
+exposure-linked day/session logs are needed for independent-
+day evaluation. Prospective unquantified-mixture pretraining, 
+acquisition-cost accounting, and shift-aware uncertainty remain 
+future work.
+VII. DATA AND CODE AVAILABILITY
+The NH3/H2 dataset is identified by Harvard Dataverse DOI 
+10.7910/DVN/LWUSKO [29]; the public CO/ethylene and 
+drift datasets are cited in [15] and [16]. Study code is linked at 
+https://github.com/ngdvan/Transfer-learning-Enose.
+ 
+The 
+accompanying revision package contains the analysis scripts, 
+split-audit records, unrounded result exports and representative 
+compute measurements used here. Exposure-to-day mixture 
+logs and environmental measurements were not recorded and 
+are not available.
+ REFERENCES
+[1] P. Jia, T. Huang, S. Duan, L. Ge, J. Yan, and L. Wang, “A 
+novel semi-supervised electronic nose learning technique: M-
+Training,” Sensors, vol. 16, no. 3, Art. no. 370, 2016, doi: 
+10.3390/s16030370.
+[2] T. Huang, P. Jia, P. He, S. Duan, J. Yan, and L. Wang, “A 
+novel semi-supervised method of electronic nose for indoor 
+pollution detection trained by M-S4VMs,” Sensors, vol. 16, no. 
+9, Art. no. 1462, 2016, doi: 10.3390/s16091462.
+[3] Y. Zhang et al., “TDACNN: Target-domain-free domain 
+adaptation convolutional neural network for drift compensation 
+in gas sensors,” Sensors and Actuators B: Chemical, vol. 361, 
+Art. no. 131739, 2022, doi: 10.1016/j.snb.2022.131739.
+[4] Y. Tian et al., “Metric Network for E-Nose Drift 
+Compensation: Few-Shot Learning for Robust Gas Sensing,” 
+IEEE Sensors Journal, vol. 25, no. 9, 2025, doi: 
+10.1109/JSEN.2025.3553376.
+[5] Y. Heng et al., “An electronic nose drift compensation 
+algorithm based on semi-supervised adversarial domain 
+adaptive convolutional neural network,” Sensors and Actuators 
+B: Chemical, vol. 422, Art. no. 136642, 2025, doi: 
+10.1016/j.snb.2024.136642.
+[6] Y. Tian, Y. Sun, and S. Zhang, “CEGNN: Contrastive edge 
+labeling graph neural network for sensor drift adaptation in 
+electronic noses,” Sensors and Actuators B: Chemical, 
+vol. 445,
+ 
+Art.
+ 
+no.
+ 
+138470,
+ 
+2025,
+ 
+doi: 
+10.1016/j.snb.2025.138470.
+[7] V. K. Gupta et al., “Target-Domain Data Free Model-
+Agnostic-Meta-Learning Framework for Time-Varying Drift 
+Correction for E-Nose,” IEEE Sensors Letters, vol. 9, no. 8, 
+2025, doi: 10.1109/LSENS.2025.3591494.
+[8] J. Fonollosa, S. Sheik, R. Huerta, and S. Marco, “Reservoir 
+computing compensates slow response of chemosensor arrays 
+exposed to fast varying gas concentrations in continuous 
+monitoring,” Sensors and Actuators B: Chemical, vol. 215, 
+pp. 618–629, 2015, doi: 10.1016/j.snb.2015.03.028.
+[9] W. Ni et al., “Multi-task deep learning model for 
+quantitative volatile organic compounds analysis by feature 
+fusion of electronic nose sensing,” Sensors and Actuators B: 
+Chemical, vol. 417, Art. no. 136206, 2024, doi: 
+10.1016/j.snb.2024.136206.
+[10] Z. Tang et al., “Discrimination of VOCs with e-nose 
+consisting of a single MEMS sensor using lightweight deep 
+learning model based on SqueezeNet,” Sensors and Actuators 
+B: Chemical, vol. 422, Art. no. 136640, 2025, doi: 
+10.1016/j.snb.2024.136640.
+[11] X. Xia et al., “The parameter-feature-based transfer 
+learning for mixed gas monitoring under small datasets,” 
+Sensors and Actuators B: Chemical, vol. 441, Art. no. 137975, 
+2025, doi: 10.1016/j.snb.2025.137975.
+[12] H. Mei et al., “A semi-supervised domain adaptation for 
+cross-gas concentration prediction with multi-target and 
+bidirectional transfer for E-nose system,” Sensors and 
+Actuators B: Chemical, vol. 450, Art. no. 139242, 2026, doi: 
+10.1016/j.snb.2025.139242.
+[13] K. Zhang et al., “Self-Supervised Learning for Time Series 
+Analysis: Taxonomy, Progress, and Prospects,” IEEE 
+Transactions on Pattern Analysis and Machine Intelligence, 
+vol. 46,
+ 
+no.
+ 
+10,
+ 
+pp. 6775–6794,
+ 
+2024,
+ 
+doi: 
+10.1109/TPAMI.2024.3387317.
+[14] I. Rodriguez-Lujan, J. Fonollosa, A. Vergara, M. L. 
+Homer, and R. Huerta, “On the calibration of sensor arrays for 
+pattern recognition using the minimal number of experiments,” 
+Chemometrics and Intelligent Laboratory Systems, vol. 130, 
+pp. 123–134, 2014, doi: 10.1016/j.chemolab.2013.10.012.
+[15] J. Fonollosa, “Gas sensor array under dynamic gas 
+mixtures,” UCI Machine Learning Repository, 2015, doi: 
+10.24432/C5WP4C.
+[16] A. Vergara, “Gas Sensor Array Drift at Different 
+Concentrations,” UCI Machine Learning Repository, 2012, doi: 
+10.24432/C5MK6M.
+[17] A. Vergara, S. Vembu, T. Ayhan, M. A. Ryan, M. L. 
+Homer, and R. Huerta, “Chemical gas sensor drift 
+compensation using classifier ensembles,” Sensors and 
+
+IEEE SENSORS JOURNAL — REVISED MANUSCRIPT  |  10
+Actuators B: Chemical, vols. 166–167, pp. 320–329, 2012, doi: 
+10.1016/j.snb.2012.01.074.
+[18] Y. Nie, N. H. Nguyen, P. Sinthong, and J. Kalagnanam, 
+"A Time Series is Worth 64 Words: Long-term Forecasting 
+with
+ 
+Transformers,"
+ 
+ICLR,
+ 
+2023. 
+https://arxiv.org/abs/2211.14730
+[19] G. Zerveas, S. Jayaraman, D. Patel, A. Bhamidipaty, and 
+C. Eickhoff, "A Transformer-based Framework for 
+Multivariate Time Series Representation Learning," KDD, 
+2021. https://arxiv.org/abs/2010.02803
+[20] Z. Yue et al., "TS2Vec: Towards Universal 
+Representation of Time Series," AAAI, 2022. 
+https://arxiv.org/abs/2106.10466
+[21] S. Wold, M. Sjostrom, and L. Eriksson, "PLS-
+regression: a basic tool of chemometrics," Chemometrics and 
+Intelligent Laboratory Systems, vol. 58, pp. 109–130, 2001. 
+https://doi.org/10.1016/S0169-7439(01)00155-1
+[22] A. J. Smola and B. Scholkopf, "A tutorial on support 
+vector regression," Statistics and Computing, vol. 14, pp. 199–
+222,
+ 
+2004. 
+https://doi.org/10.1023/B:STCO.0000035301.49549.88
+[23] R. W. Kennard and L. A. Stone, "Computer Aided 
+Design of Experiments," Technometrics, vol. 11, pp. 137–148, 
+1969. https://doi.org/10.1080/00401706.1969.10490666
+[24] R. F. Barber, E. J. Candes, A. Ramdas, and R. J. 
+Tibshirani, "Conformal prediction beyond exchangeability," 
+Annals
+ 
+of
+ 
+Statistics,
+ 
+vol.
+ 
+51,
+ 
+2023. 
+https://arxiv.org/abs/2202.13415
+[25] R. J. Tibshirani, R. F. Barber, E. J. Candes, and A. 
+Ramdas, "Conformal Prediction Under Covariate Shift," 
+NeurIPS, 2019. https://arxiv.org/abs/1904.06019
+[26] P. Geurts, D. Ernst, and L. Wehenkel, "Extremely 
+randomized trees," Machine Learning, vol. 63, pp. 3–42, 2006. 
+https://doi.org/10.1007/s10994-006-6226-1
+[27] T. Chen and C. Guestrin, "XGBoost: A Scalable Tree 
+Boosting System," KDD, pp. 785–794, 2016. 
+https://arxiv.org/abs/1603.02754
+[28] Dang Thi Thu Ha, Nguyen Dinh Van, Nguyen Duc Hoa, 
+and Nguyen Van Duy, “Design and Analysis of a Volatile 
+Organic Compounds Mixture Dataset for Indoor Air Quality 
+Monitoring,” in Proceedings of the 4th Annual International 
+Conference on Material, Machines, and Methods for 
+Sustainable Development (MMMS2024), Lecture Notes in 
+Mechanical Engineering. Cham: Springer, 2025, pp. 85–92, 
+doi: 10.1007/978-3-031-93816-0_11.
+[29] D.-V. Nguyen, "Nano MEMS Electronic Nose 
+Responses to Ammonia and Hydrogen," Harvard Dataverse, 
+V1, 2026, doi: 10.7910/DVN/LWUSKO.
+[30] DangThiThu Ha, NguyenDinh Van, and NguyenDuc 
+Hoa, "Image-Based Hybrid Autoencoder–LSTM for Mixed-
+Gas Estimation in Electronic Nose," IEEE Sensors Journal, vol. 
+26, no. 3, pp. 4739–4748, Feb. 2026, doi: 
+10.1109/JSEN.2025.3642226.
+Dinh-Van Nguyen 
+earned his Ph.D. in 
+Information Technology from Mines ParisTech 
+(Paris School of Mines) in 2019, focusing on 
+localization methods for autonomous vehicles. 
+He is currently a lecturer at the Faculty of 
+Communication Engineering, School of 
+Electrical and Electronic Engineering, Hanoi 
+University of Science and Technology.
+His research interests include artificial 
+intelligence-based data analysis, smart 
+environments, and application of digital games in intelligent education.
+DangThiThu Ha is a lecturer at Hoa Lu 
+University, Ninh Binh, Vietnam. In 2011, she 
+obtained her master’s degree in computer 
+science from the Hanoi National University of 
+Education, where her research emphasized data 
+science and security for diverse applications.
+She is currently pursuing doctoral studies in 
+computer science at the School of Information 
+and Communication Technology at Hanoi 
+University of Science and Technology. Her 
+primary research interests lie in artificial 
+intelligence and innovative applications in electronic nose systems.
+Thu-Huong Nguyen earned her bachelor 
+degree in Hanoi University of Science and 
+Technology in 2025. she is currently a master 
+student and teaching assistant at the Faculty 
+of Communication Engineering, School of 
+Electrical and Electronic Engineering, Hanoi 
+University of Science and Technology.
+Her research interests include artificial 
+intelligence-based data analysis, smart environments, and application of 
+digital games in intelligent education.
+NguyenDuc Hoa obtained his PhD degree in 
+Materials Science and Engineering in 2009 at 
+Chungnam National University in Korea. He is 
+currently a full Professor at Hanoi University of 
+Science and Technology, Vietnam. 
+He has published more than 100+ ISI papers. 
+He has approximately 8000 citations with an H-
+index of 58. His research has covered a wide 
+range of nanostructured materials from their 
+synthesis, fundamentals, and applications. He 
+collaborated on several projects focusing on the outreach and education 
+of students in the thematic of pollutant gases and related smart sensing 
+platforms useful for their detection. He also developed inorganic 
+materials and the use of machine learning towards smart sensing 
+devices.
+He was awarded a JSPS fellowship and conducted research at the 
+National Institute for Materials Science (NIMS, Japan) from 2009 to 
+2011.

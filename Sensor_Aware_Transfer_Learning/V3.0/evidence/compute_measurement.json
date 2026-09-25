@@ -1,0 +1,32 @@
+{
+  "scope": "Representative rerun, seed 42, fixed-split pretraining; wall time includes model initialization and training, excludes data loading/scaling and disk checkpoint writes. Does not reconstruct historical campaign cost.",
+  "python": "3.13.2",
+  "torch": "2.12.1+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "runs": [
+    {
+      "dataset": "nh3_h2",
+      "epochs": 60,
+      "batch_size": 64,
+      "windows": 1260,
+      "pretraining_groups": 252,
+      "seconds": 38.761206199997105,
+      "finite_loss": true
+    },
+    {
+      "dataset": "co_ethylene",
+      "epochs": 60,
+      "batch_size": 64,
+      "windows": 735,
+      "pretraining_groups": 147,
+      "seconds": 19.876083999988623,
+      "finite_loss": true
+    }
+  ],
+  "source_hashes": {
+    "same_device_session_transfer.py": "558b5433174d8bb788c3cb60691a9772dbeb5195f551f80f94c5728a41285166",
+    "sensor_drift_transfer.py": "26395bf72f28427bf9e37220360228986c9e00c696bd8f031f1d72eb516d5f50",
+    "run_major_revision.py": "8eb3f5d17d1cfa385501be942e16bc6bf530477f84e6557ad5ba4ce0ad8eceea"
+  }
+}
