@@ -1,0 +1,384 @@
+{
+  "nh3_h2": {
+    "5": {
+      "finetuned_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 99.22265672683717,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 222.0157409667971,
+          "n_predictions": 189
+        }
+      },
+      "frozen_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 122.24334716796888,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 242.8541381835938,
+          "n_predictions": 189
+        }
+      },
+      "physics_extratrees": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 109.28000000000003,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 316.15000000000003,
+          "n_predictions": 189
+        }
+      },
+      "scratch": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 138.73765869140647,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 298.41806640625003,
+          "n_predictions": 189
+        }
+      }
+    },
+    "10": {
+      "finetuned_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 94.5896847724915,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 165.91953735351564,
+          "n_predictions": 189
+        }
+      },
+      "frozen_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 94.61309089660647,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 171.92387695312505,
+          "n_predictions": 189
+        }
+      },
+      "physics_extratrees": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 88.49000000000011,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 220.36999999999998,
+          "n_predictions": 189
+        }
+      },
+      "scratch": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 98.68195800781253,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 223.23217773437506,
+          "n_predictions": 189
+        }
+      }
+    },
+    "20": {
+      "finetuned_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 65.91669235229493,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 88.47465667724612,
+          "n_predictions": 189
+        }
+      },
+      "frozen_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 61.3631774902344,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 79.05474853515626,
+          "n_predictions": 189
+        }
+      },
+      "physics_extratrees": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 85.76666666666674,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 139.6866666666667,
+          "n_predictions": 189
+        }
+      },
+      "scratch": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 68.73203125,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 117.27156677246094,
+          "n_predictions": 189
+        }
+      }
+    },
+    "40": {
+      "finetuned_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 56.3427673339844,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 97.48388977050787,
+          "n_predictions": 189
+        }
+      },
+      "frozen_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 52.259741210937506,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 84.46217041015629,
+          "n_predictions": 189
+        }
+      },
+      "physics_extratrees": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 59.920000000000016,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 88.99666666666671,
+          "n_predictions": 189
+        }
+      },
+      "scratch": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 68.66739807128909,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 100.08145141601558,
+          "n_predictions": 189
+        }
+      }
+    },
+    "57": {
+      "finetuned_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 33.61885375976561,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 71.89955139160158,
+          "n_predictions": 189
+        }
+      },
+      "frozen_transfer": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 38.98250122070315,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 75.23554992675781,
+          "n_predictions": 189
+        }
+      },
+      "physics_extratrees": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 53.14000000000001,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 83.15833333333342,
+          "n_predictions": 189
+        }
+      },
+      "scratch": {
+        "NH3": {
+          "q90_abs_error_ppm_pooled": 35.54971923828125,
+          "n_predictions": 189
+        },
+        "H2": {
+          "q90_abs_error_ppm_pooled": 87.18831787109376,
+          "n_predictions": 189
+        }
+      }
+    }
+  },
+  "co_ethylene": {
+    "5": {
+      "finetuned_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 203.5227203369141,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 5.539983558654786,
+          "n_predictions": 147
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 217.76302185058594,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 5.4036561965942385,
+          "n_predictions": 147
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 201.02430162353517,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 6.558596013641357,
+          "n_predictions": 147
+        }
+      },
+      "scratch": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 403.3365173339844,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 7.688434278964999,
+          "n_predictions": 147
+        }
+      }
+    },
+    "10": {
+      "finetuned_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 146.76742553710938,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 5.479202604293824,
+          "n_predictions": 147
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 136.9011932373047,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 6.00852930545807,
+          "n_predictions": 147
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 189.32105771484376,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 6.572860050201414,
+          "n_predictions": 147
+        }
+      },
+      "scratch": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 272.9220397949219,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 8.329999923706055,
+          "n_predictions": 147
+        }
+      }
+    },
+    "20": {
+      "finetuned_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 121.38829345703125,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 4.671091461181643,
+          "n_predictions": 147
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 116.41536560058594,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 3.284726905822754,
+          "n_predictions": 147
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 169.59396584065757,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 7.1279553806304925,
+          "n_predictions": 147
+        }
+      },
+      "scratch": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 201.2354705810547,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 6.337121772766114,
+          "n_predictions": 147
+        }
+      }
+    },
+    "24": {
+      "finetuned_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 128.68293762207034,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 3.8190839767456057,
+          "n_predictions": 147
+        }
+      },
+      "frozen_transfer": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 118.81525421142577,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 3.1267553329467783,
+          "n_predictions": 147
+        }
+      },
+      "physics_extratrees": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 155.98072416890466,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 6.902298042424521,
+          "n_predictions": 147
+        }
+      },
+      "scratch": {
+        "CO": {
+          "q90_abs_error_ppm_pooled": 183.93690452575686,
+          "n_predictions": 147
+        },
+        "Ethylene": {
+          "q90_abs_error_ppm_pooled": 7.189920377731324,
+          "n_predictions": 147
+        }
+      }
+    }
+  }
+}
