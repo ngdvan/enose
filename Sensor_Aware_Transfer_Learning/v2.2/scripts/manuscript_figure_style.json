@@ -1,0 +1,13 @@
+{
+  "size_scale": 1.0,
+  "font_scale": 1.0,
+  "background": "white",
+  "color_replacements": {},
+  "extra_formats": [],
+  "figures": {
+    "figure_01_pipeline.png": {},
+    "figure_02_evaluation_protocol.png": {},
+    "figure_03_pretraining_loss.png": {},
+    "figure_04_prediction_scatter.png": {}
+  }
+}

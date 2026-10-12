@@ -1,16 +1,16 @@
 """Export exact English manuscript figures and matching Vietnamese versions.
 
-English PNG files are copied byte-for-byte from the authoritative clean DOCX.
-Vietnamese figures preserve the data, colors, panel order, geometry, and pixel
-dimensions while translating only visible prose labels.
+Run from any working directory using the bundled manuscript_figure_data folder.
+English PNGs are exact manuscript exports; Vietnamese plots are editable redraws.
+Edit manuscript_figure_style.json for sizing, fonts, colors, and vector exports.
 """
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
-from zipfile import ZipFile
 
 import matplotlib
 
@@ -23,13 +23,13 @@ import pandas as pd
 from PIL import Image
 
 
-ROOT = Path(__file__).resolve().parents[1]
-DOCX = ROOT / "author_review/full_revision_001/IEEE_Full_Revision_Clean.docx"
-OUT = ROOT / "figure"
+SCRIPT_DIR = Path(__file__).resolve().parent
+DATA = SCRIPT_DIR / "manuscript_figure_data"
+OUT = SCRIPT_DIR / "generated_manuscript_figures"
 EN = OUT / "en"
 VN = OUT / "vn"
-RUN = ROOT / "revision_artifacts/runs/major_revision_001"
-EVIDENCE = ROOT / "author_review/full_revision_001/evidence/exports"
+SETTINGS = {}
+
 
 BLUE = "#24476B"
 GREEN = "#006B4F"
@@ -75,9 +75,9 @@ def set_png_dpi(path: Path, dpi: int) -> None:
 
 def exact_english_exports() -> None:
     EN.mkdir(parents=True, exist_ok=True)
-    with ZipFile(DOCX) as archive:
-        for output_name, media_name in MEDIA.items():
-            (EN / output_name).write_bytes(archive.read(media_name))
+    for output_name in MEDIA:
+        (EN / output_name).write_bytes((DATA / "english" / output_name).read_bytes())
+
 
 
 def setup_canvas(width: int, height: int, dpi: int = 300):
@@ -206,9 +206,8 @@ def vietnamese_figure_1() -> None:
     ax.text(84.7, 3.6, "Huấn luyện không nhãn cung cấp $\\theta_{SSL}$ trước khi dùng nhãn nồng độ", ha="center", fontsize=13, color=BLUE, fontweight="bold")
 
     target = VN / "figure_01_pipeline.png"
-    fig.savefig(target, dpi=300, facecolor="white")
+    save_figure(fig, target, 300, 600)
     plt.close(fig)
-    set_png_dpi(target, 600)
 
 
 def vietnamese_figure_2() -> None:
@@ -245,9 +244,8 @@ def vietnamese_figure_2() -> None:
     ]
     ax.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, -0.005), ncol=4, frameon=False, fontsize=8.8, handlelength=1.4, columnspacing=1.15)
     target = VN / "figure_02_evaluation_protocol.png"
-    fig.savefig(target, dpi=dpi, facecolor="white")
+    save_figure(fig, target, dpi, 600)
     plt.close(fig)
-    set_png_dpi(target, 600)
 
 
 def vietnamese_figure_3() -> None:
@@ -267,7 +265,7 @@ def vietnamese_figure_3() -> None:
         ["NH3/H2", "CO/etylen", "Độ trôi cảm biến"],
         ["nh3_h2_f0_early_s*_full.json", "co_ethylene_f0_early_s*_full.json", "drift_s*.json"],
     ):
-        histories = np.array([json.loads(path.read_text())["loss"] for path in sorted((RUN / "checkpoints").glob(pattern))])
+        histories = np.array(json.loads((DATA / "loss_histories.json").read_text(encoding="utf-8"))[pattern])
         assert len(histories) == 10
         x = np.arange(1, histories.shape[1] + 1)
         mean = histories.mean(0)
@@ -283,12 +281,12 @@ def vietnamese_figure_3() -> None:
     ]
     fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, 0), ncol=2, frameon=False, handlelength=2, handleheight=1.15, prop={"size": 7.2, "weight": "bold"})
     fig.tight_layout(pad=0.65, rect=[0, 0.065, 1, 1])
-    fig.savefig(VN / "figure_03_pretraining_loss.png", dpi=400, facecolor="white")
+    save_figure(fig, VN / "figure_03_pretraining_loss.png", 400)
     plt.close(fig)
 
 
 def vietnamese_figure_4() -> None:
-    predictions = pd.read_csv(EVIDENCE / "predictions/raw_response_predictions.csv")
+    predictions = pd.read_csv(DATA / "predictions.csv")
     fig, axes = plt.subplots(2, 2, figsize=(3.45, 3.55))
     gases = ["NH3", "H2", "CO", "Ethylene"]
     titles = ["NH3", "H2", "CO", "Etylen"]
@@ -309,7 +307,7 @@ def vietnamese_figure_4() -> None:
     handles = [Line2D([], [], linestyle="none", marker=marker, markersize=7, markerfacecolor=color, markeredgecolor=color, label=label) for label, color, marker in zip(labels, colors, markers)]
     fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, 0.005), ncol=3, frameon=True, edgecolor="#777777", framealpha=1, handlelength=0.75, handletextpad=0.3, columnspacing=0.65, borderpad=0.5, prop={"size": 6.7, "weight": "bold"})
     fig.tight_layout(pad=0.55, rect=[0, 0.10, 1, 1])
-    fig.savefig(VN / "figure_04_prediction_scatter.png", dpi=400, facecolor="white")
+    save_figure(fig, VN / "figure_04_prediction_scatter.png", 400)
     plt.close(fig)
 
 
@@ -324,19 +322,60 @@ def write_manifest() -> None:
             items.append(
                 {
                     "language": language,
-                    "file": str(path.relative_to(ROOT)).replace("\\", "/"),
+                    "file": path.relative_to(OUT).as_posix(),
                     "pixels": size,
                     "dpi_metadata": dpi,
                     "bytes": path.stat().st_size,
                     "sha256": sha256(path),
                     "caption": CAPTIONS[name][language],
-                    "english_source": "byte-for-byte DOCX media export" if language == "en" else "translated redraw with unchanged scientific data and manuscript geometry",
+                    "english_source": "byte-for-byte DOCX media export" if language == "en" else "translated redraw from bundled scientific data with configurable styling",
                 }
             )
-    (OUT / "manifest.json").write_text(json.dumps({"source_manuscript": str(DOCX.relative_to(ROOT)).replace("\\", "/"), "figures": items}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (OUT / "manifest.json").write_text(json.dumps({"source_manuscript": "bundled manuscript PNGs (manuscript_figure_data/english)", "figures": items}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def save_figure(fig, target: Path, default_dpi: int, metadata_dpi=None) -> None:
+    """Apply editable settings consistently to all redrawn figures."""
+    from matplotlib.text import Text
+    options = SETTINGS.get("figures", {}).get(target.name, {})
+    scale = options.get("size_scale", SETTINGS.get("size_scale", 1.0))
+    fig.set_size_inches(options.get("size_inches", fig.get_size_inches() * scale))
+    font_scale = options.get("font_scale", SETTINGS.get("font_scale", 1.0))
+    font_family = SETTINGS.get("font_family")
+    colors = SETTINGS.get("color_replacements", {})
+    for artist in fig.findobj():
+        if isinstance(artist, Text):
+            artist.set_fontsize(artist.get_fontsize() * font_scale)
+            if font_family:
+                artist.set_fontfamily(font_family)
+        for attribute in ("color", "facecolor", "edgecolor"):
+            getter = getattr(artist, "get_" + attribute, None)
+            setter = getattr(artist, "set_" + attribute, None)
+            if getter and setter:
+                value = getter()
+                if isinstance(value, str) and value.lower() in colors:
+                    setter(colors[value.lower()])
+    dpi = options.get("dpi", SETTINGS.get("dpi", default_dpi))
+    fig.savefig(target, dpi=dpi, facecolor=SETTINGS.get("background", "white"))
+    if metadata_dpi is not None:
+        set_png_dpi(target, options.get("metadata_dpi", dpi if "dpi" in options or "dpi" in SETTINGS else metadata_dpi))
+    for extension in SETTINGS.get("extra_formats", []):
+        if extension not in ("svg", "pdf"):
+            raise ValueError("extra_formats supports only svg and pdf")
+        fig.savefig(target.with_suffix("." + extension), facecolor=SETTINGS.get("background", "white"))
 
 
 def main() -> None:
+    global OUT, EN, VN, DATA, SETTINGS
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config", type=Path, default=SCRIPT_DIR / "manuscript_figure_style.json")
+    parser.add_argument("--data-dir", type=Path, default=DATA)
+    parser.add_argument("--output-dir", type=Path, default=OUT)
+    args = parser.parse_args()
+    DATA = args.data_dir.resolve()
+    OUT = args.output_dir.resolve()
+    EN, VN = OUT / "en", OUT / "vn"
+    SETTINGS = json.loads(args.config.read_text(encoding="utf-8"))
     EN.mkdir(parents=True, exist_ok=True)
     VN.mkdir(parents=True, exist_ok=True)
     exact_english_exports()

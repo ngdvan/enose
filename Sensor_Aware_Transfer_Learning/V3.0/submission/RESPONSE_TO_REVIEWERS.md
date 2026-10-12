@@ -118,7 +118,7 @@ We thank the reviewer for the detailed assessment. This revision clarifies the a
 
 **Comment summary:** Shorten the disclaimer-dominated abstract and align the “Sensor-Aware” title with mixed component evidence; the author requires fewer than 250 words.
 
-**Response:** The title is now “Self-Supervised Transfer Learning for Label-Efficient Multigas Electronic Nose Calibration.” The abstract is 184 whitespace-delimited words, leads with the primary gains against scratch, and gives the protocol and a concrete pair-count comparison. It retains concise full-budget and day-independence scope statements, while detailed statistical, acquisition and cost qualifications remain in the methods/discussion. Sensor identity and attention remain precise architectural descriptions, without a title-level implication of uniformly demonstrated benefit.
+**Response:** The title is now “Self-Supervised Transfer Learning for Label-Efficient Multigas Electronic Nose Calibration.” The abstract is 230 whitespace-delimited words, presents the approach and primary gains against scratch in connected prose, and gives the protocol and a concrete pair-count comparison. It retains concise full-budget and day-independence scope statements, while detailed statistical, acquisition and cost qualifications remain in the methods/discussion. Sensor identity and attention remain precise architectural descriptions, without a title-level implication of uniformly demonstrated benefit.
 
 **Location:** Title; abstract; Sections V-F and VI; ABSTRACT.md.
 

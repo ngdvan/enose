@@ -1,7 +1,7 @@
 {
   "status": "PASS automated checks and visual proof review",
-  "abstract_words_whitespace": 184,
-  "abstract_words_split_hyphens": 211,
+  "abstract_words_whitespace": 230,
+  "abstract_words_split_hyphens": 246,
   "original_numerical_tables_preserved": 10,
   "new_label_budget_table": 1,
   "native_equation_objects": 64,
@@ -40,5 +40,6 @@
     "coverage": "All clean manuscript, supplement and response pages reviewed as contact sheets; detailed equation/table/front-matter pages inspected. Clean/highlighted PDF text and Word XML equality checked.",
     "renderer": "Archived LibreOffice 25.2.7.2",
     "limitation": "Word/publisher pagination may differ."
-  }
+  },
+  "abstract_update": "2026-10-13: first-page layout reviewed after abstract replacement"
 }

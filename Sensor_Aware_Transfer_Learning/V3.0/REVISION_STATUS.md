@@ -1,6 +1,6 @@
 # Revision 3.0 — completed local revision
 
-The revised title is **Self-Supervised Transfer Learning for Label-Efficient Multigas Electronic Nose Calibration**. The result-led abstract has **184 whitespace-delimited words**, or 211 when hyphenated terms and decimal components are split; both counts are below 250.
+The revised title is **Self-Supervised Transfer Learning for Label-Efficient Multigas Electronic Nose Calibration**. The result-led abstract has **230 whitespace-delimited words**, or 246 when hyphenated terms and decimal components are split; both counts are below 250.
 
 ## Review files
 

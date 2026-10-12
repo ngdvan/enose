@@ -21,9 +21,6 @@ calibration remains less studied.
 Temporal modeling [8]–[10], small-data transfer [11] and 
 domain-adaptive regression [12] motivate reusable 
 representations for concentration estimation.
-Our shared temporal encoder learns response dynamics, 
-while sensor identities and cross-sensor attention retain array 
-structure. Masked intervals and channels are reconstructed 
 Dinh-Van Nguyen is with School of Electrical and Electronic 
 Engineering, Hanoi University of Science and Technology, Ha Noi, Viet 
 Nam (e-mail: van.nguyendinh@hust.edu.vn).
@@ -36,6 +33,9 @@ Nam (e-mail: huong.nguyenthu4@hust.edu.vn).
 NguyenDuc Hoa is with School of Materials Science and Engineering, 
 Hanoi University of Science and Technology, Hanoi, Viet Nam (e-mail: 
 hoa.nguyenduc@hust.edu.vn).
+Our shared temporal encoder learns response dynamics, 
+while sensor identities and cross-sensor attention retain array 
+structure. Masked intervals and channels are reconstructed 
 before frozen or fine-tuned concentration regression. Two raw-
 response datasets support label-budget and multi-fold 
 evaluation; a descriptor benchmark tests oracle-class regression 
@@ -62,18 +62,20 @@ without concentration pseudo-labels.
 Self-Supervised Transfer Learning for Label-
 Efficient Multigas Electronic Nose Calibration
 Dinh-Van Nguyen, DangThiThu Ha, Thu-Huong Nguyen , and NguyenDuc Hoa
-Abstract— Self-supervised transfer reduces mean absolute concentration error relative to training from scratch by 
-13.9% for NH3, 21.5% for H2, 27.5% for CO, and 25.7% for ethylene in our primary multigas electronic-nose evaluation. 
-We pretrain a shared temporal encoder using masked sensor-response reconstruction, then fine-tune it with a limited 
-set of labeled concentration pairs. The evaluation uses ten seeds, six held-out identifier partitions for NH3/H2, and three 
-rolling chronological folds for CO/ethylene; the NH3/H2 results use a predefined early-response window. In secondary 
-fixed-split experiments, fine-tuning with 10 labeled pairs gives approximately the NH3 and ethylene errors of scratch 
-training with 20 pairs, a lower mean CO error, and a higher H2 error. These pair counts include validation labels. Sensor-
-identity and cross-sensor-attention ablations show target-dependent effects, with NH3 the weakest transfer case. In a 
-known-gas-identity drift benchmark, transfer improves concentration regression in partitions 8 and 9 but not clearly in 
-partition 10. The proposed model is not the best full-budget baseline on any of the four raw-response targets. The 
-findings support target-dependent label efficiency for same-system calibration; the NH3/H2 identifier partitions do not 
-establish between-day generalization.
+Abstract— Self-supervised transfer learning can reduce the number of labeled examples needed to calibrate a 
+multigas electronic nose, although its benefits vary across gases and experimental conditions. We investigate this 
+approach by first training a shared temporal encoder to reconstruct masked sensor responses without concentration 
+labels, then fine-tuning it on a small set of labeled concentration pairs. Across ten random seeds, transfer learning 
+reduces mean absolute error relative to training from scratch by 13.9% for NH3, 21.5% for H2, 27.5% for CO, and 25.7% 
+for ethylene. These results come from six held-out identifier partitions for NH3/H2 using a predefined early-response 
+window and three rolling chronological folds for CO/ethylene. To express label efficiency more directly, we also 
+compare models trained with different calibration budgets. Using 10 labeled pairs, including validation labels, fine-
+tuning achieves approximately the NH3 and ethylene errors of scratch training with 20 pairs and a lower mean CO error, 
+but does not match its H2 performance. Sensor identity and cross-sensor attention contribute unevenly, with NH3 
+showing the weakest evidence of benefit. Transfer also improves concentration regression in two of three future drift 
+partitions when gas identity is known. Overall, the findings support selective use of self-supervised transfer for label-
+efficient calibration within the same sensor system. However, the proposed model does not outperform the strongest 
+full-budget baseline on any target, and the NH3/H2 evaluation does not establish generalization across acquisition days.
 Index Terms— Electronic nose, self-supervised learning, transfer learning, gas concentration regression, sensor drift, 
 label-efficient calibration, sensor attention.
 

@@ -1,0 +1,1143 @@
+﻿[
+    {
+        "ID":  "B01",
+        "Title":  "Vừa — Xếp NO₂, CO, NH₃ vào VOCs",
+        "Body":  "**Nhận xét:** NO₂, CO và NH₃ không phải hợp chất hữu cơ dễ bay hơi; “hương rượu” cũng không là tên một hợp chất. **Đề xuất:** “các VOC như ethanol và các khí vô cơ như NO₂, CO, NH₃”. TT P222 cũng nên tách “khí độc”, “khí dễ cháy” và VOCs, tránh xếp H₂ mặc nhiên là khí độc.",
+        "Quote":  "“các hợp chất VOCs như hương rượu, NO2, CO và NH3”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  222,
+                              "Text":  "Chất lượng không khí trong nhà đang trở thành vấn đề cấp thiết do tốc độ đô thị hóa và công nghiệp hóa nhanh chóng, ảnh hưởng trực tiếp đến sức khỏe lâu dài của con người. Trong khi các phương pháp giám sát truyền thống như sắc ký hay phương pháp lý hóa tốn nhiều chi phí, thời gian và khó phân tích hỗn hợp khí, cảm biến khí nano dựa trên mảng đa cảm biến công nghệ vi cơ điện tử đã nổi lên như một giải pháp di động, chi phí thấp và đáp ứng nhanh đối với các khí độc hại như CO, C2H4, NH3, H2 và các hợp chất hữu cơ dễ bay hơi VOCs. Tuy nhiên, do các cảm biến đơn lẻ có độ chọn lọc thấp và tín hiệu thu được từ mảng đa cảm biến trong môi trường hỗn hợp khí thực tế có đặc tính đan chéo, phi tuyến phức tạp, việc ứng dụng các hệ thống mũi điện tử (E-nose) hiện nay vẫn đối mặt với nhiều rào cản kỹ thuật.",
+                              "Page":  3,
+                              "PrintedPage":  1,
+                              "StartPage":  3,
+                              "StartPrintedPage":  1,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  110,
+                              "End":  916
+                          }
+                      ],
+        "FirstPage":  3
+    },
+    {
+        "ID":  "B20",
+        "Title":  "Vừa — Các khẳng định về tiết kiệm chi phí và IAQ vượt đánh giá",
+        "Body":  "**Nhận xét:** V3 là label withholding trên dữ liệu đã có nồng độ, không đo cost acquisition của pool chưa định lượng, chưa đánh giá chuyển thiết bị hoặc ambient low-ppm. **Đề xuất:** giữ kết luận “hỗ trợ hiệu quả nhãn trong cùng hệ thống”; trình bày IAQ là hướng ứng dụng, chi phí thực nghiệm và triển khai là future work. Thay “triệt để” bằng “nghiên cứu giải quyết”. **Nguồn:** Clean §I, §VI.",
+        "Quote":  "“tối ưu chi phí hiệu chuẩn đáng kể”; “khắc phục triệt để”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  224,
+                              "Text":  "Để khắc phục triệt để các hạn chế trên, luận án lựa chọn sử dụng mảng đa cảm biến khí nano SnO2 công nghệ MEMS nhằm xây dựng quy trình thu thập và chuẩn hóa các bộ dữ liệu hỗn hợp khí thực tế. Luận án đề xuất phương pháp chuyển đổi tín hiệu chuỗi thời gian sang dạng biểu diễn ảnh 2D, kết hợp với mô hình lai AE–LSTM để ước lượng chính xác nồng độ từng khí thành phần trong hỗn hợp. Đồng thời, nghiên cứu phát triển khung Autoencoder dựa trên học không giám sát để phát hiện bất thường, và ứng dụng cơ chế học chuyển giao tự giám sát có nhận biết cảm biến giúp hệ thống E-nose tự hiệu chuẩn hiệu quả ngay cả khi lượng dữ liệu gán nhãn ở miền đích bị hạn chế.",
+                              "Page":  4,
+                              "PrintedPage":  2,
+                              "StartPage":  3,
+                              "StartPrintedPage":  1,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  1917,
+                              "End":  2576
+                          },
+                          {
+                              "P":  834,
+                              "Text":  "Nhìn chung, luận án đã đề xuất một hướng tiếp cận tích hợp giữa cảm biến khí nano, biểu diễn dữ liệu dạng ảnh và các mô hình học sâu, học chuyển giao góp phần nâng cao độ chính xác, độ tin cậy và khả năng ứng dụng của hệ thống mũi điện tử trong giám sát chất lượng không khí trong nhà.",
+                              "Page":  25,
+                              "PrintedPage":  23,
+                              "StartPage":  25,
+                              "StartPrintedPage":  23,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  35396,
+                              "End":  35682
+                          }
+                      ],
+        "FirstPage":  3
+    },
+    {
+        "ID":  "D01",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Thiếu “tử”; sửa thành “mũi điện tử”.",
+        "Quote":  null,
+        "OriginalLocator":  "TT P227, P278: “mũi điện”",
+        "Locations":  [
+                          {
+                              "P":  227,
+                              "Text":  "- Nghiên cứu và đánh giá các phương pháp học máy, học sâu, học chuyển giao ứng dụng cho hệ thống mũi điện.",
+                              "Page":  4,
+                              "PrintedPage":  2,
+                              "StartPage":  4,
+                              "StartPrintedPage":  2,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  2641,
+                              "End":  2748
+                          },
+                          {
+                              "P":  278,
+                              "Text":  "Các thuật toán và phương pháp học máy trong hệ thống mũi điện gồm học máy truyền thống như SVM, KNN và RF; học không giám sát như K-means, PCA và các phương pháp phát hiện bất thường; và học sâu như CNN, LSTM, AE, ResNet và Transformer. Bên cạnh đó, học tự giám sát khai thác dữ liệu chưa gán nhãn thông qua các nhiệm vụ tiền huấn luyện và có thể kết hợp với học chuyển giao để giảm nhu cầu dữ liệu có nhãn.",
+                              "Page":  7,
+                              "PrintedPage":  5,
+                              "StartPage":  7,
+                              "StartPrintedPage":  5,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  6961,
+                              "End":  7369
+                          }
+                      ],
+        "FirstPage":  4
+    },
+    {
+        "ID":  "D02",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Viết thiếu. Sửa “- Phát triển phương pháp phát hiện bất thường từ dữ liệu mũi điện tử.”",
+        "Quote":  null,
+        "OriginalLocator":  "TT P230: “- Pháp phát hiện bất thường”",
+        "Locations":  [
+                          {
+                              "P":  230,
+                              "Text":  "- Pháp phát hiện bất thường từ dữ liệu mũi điện tử.",
+                              "Page":  4,
+                              "PrintedPage":  2,
+                              "StartPage":  4,
+                              "StartPrintedPage":  2,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  2855,
+                              "End":  2907
+                          }
+                      ],
+        "FirstPage":  4
+    },
+    {
+        "ID":  "D03",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** “chúng” không có antecedent rõ. Sửa “Tập trung vào các khí ... và hỗn hợp của chúng trong bối cảnh ...”.",
+        "Quote":  null,
+        "OriginalLocator":  "TT P237: “môi trường không khí trong nhà, hỗn hợp của chúng”",
+        "Locations":  [
+                          {
+                              "P":  237,
+                              "Text":  "- Tập trung vào môi trường không khí trong nhà, hỗn hợp của chúng: NH3, H2, CO, C2H4, Ethanol, Acetone, Methanol.",
+                              "Page":  4,
+                              "PrintedPage":  2,
+                              "StartPage":  4,
+                              "StartPrintedPage":  2,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  3236,
+                              "End":  3350
+                          }
+                      ],
+        "FirstPage":  4
+    },
+    {
+        "ID":  "D37",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** “2 mục và 4 chương” dễ nhầm cấp section. Viết “Mở đầu, bốn chương và Kết luận/hướng phát triển”. “bốn bộ dữ liệu hỗn hợp khí” nên đổi “bốn bộ dữ liệu cảm biến khí”, vì drift gồm các phép đo khí riêng.",
+        "Quote":  null,
+        "OriginalLocator":  "TT P250; LA phần mô tả cấu trúc",
+        "Locations":  [
+                          {
+                              "P":  250,
+                              "Text":  "Luận án được bố cục thành 2 mục và 4 chương",
+                              "Page":  5,
+                              "PrintedPage":  3,
+                              "StartPage":  5,
+                              "StartPrintedPage":  3,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  4406,
+                              "End":  4450
+                          },
+                          {
+                              "P":  253,
+                              "Text":  "- Chương 2. Cơ sở dữ liệu hỗn hợp khí: Xây dựng và mô tả bốn bộ dữ liệu hỗn hợp khí phục vụ thực nghiệm và đánh giá mô hình.",
+                              "Page":  5,
+                              "PrintedPage":  3,
+                              "StartPage":  5,
+                              "StartPrintedPage":  3,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  4797,
+                              "End":  4922
+                          }
+                      ],
+        "FirstPage":  5
+    },
+    {
+        "ID":  "D36",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Thiếu số **1.1.** ở mục Giới thiệu nếu giữ hệ thống số mục.",
+        "Quote":  null,
+        "OriginalLocator":  "TT P264: “Giới thiệu”; mục kế tiếp “1.2.”",
+        "Locations":  [
+                          {
+                              "P":  264,
+                              "Text":  "Giới thiệu",
+                              "Page":  6,
+                              "PrintedPage":  4,
+                              "StartPage":  6,
+                              "StartPrintedPage":  4,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  5585,
+                              "End":  5596
+                          },
+                          {
+                              "P":  266,
+                              "Text":  "1.2. Khung nghiên cứu",
+                              "Page":  6,
+                              "PrintedPage":  4,
+                              "StartPage":  6,
+                              "StartPrintedPage":  4,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  5870,
+                              "End":  5892
+                          }
+                      ],
+        "FirstPage":  6
+    },
+    {
+        "ID":  "D04",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Lặp từ; bỏ một “mô hình”.",
+        "Quote":  null,
+        "OriginalLocator":  "TT P289: “các mô hình mô hình dự báo”",
+        "Locations":  [
+                          {
+                              "P":  289,
+                              "Text":  "(1) Thiết kế và thu thập bộ dữ liệu hỗn hợp hai khí NH3–H2 từ hệ mũi điện tử, góp phần khắc phục hạn chế về sự thiếu hụt dữ liệu hỗn hợp khí trong các nghiên cứu hiện nay. Bộ dữ liệu này đồng thời tạo nền tảng đáng tin cậy cho việc phát triển, huấn luyện và đánh giá các mô hình mô hình dự báo và hiệu chuẩn nồng độ.",
+                              "Page":  9,
+                              "PrintedPage":  7,
+                              "StartPage":  9,
+                              "StartPrintedPage":  7,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  10623,
+                              "End":  10940
+                          }
+                      ],
+        "FirstPage":  9
+    },
+    {
+        "ID":  "A03",
+        "Title":  "Vừa — Khẳng định môi trường “độ ẩm cao” thiếu phép đo",
+        "Body":  "**Nhận xét:** Với NH₃/H₂, V3 không có số đo độ ẩm. Vì vậy không thể dùng độ ẩm cao đã định lượng hoặc sự biến thiên môi trường đã chứng minh làm ưu thế dữ liệu. **Đề xuất:** mô tả thiết lập đo thực tế và giới hạn thiếu số đo; phân biệt bối cảnh dự kiến với điều kiện đã ghi nhận. Với VOCs, yêu cầu nguồn riêng, không suy từ NH₃/H₂.",
+        "Quote":  "“môi trường đo thực tế với độ ẩm cao”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  300,
+                              "Text":  "Bộ dữ liệu NH3–H2 được tự xây dựng nhằm mô phỏng các hỗn hợp khí thường gặp trong môi trường trong nhà và công nghiệp, phục vụ bài toán hồi quy nồng độ và hiệu chuẩn NH3 và H2 trong hệ thống mũi điện tử. Dữ liệu được thu thập bằng mảng cảm biến nano SnO2 tích hợp công nghệ MEMS trong điều kiện thực tế có độ ẩm cao và nồng độ khí biến thiên theo thời gian, phản ánh các thách thức như chồng lấp tín hiệu và tính phi tuyến của cảm biến. Bộ dữ liệu là nền tảng để phát triển và đánh giá các mô hình học máy trong giám sát chất lượng không khí.",
+                              "Page":  11,
+                              "PrintedPage":  9,
+                              "StartPage":  11,
+                              "StartPrintedPage":  9,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  13502,
+                              "End":  14045
+                          }
+                      ],
+        "FirstPage":  11
+    },
+    {
+        "ID":  "A01",
+        "Title":  "Cao — Số ngày đo NH₃/H₂ mâu thuẫn V3",
+        "Body":  "**Nhận xét:** Xác nhận tác giả trong V3 ghi quá trình thu thập diễn ra trong **sáu ngày**. Sáu lần lặp của thiết kế không đồng nghĩa với sáu phân vùng đánh giá là sáu ngày đo độc lập. **Đề xuất:** ghi “Thu thập dữ liệu diễn ra trong sáu ngày; dữ liệu gồm 378 lần phơi khí”. Giải thích riêng số lần lặp, số định danh và số phân vùng; chỉ nối lần đo với ngày khi có log. **Nguồn:** V3 `evidence/author_confirmations.md`, Clean §IV.A.",
+        "Quote":  "“trong 5 ngày đo khác nhau”; “6 lần đo trong 5 ngày”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  308,
+                              "Text":  "Dữ liệu được thu thập qua 6 lần đo trong 5 ngày, gồm 378 phép đo với tổng cộng 162.404 dòng dữ liệu. Các phép đo được thực hiện ở 25 °C và RH 82%. Mỗi dòng dữ liệu gồm 23 đặc trưng, gồm chỉ số phép đo, nồng độ mục tiêu NH3 và H2, cùng 20 giá trị đáp ứng cảm biến. Bộ dữ liệu này cung cấp các tín hiệu đa kênh theo thời gian, phục vụ xây dựng và đánh giá mô hình ước lượng đồng thời nồng độ, hiệu chuẩn hỗn hợp khí NH3–H2.",
+                              "Page":  12,
+                              "PrintedPage":  10,
+                              "StartPage":  12,
+                              "StartPrintedPage":  10,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  15013,
+                              "End":  15435
+                          }
+                      ],
+        "FirstPage":  12
+    },
+    {
+        "ID":  "A02",
+        "Title":  "Cao — Nhiệt độ và độ ẩm NH₃/H₂ được khẳng định trái V3",
+        "Body":  "**Nhận xét:** V3 xác nhận nhiệt độ và độ ẩm **không được kiểm soát, không được đo/ghi nhận**. Không được giữ các con số này như điều kiện thực nghiệm đã xác minh. **Đề xuất:** “Nhiệt độ và độ ẩm không được kiểm soát hoặc đo ghi trong quá trình thu thập, nên chưa định lượng được ảnh hưởng của môi trường.” Nếu có hồ sơ mới, dẫn hồ sơ và giải thích vì sao khác V3. **Nguồn:** V3 author confirmations; Clean §IV.D, §VI.",
+        "Quote":  "“nhiệt độ 25 °C và độ ẩm tương đối (RH) 82%”; “Việc kiểm soát các thông số môi trường này”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  308,
+                              "Text":  "Dữ liệu được thu thập qua 6 lần đo trong 5 ngày, gồm 378 phép đo với tổng cộng 162.404 dòng dữ liệu. Các phép đo được thực hiện ở 25 °C và RH 82%. Mỗi dòng dữ liệu gồm 23 đặc trưng, gồm chỉ số phép đo, nồng độ mục tiêu NH3 và H2, cùng 20 giá trị đáp ứng cảm biến. Bộ dữ liệu này cung cấp các tín hiệu đa kênh theo thời gian, phục vụ xây dựng và đánh giá mô hình ước lượng đồng thời nồng độ, hiệu chuẩn hỗn hợp khí NH3–H2.",
+                              "Page":  12,
+                              "PrintedPage":  10,
+                              "StartPage":  12,
+                              "StartPrintedPage":  10,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  15013,
+                              "End":  15435
+                          }
+                      ],
+        "FirstPage":  12
+    },
+    {
+        "ID":  "A25",
+        "Title":  "Vừa — 452 lần đo bị đổi thành 452 tổ hợp nồng độ",
+        "Body":  "**Nhận xét:** LA gọi đây là **452 lần đo**, có các lần lặp. Số lần đo khác số tổ hợp duy nhất. **Đề xuất:** “452 lần đo thuộc 7 lớp thành phần khí, tương ứng 42.940 quan sát theo thời gian”; chỉ ghi số tổ hợp duy nhất nếu đã đếm từ các tọa độ nồng độ.",
+        "Quote":  "“tạo thành 452 tổ hợp hỗn hợp”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  368,
+                              "Text":  "Bộ dữ liệu VOCs được xây dựng từ ba khí ethanol, acetone và methanol với 9 mức nồng độ, tạo thành 452 tổ hợp hỗn hợp thuộc 7 lớp và tổng cộng 42.940 mẫu như Bảng 2.5. Dữ liệu được thu thập bằng hệ thống trộn khí sử dụng bộ điều khiển lưu lượng khối (MFC) và mảng 10 cảm biến khí nano SnO₂ công nghệ MEMS, trong đó tín hiệu cảm biến được ghi nhận bằng phần mềm LabVIEW. Các hỗn hợp khí có nồng độ biến thiên theo thời gian, tạo nền tảng để đánh giá các mô hình phát hiện bất thường và giám sát chất lượng không khí trong hệ thống mũi điện tử.",
+                              "Page":  13,
+                              "PrintedPage":  11,
+                              "StartPage":  12,
+                              "StartPrintedPage":  10,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  16087,
+                              "End":  16629
+                          }
+                      ],
+        "FirstPage":  12
+    },
+    {
+        "ID":  "A12",
+        "Title":  "Cao — Chuẩn hóa độc lập từng tập con không phải quy trình test giữ độc lập",
+        "Body":  "**Nhận xét:** Nếu fit Min–Max bằng toàn bộ test subset, đã sử dụng thống kê test và thay đổi phép biến đổi giữa train/test. Điều này cũng có thể xóa dịch chuyển biên độ cần đo trong hồi quy hoặc anomaly detection. P2290 lại mô tả extrema trên từng mẫu, khác với mô tả theo tập con. **Đề xuất:** ghi đúng code: fit scaler trên train của mỗi fold rồi transform validation/test; hoặc nếu chủ đích là chuẩn hóa từng cửa sổ, định nghĩa phép biến đổi và giới hạn ứng dụng đó. Không kết luận code rò rỉ khi chưa kiểm tra đúng phiên bản thí nghiệm; hiện phần mô tả chưa đủ tái lập. Chương 4 đã nêu fit trên pretrain, không áp dụng máy móc scaler Chương 4 để sửa số liệu Chương 3.",
+        "Quote":  "“trong từng phần dữ liệu”; “dữ liệu trong từng tập con được chuẩn hóa độc lập”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  385,
+                              "Text":  "Dữ liệu được tiền xử lý bằng cách loại bỏ dữ liệu thiếu, các mẫu có nồng độ khí bằng 0, lấy mẫu có hệ thống và làm mượt tín hiệu bằng bộ lọc Savitzky–Golay. Sau đó, dữ liệu được nhóm theo tổ hợp nồng độ và chia thành các cửa sổ tín hiệu dài 64 bước thời gian. Các mẫu được chia thành 5 tập con theo cấu trúc kiểm soát rò rỉ, gồm 4 tập huấn luyện và 1 tập kiểm tra, trước khi thực hiện chuẩn hóa. Tiếp theo, dữ liệu được chuẩn hóa Min–Max trên từng cảm biến trong từng tập con về khoảng [0,1]. Sau đó, cửa sổ trượt được áp dụng trên các tập huấn luyện để tăng cường dữ liệu lên 5 lần. Cuối cùng, các cửa sổ dữ liệu đã chuẩn hóa được chuyển đổi thành ảnh xám hai chiều làm đầu vào cho mô hình học sâu. Sau toàn bộ quá trình xử lý, thu được 1.225 mẫu Ethylene–CO và 1.890 mẫu NH3–H2.",
+                              "Page":  15,
+                              "PrintedPage":  13,
+                              "StartPage":  14,
+                              "StartPrintedPage":  12,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  19064,
+                              "End":  19845
+                          }
+                      ],
+        "FirstPage":  14
+    },
+    {
+        "ID":  "A13",
+        "Title":  "Cao — Thứ tự chia dữ liệu và tăng cường chưa thống nhất",
+        "Body":  "**Nhận xét:** LA nói tăng cường cả từng tập con, TT nói chỉ tập huấn luyện. P2569 chỉ ghi chia ngẫu nhiên mà không nói group theo lần đo. **Đề xuất:** mô tả một pipeline duy nhất: xác lập run/exposure ID, chia group, fit preprocessing, tạo cửa sổ trong mỗi group; nêu riêng số cửa sổ train/validation/test và trọng số đánh giá. Nếu test chỉ lấy offset 0 như V3, không trình bày 5 offset test như mẫu độc lập. **Trạng thái:** cần đối chiếu code Chương 3; không khẳng định hai chương có cùng giao thức.",
+        "Quote":  "“gấp năm lần trong từng tập con”; “cửa sổ trượt ... trên các tập huấn luyện”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  385,
+                              "Text":  "Dữ liệu được tiền xử lý bằng cách loại bỏ dữ liệu thiếu, các mẫu có nồng độ khí bằng 0, lấy mẫu có hệ thống và làm mượt tín hiệu bằng bộ lọc Savitzky–Golay. Sau đó, dữ liệu được nhóm theo tổ hợp nồng độ và chia thành các cửa sổ tín hiệu dài 64 bước thời gian. Các mẫu được chia thành 5 tập con theo cấu trúc kiểm soát rò rỉ, gồm 4 tập huấn luyện và 1 tập kiểm tra, trước khi thực hiện chuẩn hóa. Tiếp theo, dữ liệu được chuẩn hóa Min–Max trên từng cảm biến trong từng tập con về khoảng [0,1]. Sau đó, cửa sổ trượt được áp dụng trên các tập huấn luyện để tăng cường dữ liệu lên 5 lần. Cuối cùng, các cửa sổ dữ liệu đã chuẩn hóa được chuyển đổi thành ảnh xám hai chiều làm đầu vào cho mô hình học sâu. Sau toàn bộ quá trình xử lý, thu được 1.225 mẫu Ethylene–CO và 1.890 mẫu NH3–H2.",
+                              "Page":  15,
+                              "PrintedPage":  13,
+                              "StartPage":  14,
+                              "StartPrintedPage":  12,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  19064,
+                              "End":  19845
+                          }
+                      ],
+        "FirstPage":  14
+    },
+    {
+        "ID":  "A27",
+        "Title":  "Vừa — Loại toàn bộ nồng độ 0 không được mô tả đúng",
+        "Body":  "**Nhận xét:** LA chỉ loại mẫu **cả hai khí cùng bằng 0**. Cách viết TT có thể hiểu loại luôn mẫu đơn khí như (0,c), (c,0). **Đề xuất:** “loại các mẫu có đồng thời CO = 0 và C₂H₄ = 0” nếu đúng code; không áp dụng tiêu chí này cho mọi bộ dữ liệu. Mẫu không khí nền có thông tin cho false positive/low-end calibration; không nên nói chúng hoàn toàn vô ích.",
+        "Quote":  "",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  385,
+                              "Text":  "Dữ liệu được tiền xử lý bằng cách loại bỏ dữ liệu thiếu, các mẫu có nồng độ khí bằng 0, lấy mẫu có hệ thống và làm mượt tín hiệu bằng bộ lọc Savitzky–Golay. Sau đó, dữ liệu được nhóm theo tổ hợp nồng độ và chia thành các cửa sổ tín hiệu dài 64 bước thời gian. Các mẫu được chia thành 5 tập con theo cấu trúc kiểm soát rò rỉ, gồm 4 tập huấn luyện và 1 tập kiểm tra, trước khi thực hiện chuẩn hóa. Tiếp theo, dữ liệu được chuẩn hóa Min–Max trên từng cảm biến trong từng tập con về khoảng [0,1]. Sau đó, cửa sổ trượt được áp dụng trên các tập huấn luyện để tăng cường dữ liệu lên 5 lần. Cuối cùng, các cửa sổ dữ liệu đã chuẩn hóa được chuyển đổi thành ảnh xám hai chiều làm đầu vào cho mô hình học sâu. Sau toàn bộ quá trình xử lý, thu được 1.225 mẫu Ethylene–CO và 1.890 mẫu NH3–H2.",
+                              "Page":  15,
+                              "PrintedPage":  13,
+                              "StartPage":  14,
+                              "StartPrintedPage":  12,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  19064,
+                              "End":  19845
+                          }
+                      ],
+        "FirstPage":  14
+    },
+    {
+        "ID":  "B05",
+        "Title":  "Vừa — Tái tạo Autoencoder không đảm bảo khử nhiễu hoặc tránh quá khớp",
+        "Body":  "**Nhận xét:** AE tái tạo input thông thường có thể học cả nhiễu và học thuộc. Reconstruction loss thấp không chứng minh latent hữu ích cho hồi quy. **Đề xuất:** dùng “học biểu diễn nén”; chỉ khẳng định khử nhiễu nếu có denoising objective hoặc kiểm chứng trên noise controls; dùng kết quả hồi quy held-out để chứng minh hiệu quả downstream.",
+        "Quote":  "“tránh hiện tượng học thuộc dữ liệu”; “Nhiễu ... được giảm thiểu”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  381,
+                              "Text":  "(2) Phát triển mô hình AE–LSTM cho hồi quy đa đầu ra, kết hợp học biểu diễn, giảm nhiễu và mô hình hóa phụ thuộc theo thời gian để dự đoán đồng thời nồng độ khí.",
+                              "Page":  14,
+                              "PrintedPage":  12,
+                              "StartPage":  14,
+                              "StartPrintedPage":  12,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  18737,
+                              "End":  18899
+                          },
+                          {
+                              "P":  393,
+                              "Text":  "Để nâng cao độ chính xác trong bài toán hồi quy nồng độ hỗn hợp khí, luận án đề xuất mô hình lai AE–LSTM. Trong đó, Autoencoder (AE) trích xuất đặc trưng, giảm nhiễu và giảm chiều từ ảnh biểu diễn tín hiệu đa cảm biến theo không gian và thời gian; LSTM học mối quan hệ và chọn lọc các đặc trưng trong không gian latent thông qua cơ chế cổng; cuối cùng, các lớp Dense thực hiện hồi quy dự đoán nồng độ các thành phần khí trong hỗn hợp. Mô hình tận dụng ưu điểm của AE trong biểu diễn đặc trưng và LSTM trong mô hình hóa quan hệ phi tuyến để nâng cao hiệu quả dự đoán.",
+                              "Page":  16,
+                              "PrintedPage":  14,
+                              "StartPage":  16,
+                              "StartPrintedPage":  14,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  20465,
+                              "End":  21032
+                          }
+                      ],
+        "FirstPage":  14
+    },
+    {
+        "ID":  "A17",
+        "Title":  "Cao — Ghép chuỗi đầu vào AE–LSTM chưa được giải thích",
+        "Body":  "**Nhận xét:** Trước đó một ảnh chứa trọn cửa sổ một run và encoder sinh một vector 256 chiều. Để có T ảnh liên tiếp cần quy tắc tạo chuỗi, ánh xạ nhãn và group boundary. Chưa rõ T là các ảnh thật liên tiếp hay các tọa độ latent được reshape thành trục tuần tự. **Đề xuất:** nêu đúng tensor từ code, định nghĩa T, số ảnh/run, stride và nhãn đầu ra; không nối ảnh của các lần đo độc lập rồi gọi là động học thời gian. **Trạng thái:** cần xác minh phiên bản code sinh Bảng 3.4–3.5; chưa có căn cứ nói kiến trúc thực chạy chắc chắn sai.",
+        "Quote":  "“Các ảnh được sắp xếp theo thứ tự thời gian”; “((batch, T, 256))”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  393,
+                              "Text":  "Để nâng cao độ chính xác trong bài toán hồi quy nồng độ hỗn hợp khí, luận án đề xuất mô hình lai AE–LSTM. Trong đó, Autoencoder (AE) trích xuất đặc trưng, giảm nhiễu và giảm chiều từ ảnh biểu diễn tín hiệu đa cảm biến theo không gian và thời gian; LSTM học mối quan hệ và chọn lọc các đặc trưng trong không gian latent thông qua cơ chế cổng; cuối cùng, các lớp Dense thực hiện hồi quy dự đoán nồng độ các thành phần khí trong hỗn hợp. Mô hình tận dụng ưu điểm của AE trong biểu diễn đặc trưng và LSTM trong mô hình hóa quan hệ phi tuyến để nâng cao hiệu quả dự đoán.",
+                              "Page":  16,
+                              "PrintedPage":  14,
+                              "StartPage":  16,
+                              "StartPrintedPage":  14,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  20465,
+                              "End":  21032
+                          }
+                      ],
+        "FirstPage":  16
+    },
+    {
+        "ID":  "C16",
+        "Title":  "Vừa — Tham chiếu bảng/hình sai hoặc bỏ đối tượng khỏi TT",
+        "Body":  "**Nhận xét:** Khung anomaly là **Hình 3.12**, không phải 3.2 (AE–LSTM). Bảng baseline ngay trước P825 thiếu caption “Bảng 4.6”. Hình 4.3/caption đặt sau tiêu đề §4.3.2 nhưng là nội dung §4.3.1. **Đề xuất:** sửa tham chiếu, thêm caption và sắp xếp hình sát nội dung; giữ số kế thừa LA nếu chủ ý, không bắt buộc đánh lại toàn bộ. Nếu bỏ Bảng 4.1/4.4/... trong TT, cần tránh tham chiếu tới bảng không có trong bản tóm tắt.",
+        "Quote":  "“Khung phương pháp Hình 3.2”; “Bảng 4.6”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  546,
+                              "Text":  "Khung phương pháp Hình 3.2 chuyển tín hiệu đa cảm biến thành ảnh xám 2D, sau đó huấn luyện Autoencoder tích chập sâu trên dữ liệu bình thường để học biểu diễn và tái tạo tín hiệu. Sai số tái tạo được đánh giá bằng MSE, MSD và MADn, trong đó ngưỡng phát hiện được xác định tại phân vị 95% của sai số trên tập xác thực bình thường. Mẫu có sai số không vượt ngưỡng được phân loại bình thường, ngược lại là bất thường.",
+                              "Page":  18,
+                              "PrintedPage":  16,
+                              "StartPage":  17,
+                              "StartPrintedPage":  15,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  22314,
+                              "End":  22729
+                          },
+                          {
+                              "P":  825,
+                              "Text":  "Bảng 4.6 so sánh MAE của các mô hình ở ngân sách nhãn đầy đủ trên bốn loại khí. Fine-tuned đạt MAE thấp nhất đối với H2 (31,60 ± 2,29 ppm) và có kết quả tương đối ổn định trên các khí còn lại, nhưng không vượt trội tuyệt đối trên mọi loại khí. PLSR đạt sai số thấp hơn trên CO (25,57 ± 8,48 ppm), trong khi Extra Trees đạt kết quả tốt hơn trên Ethylene (1,398 ± 0,197 ppm). Mô hình SSL tổng quát đạt MAE thấp hơn Fine-tuned trên NH₃ và Ethylene, còn kết quả trên CO chưa cho thấy ưu thế rõ ràng. Nhìn chung, hiệu quả của mô hình phụ thuộc vào từng loại khí và điều kiện đánh giá, do đó cần xem xét đồng thời nhiều chỉ tiêu thay vì dựa trên một loại khí riêng lẻ.",
+                              "Page":  24,
+                              "PrintedPage":  22,
+                              "StartPage":  24,
+                              "StartPrintedPage":  22,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  32561,
+                              "End":  33224
+                          },
+                          {
+                              "P":  555,
+                              "Text":  "Bảng 3.8 cho thấy phương pháp được đề xuất có khả năng phát hiện hiệu quả các mẫu bất thường, đồng thời duy trì tỷ lệ cảnh báo sai tương đối thấp và sự cân bằng tốt trong phân loại giữa hai lớp. Bên cạnh đó, macro F1-score và weighted F1-score đều đạt 0.94, tiếp tục khẳng định tính ổn định của mô hình trên cả hai lớp.",
+                              "Page":  18,
+                              "PrintedPage":  16,
+                              "StartPage":  18,
+                              "StartPrintedPage":  16,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  23506,
+                              "End":  23826
+                          },
+                          {
+                              "P":  556,
+                              "Text":  "Bảng 3.9 trình bày kết quả đánh giá các phương pháp phát hiện bất thường trên bộ dữ liệu hỗn hợp ba khí VOCs qua năm lần đánh giá chéo độc lập, 5 lần đánh giá với 5 lựa chọn tập test khác nhau. Các kết quả được biểu diễn dưới dạng trung bình ± độ lệch chuẩn. Nhìn chung, Autoencoder-MSE và Autoencoder-MSD cho sự cân bằng tốt hơn giữa phát hiện bất thường và hạn chế nhận nhầm mẫu bình thường.",
+                              "Page":  19,
+                              "PrintedPage":  17,
+                              "StartPage":  18,
+                              "StartPrintedPage":  16,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  23826,
+                              "End":  24220
+                          },
+                          {
+                              "P":  650,
+                              "Text":  "Hình 4.3 thể hiện quá trình tiền huấn luyện tự giám sát có độ ổn định cao: hàm mất mát tái tạo giảm dần và hội tụ trên cả ba bộ dữ liệu, trong khi độ lệch giữa 10 seed tương đối nhỏ. Điều này cho thấy mô hình học được biểu diễn ổn định và ít phụ thuộc vào khởi tạo ngẫu nhiên.",
+                              "Page":  21,
+                              "PrintedPage":  19,
+                              "StartPage":  21,
+                              "StartPrintedPage":  19,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  28748,
+                              "End":  29025
+                          },
+                          {
+                              "P":  654,
+                              "Text":  "Hình 4.3. Hàm mất mát của mô hình qua 10 seed ngẫu nhiên",
+                              "Page":  22,
+                              "PrintedPage":  20,
+                              "StartPage":  22,
+                              "StartPrintedPage":  20,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  29482,
+                              "End":  29539
+                          }
+                      ],
+        "FirstPage":  17
+    },
+    {
+        "ID":  "D30",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Tên sai; sửa **AE–XGBoost**. Cả hai occurrence trong XML choice/fallback cần giữ đồng bộ khi chỉnh Word.",
+        "Quote":  null,
+        "OriginalLocator":  "TT Bảng 3.4, P453: “AE-XGBoots”",
+        "Locations":  [
+                          {
+                              "P":  453,
+                              "Text":  "AE-XGBoots",
+                              "Page":  17,
+                              "PrintedPage":  15,
+                              "StartPage":  17,
+                              "StartPrintedPage":  15,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "shape/1",
+                              "Start":  310,
+                              "End":  321
+                          }
+                      ],
+        "FirstPage":  17
+    },
+    {
+        "ID":  "A23",
+        "Title":  "Vừa — Năm fold không phải năm đánh giá độc lập hoàn toàn",
+        "Body":  "**Nhận xét:** Các tập train trong 5-fold chồng lấn; nếu mỗi fold dùng lại toàn bộ 128 ảnh bất thường thì tập anomaly test cũng chồng lấn. **Đề xuất:** “năm fold xác thực chéo ở cấp lần đo”; báo cáo chính xác anomaly nào nằm trong từng fold và SD giữa fold, không coi là năm acquisition độc lập.",
+        "Quote":  "“năm lần đánh giá chéo độc lập”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  556,
+                              "Text":  "Bảng 3.9 trình bày kết quả đánh giá các phương pháp phát hiện bất thường trên bộ dữ liệu hỗn hợp ba khí VOCs qua năm lần đánh giá chéo độc lập, 5 lần đánh giá với 5 lựa chọn tập test khác nhau. Các kết quả được biểu diễn dưới dạng trung bình ± độ lệch chuẩn. Nhìn chung, Autoencoder-MSE và Autoencoder-MSD cho sự cân bằng tốt hơn giữa phát hiện bất thường và hạn chế nhận nhầm mẫu bình thường.",
+                              "Page":  19,
+                              "PrintedPage":  17,
+                              "StartPage":  18,
+                              "StartPrintedPage":  16,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  23826,
+                              "End":  24220
+                          }
+                      ],
+        "FirstPage":  18
+    },
+    {
+        "ID":  "B23",
+        "Title":  "Vừa — Recall anomaly thực và synthetic chưa được phân tách",
+        "Body":  "**Nhận xét:** Chưa rõ bảng/confusion matrix dùng 128 cửa sổ từ 64 sự kiện thật hay trộn synthetic; cũng chưa rõ bảng một split khác thế nào với mean 5-fold. **Đề xuất:** ghi composition test, cách chia event, kết quả real/synthetic riêng và nhãn “một fold minh họa” cho Bảng 3.7–3.8 nếu đúng. Không so F1 0,94 của một split với 0,91 ± 0,05 như cùng estimand. **Trạng thái:** thiếu thông tin, cần xác minh.",
+        "Quote":  "“bất thường thực tế ... và ... tổng hợp”; 308 mẫu test.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  555,
+                              "Text":  "Bảng 3.8 cho thấy phương pháp được đề xuất có khả năng phát hiện hiệu quả các mẫu bất thường, đồng thời duy trì tỷ lệ cảnh báo sai tương đối thấp và sự cân bằng tốt trong phân loại giữa hai lớp. Bên cạnh đó, macro F1-score và weighted F1-score đều đạt 0.94, tiếp tục khẳng định tính ổn định của mô hình trên cả hai lớp.",
+                              "Page":  18,
+                              "PrintedPage":  16,
+                              "StartPage":  18,
+                              "StartPrintedPage":  16,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  23506,
+                              "End":  23826
+                          },
+                          {
+                              "P":  556,
+                              "Text":  "Bảng 3.9 trình bày kết quả đánh giá các phương pháp phát hiện bất thường trên bộ dữ liệu hỗn hợp ba khí VOCs qua năm lần đánh giá chéo độc lập, 5 lần đánh giá với 5 lựa chọn tập test khác nhau. Các kết quả được biểu diễn dưới dạng trung bình ± độ lệch chuẩn. Nhìn chung, Autoencoder-MSE và Autoencoder-MSD cho sự cân bằng tốt hơn giữa phát hiện bất thường và hạn chế nhận nhầm mẫu bình thường.",
+                              "Page":  19,
+                              "PrintedPage":  17,
+                              "StartPage":  18,
+                              "StartPrintedPage":  16,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  23826,
+                              "End":  24220
+                          }
+                      ],
+        "FirstPage":  18
+    },
+    {
+        "ID":  "D29",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Tên đúng **Local Outlier Factor**. Sửa mọi bảng và mô tả.",
+        "Quote":  null,
+        "OriginalLocator":  "LA Bảng 3.9, P3627; TT P613: “Local Outliner Factor”",
+        "Locations":  [
+                          {
+                              "P":  613,
+                              "Text":  "Local Outliner Factor",
+                              "Page":  19,
+                              "PrintedPage":  17,
+                              "StartPage":  19,
+                              "StartPrintedPage":  17,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  24806,
+                              "End":  24828
+                          }
+                      ],
+        "FirstPage":  19
+    },
+    {
+        "ID":  "A08",
+        "Title":  "Cao — Thiếu giới hạn độc lập ngày đo trong Chương 4",
+        "Body":  "**Nhận xét:** V3 chia theo các định danh Combination liên tiếp, không theo ngày. Thiếu log liên kết lần phơi khí với ngày nên các vai trò train/test có thể dùng chung ngày thu thập. **Đề xuất:** bổ sung rõ “held-out identifier partitions, chưa chứng minh tổng quát hóa giữa các ngày”; tránh dùng “phiên” theo nghĩa acquisition session độc lập. **Nguồn:** Clean §IV.A, §VI; Supplementary phần Acquisition independence; `evidence/SOURCE_NOTES.md` cảnh báo biến `sessions` kế thừa chỉ phân vùng định danh.",
+        "Quote":  "“dựa trên các hỗn hợp khí đo liên tiếp”; “kiểm định mở rộng trên nhiều phiên”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  652,
+                              "Text":  "Bảng 4.2 thể hiện sự cải thiện hiệu năng của phương pháp tinh chỉnh so với huấn luyện từ đầu trên cả bốn khí NH3, H2, CO và Ethylene. MAE giảm lần lượt 13,9%, 21,5%, 27,5% và 25,7%; đồng thời, các khoảng tin cậy 95% của chênh lệch MAE đều nằm phía dương, cho thấy kết quả cải thiện nhất quán trong giao thức đánh giá. Mức giảm lớn nhất đạt được đối với CO (27,5%), trong khi NH3 có mức cải thiện thấp nhất (13,9%).",
+                              "Page":  22,
+                              "PrintedPage":  20,
+                              "StartPage":  21,
+                              "StartPrintedPage":  19,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  29065,
+                              "End":  29480
+                          }
+                      ],
+        "FirstPage":  21
+    },
+    {
+        "ID":  "A09",
+        "Title":  "Cao — Khoảng tin cậy chưa hiệu chỉnh bị diễn giải quá mạnh",
+        "Body":  "**Nhận xét:** Các khoảng 95% trong bảng là **chưa hiệu chỉnh nhiều so sánh**. V3 bổ sung Bonferroni cho bốn so sánh: khoảng NH₃ 98,75% là [−0,60; 9,46] ppm, chứa 0. **Đề xuất:** ghi rõ “95% chưa hiệu chỉnh” trong tiêu đề; bổ sung kết quả độ nhạy và nhận định NH₃ là trường hợp yếu nhất. Giữ kết luận có điều kiện trên dữ liệu đã quan sát; CO/ethylene chỉ có ba fold. **Nguồn:** Clean §IV.E, §V.B; Supplementary Table S9.",
+        "Quote":  "“giảm sai số MAE đáng kể trên cả 4 khí”; “các khoảng tin cậy 95% ... đều nằm phía dương”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  652,
+                              "Text":  "Bảng 4.2 thể hiện sự cải thiện hiệu năng của phương pháp tinh chỉnh so với huấn luyện từ đầu trên cả bốn khí NH3, H2, CO và Ethylene. MAE giảm lần lượt 13,9%, 21,5%, 27,5% và 25,7%; đồng thời, các khoảng tin cậy 95% của chênh lệch MAE đều nằm phía dương, cho thấy kết quả cải thiện nhất quán trong giao thức đánh giá. Mức giảm lớn nhất đạt được đối với CO (27,5%), trong khi NH3 có mức cải thiện thấp nhất (13,9%).",
+                              "Page":  22,
+                              "PrintedPage":  20,
+                              "StartPage":  21,
+                              "StartPrintedPage":  19,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  29065,
+                              "End":  29480
+                          },
+                          {
+                              "P":  655,
+                              "Text":  "Bảng 4.2. Sai số MAE trên nhiều phân vùng (ppm)",
+                              "Page":  22,
+                              "PrintedPage":  20,
+                              "StartPage":  22,
+                              "StartPrintedPage":  20,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  29539,
+                              "End":  29587
+                          },
+                          {
+                              "P":  660,
+                              "Text":  "Khoảng tin cậy 95%",
+                              "Page":  22,
+                              "PrintedPage":  20,
+                              "StartPage":  22,
+                              "StartPrintedPage":  20,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  29631,
+                              "End":  29650
+                          }
+                      ],
+        "FirstPage":  21
+    },
+    {
+        "ID":  "B17",
+        "Title":  "Vừa — Loss hội tụ không chứng minh độ chính xác concentration hoặc anomaly",
+        "Body":  "**Nhận xét:** Hình loss chỉ chứng minh xu hướng tối ưu reconstruction trong thang dữ liệu tương ứng. **Đề xuất:** “loss tái tạo giảm và độ biến động giữa seeds nhỏ”; dùng bảng held-out MAE/F1 để bàn độ chính xác. Không so loss giữa ba bộ dữ liệu như cùng đơn vị nồng độ. **Nguồn:** Clean §V.A.",
+        "Quote":  "“đạt độ chính xác dự đoán cao”; “học được biểu diễn ổn định”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  650,
+                              "Text":  "Hình 4.3 thể hiện quá trình tiền huấn luyện tự giám sát có độ ổn định cao: hàm mất mát tái tạo giảm dần và hội tụ trên cả ba bộ dữ liệu, trong khi độ lệch giữa 10 seed tương đối nhỏ. Điều này cho thấy mô hình học được biểu diễn ổn định và ít phụ thuộc vào khởi tạo ngẫu nhiên.",
+                              "Page":  21,
+                              "PrintedPage":  19,
+                              "StartPage":  21,
+                              "StartPrintedPage":  19,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  28748,
+                              "End":  29025
+                          }
+                      ],
+        "FirstPage":  21
+    },
+    {
+        "ID":  "C18",
+        "Title":  "Nhẹ — Ký hiệu hóa học và số thập phân chưa thống nhất",
+        "Body":  "**Nhận xét:** Nên thống nhất chỉ số dưới hóa học và một quy ước decimal/thousands cho bảng tiếng Việt. **Đề xuất:** chọn dấu phẩy thập phân hoặc dấu chấm thập phân theo quy định, áp dụng đồng bộ; ghi ppm trong header, chọn số chữ số có nghĩa theo từng target. Thống nhất ethylene/etylen, seed/Seed/Seeds, fine-tuned/Fine-Tuned.",
+        "Quote":  "",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  662,
+                              "Text":  "31.01",
+                              "Page":  22,
+                              "PrintedPage":  20,
+                              "StartPage":  22,
+                              "StartPrintedPage":  20,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  29655,
+                              "End":  29661
+                          },
+                          {
+                              "P":  693,
+                              "Text":  "82,85 ± 31,89",
+                              "Page":  23,
+                              "PrintedPage":  21,
+                              "StartPage":  23,
+                              "StartPrintedPage":  21,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  30640,
+                              "End":  30654
+                          },
+                          {
+                              "P":  808,
+                              "Text":  "25,57 ± 8,48",
+                              "Page":  24,
+                              "PrintedPage":  22,
+                              "StartPage":  24,
+                              "StartPrintedPage":  22,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  32341,
+                              "End":  32354
+                          }
+                      ],
+        "FirstPage":  22
+    },
+    {
+        "ID":  "A10",
+        "Title":  "Cao — Kết luận tốt nhất ở H₂ sai ngay theo bảng",
+        "Body":  "**Nhận xét:** Bảng cho SVR = **31,37 ± 4,53**, Fine-tuned = **31,60 ± 2,29 ppm**. Fine-tuned không có MAE trung bình thấp nhất. Ở ethylene, **Extra Trees 1,398 \u003c Generic SSL 1,437 \u003c Fine-tuned 1,627**; vì vậy câu LA “Generic SSL đạt sai số thấp nhất ... ở Ethylene” cũng sai. **Đề xuất:** báo cáo thứ hạng trung bình đúng: Generic SSL tốt nhất NH₃, SVR tốt nhất H₂, PLSR tốt nhất CO, Extra Trees tốt nhất ethylene; không biến thứ hạng trung bình thành ưu thế thống kê. **Nguồn:** bảng của hai bản; Clean §V.E và Table IV.",
+        "Quote":  "“đạt hiệu năng tốt nhất trên khí H2”; “đạt MAE thấp nhất đối với H2”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  825,
+                              "Text":  "Bảng 4.6 so sánh MAE của các mô hình ở ngân sách nhãn đầy đủ trên bốn loại khí. Fine-tuned đạt MAE thấp nhất đối với H2 (31,60 ± 2,29 ppm) và có kết quả tương đối ổn định trên các khí còn lại, nhưng không vượt trội tuyệt đối trên mọi loại khí. PLSR đạt sai số thấp hơn trên CO (25,57 ± 8,48 ppm), trong khi Extra Trees đạt kết quả tốt hơn trên Ethylene (1,398 ± 0,197 ppm). Mô hình SSL tổng quát đạt MAE thấp hơn Fine-tuned trên NH₃ và Ethylene, còn kết quả trên CO chưa cho thấy ưu thế rõ ràng. Nhìn chung, hiệu quả của mô hình phụ thuộc vào từng loại khí và điều kiện đánh giá, do đó cần xem xét đồng thời nhiều chỉ tiêu thay vì dựa trên một loại khí riêng lẻ.",
+                              "Page":  24,
+                              "PrintedPage":  22,
+                              "StartPage":  24,
+                              "StartPrintedPage":  22,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  32561,
+                              "End":  33224
+                          }
+                      ],
+        "FirstPage":  24
+    },
+    {
+        "ID":  "B09",
+        "Title":  "Vừa — MAE phần trăm và ppm ở các khí khác thang không so trực tiếp",
+        "Body":  "**Nhận xét:** CO và ethylene có dải nồng độ khác nhau. Sai số ppm lớn hơn không tự chứng minh nhiệm vụ khó hơn. **Đề xuất:** đối chiếu NMAE/NRMSE theo dải hoặc R² trên cùng protocol; giữ ppm để diễn giải ứng dụng, không dùng “chỉ đạt” cho sai số thấp hơn.",
+        "Quote":  "“RMSE = 23.56 ... CO ... chỉ đạt RMSE = 1.03 ... Ethylene”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  782,
+                              "Text":  "Hình 4.4 thể hiện mối quan hệ giữa nồng độ thực tế và nồng độ dự đoán của ba chiến lược thích nghi trên bốn loại khí qua 10 seed. Các phương pháp Frozen và Fine-tuned có các điểm dự đoán tập trung và bám sát đường lý tưởng (y=x) hơn so với Scratch, cho thấy sai số và độ phân tán dự đoán được cải thiện. NH3 và Ethylene có mức hội tụ tốt, trong khi H2 và đặc biệt CO có độ phân tán lớn hơn. Kết quả qua 10 seed cho thấy xu hướng này tương đối ổn định giữa các lần khởi tạo.",
+                              "Page":  24,
+                              "PrintedPage":  22,
+                              "StartPage":  24,
+                              "StartPrintedPage":  22,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  31577,
+                              "End":  32051
+                          }
+                      ],
+        "FirstPage":  24
+    },
+    {
+        "ID":  "B12",
+        "Title":  "Cao — Lợi thế trung bình với năm cặp nhãn bị diễn giải thành lợi ích ổn định",
+        "Body":  "**Nhận xét:** Với NH₃ K=5, farthest-point Scratch 86,39 và Fine-tuned 86,02 có chênh lệch rất nhỏ, SD lớn. Tuyên bố “ổn định ... chính xác” cần khoảng bắt cặp; không được suy từ mean thấp hơn chút ít. **Đề xuất:** nêu NH₃ là ngoại lệ yếu nhất ở K=5; phân biệt xu hướng trung bình và bằng chứng thống kê, chỉ giữ lợi ích rõ khi được số liệu/interval hỗ trợ. **Nguồn:** Clean §V.C–D, §VI.",
+        "Quote":  "“Fine-tuned luôn nhất quán đạt hiệu năng tốt hơn ... bất kể chiến lược chọn mẫu”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  827,
+                              "Text":  "Chương 4 đề xuất phương pháp học chuyển giao tự giám sát có nhận biết cảm biến, giúp tận dụng dữ liệu không nhãn để giảm nhu cầu dữ liệu có nhãn khi tái hiệu chuẩn. So với huấn luyện từ đầu, MAE giảm 13,9%–27,5% trên bốn loại khí. Kết quả cho thấy hiệu quả phụ thuộc vào loại khí, ngân sách nhãn và cấu hình mô hình; phương pháp đề xuất không vượt trội ở mọi trường hợp. Lợi ích chuyển giao rõ hơn khi dữ liệu có nhãn hạn chế, trong khi khả năng thích ứng với trôi cảm biến nghiêm trọng và tổng quát hóa giữa các thiết bị vẫn còn hạn chế.",
+                              "Page":  24,
+                              "PrintedPage":  22,
+                              "StartPage":  24,
+                              "StartPrintedPage":  22,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  33247,
+                              "End":  33786
+                          }
+                      ],
+        "FirstPage":  24
+    },
+    {
+        "ID":  "B18",
+        "Title":  "Vừa — Suy độ tin cậy/tái lập cao từ scatter nhiều seed",
+        "Body":  "**Nhận xét:** Nhiều dự đoán trên cùng exposures không là acquisition độc lập; scatter bám y=x chỉ hỗ trợ mô tả sai số. **Đề xuất:** dùng “xu hướng quan sát được qua 10 seed trong cùng protocol”; báo cáo paired statistics và các giới hạn day/environment/device.",
+        "Quote":  "“đã khẳng định ... khả năng tái lập và độ tin cậy cao”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  782,
+                              "Text":  "Hình 4.4 thể hiện mối quan hệ giữa nồng độ thực tế và nồng độ dự đoán của ba chiến lược thích nghi trên bốn loại khí qua 10 seed. Các phương pháp Frozen và Fine-tuned có các điểm dự đoán tập trung và bám sát đường lý tưởng (y=x) hơn so với Scratch, cho thấy sai số và độ phân tán dự đoán được cải thiện. NH3 và Ethylene có mức hội tụ tốt, trong khi H2 và đặc biệt CO có độ phân tán lớn hơn. Kết quả qua 10 seed cho thấy xu hướng này tương đối ổn định giữa các lần khởi tạo.",
+                              "Page":  24,
+                              "PrintedPage":  22,
+                              "StartPage":  24,
+                              "StartPrintedPage":  22,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  31577,
+                              "End":  32051
+                          }
+                      ],
+        "FirstPage":  24
+    },
+    {
+        "ID":  "A18",
+        "Title":  "Vừa — Bốn bộ dữ liệu bị kết luận thành ba",
+        "Body":  "**Nhận xét:** §2.1 và Chương 4 sử dụng **hai công khai + hai tự thu thập**. **Đề xuất:** sửa P2148 thành “hai bộ dữ liệu công khai”; bổ sung drift vào kết luận cuối của cả hai bản và nêu vai trò benchmark drift khác với hỗn hợp hai khí.",
+        "Quote":  "“một bộ dữ liệu công khai (CO–Ethylene, trôi cảm biến)”; “một bộ dữ liệu công khai CO–Ethylene và hai bộ dữ liệu tự xây dựng”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  833,
+                              "Text":  "Luận án tập trung giải quyết ba bài toán chính là dự đoán nồng độ khí hỗn hợp, phát hiện bất thường và hiệu chuẩn trong dữ liệu cảm biến, sử dụng một bộ dữ liệu công khai CO–Ethylene và hai bộ dữ liệu tự xây dựng gồm NH3–H2 và VOCs. Đối với bài toán dự đoán nồng độ, dữ liệu chuỗi thời gian được chuyển đổi thành ảnh xám hai chiều để khai thác đồng thời đặc trưng không gian và thời gian. Trên cơ sở đó đề xuất mô hình lai Autoencoder–LSTM nhằm trích xuất, học mối quan hệ của các đặc trưng và mô hình hóa động học của tín hiệu cảm biến, tăng chính xác và khả năng tổng quát hóa. Đối với bài toán phát hiện bất thường, luận án đề xuất khung Autoencoder kết hợp cơ chế ngưỡng phân loại, giúp phát hiện hiệu quả các bất thường dựa trên sai số tái tạo và cho kết quả tốt. Trong bài toán hiệu chuẩn, sử dụng học chuyển giao tự giám sát có nhận biết cảm biến để hồi quy nồng độ hỗn hợp hai khí trong điều kiện hạn chế dữ liệu có nhãn. Phương pháp này giúp MAE giảm 13.9%/21.5% đối với NH₃/H₂ và 27.5%/25.7% đối với CO/ethylene so với huấn luyện từ đầu. ",
+                              "Page":  25,
+                              "PrintedPage":  23,
+                              "StartPage":  25,
+                              "StartPrintedPage":  23,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  34347,
+                              "End":  35396
+                          }
+                      ],
+        "FirstPage":  25
+    },
+    {
+        "ID":  "D05",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Heading lặp; giữ một.",
+        "Quote":  null,
+        "OriginalLocator":  "TT P830–P831: “Kết luận” liên tiếp",
+        "Locations":  [
+                          {
+                              "P":  830,
+                              "Text":  "Kết luận",
+                              "Page":  25,
+                              "PrintedPage":  23,
+                              "StartPage":  25,
+                              "StartPrintedPage":  23,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  33825,
+                              "End":  33834
+                          },
+                          {
+                              "P":  831,
+                              "Text":  "Kết luận",
+                              "Page":  25,
+                              "PrintedPage":  23,
+                              "StartPage":  25,
+                              "StartPrintedPage":  23,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  33825,
+                              "End":  33834
+                          }
+                      ],
+        "FirstPage":  25
+    },
+    {
+        "ID":  "A26",
+        "Title":  "Vừa — Độ ẩm VOCs cần nguồn riêng",
+        "Body":  "**Nhận xét:** Xác nhận không đo môi trường ở V3 áp dụng NH₃/H₂, không đủ căn cứ suy sang VOCs. Nhưng bản thảo cũng chưa chỉ nguồn thiết bị/log cho VOCs. **Đề xuất:** dẫn mô tả thực nghiệm VOCs hoặc log đo/kiểm soát; nếu không có, hạ mức khẳng định. Kết luận “các điều kiện thí nghiệm có kiểm soát” cần nói rõ thông số nào được kiểm soát, tránh bao gồm nhiệt độ/độ ẩm NH₃/H₂.",
+        "Quote":  "“được duy trì ổn định với nhiệt độ 25 °C, ... RH 82%”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  837,
+                              "Text":  "Thứ nhất, các bộ dữ liệu thực nghiệm được xây dựng chủ yếu trên một số hỗn hợp khí (NH3–H2 và VOCs) và trong các điều kiện thí nghiệm có kiểm soát. Do đó, khả năng tổng quát của mô hình đối với các hỗn hợp nhiều khí phức tạp hơn hoặc trong các môi trường vận hành thực tế với nhiệt độ, độ ẩm và lưu lượng khí biến đổi liên tục vẫn cần được đánh giá thêm.",
+                              "Page":  26,
+                              "PrintedPage":  24,
+                              "StartPage":  26,
+                              "StartPrintedPage":  24,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  36571,
+                              "End":  36926
+                          }
+                      ],
+        "FirstPage":  26
+    },
+    {
+        "ID":  "D06",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Lặp cụm và cả câu chưa có vị ngữ. Sửa “Các vấn đề như học liên tục, chuyển giao giữa các thiết bị độc lập, ... vẫn cần được nghiên cứu.”",
+        "Quote":  null,
+        "OriginalLocator":  "LA P4599; TT P840: “các thiết bị các thiết bị độc lập”",
+        "Locations":  [
+                          {
+                              "P":  840,
+                              "Text":  "Thứ tư, nghiên cứu chủ yếu tập trung vào ba bài toán dự đoán nồng độ khí, phát hiện bất thường và hiệu chuẩn trong cùng thiết bị cảm biến. Các vấn đề khác như học liên tục hoặc học chuyển giao trên các thiết bị các thiết bị độc lập, điều kiện trôi theo thời gian và chi phí thu thập dữ liệu thực tế.",
+                              "Page":  26,
+                              "PrintedPage":  24,
+                              "StartPage":  26,
+                              "StartPrintedPage":  24,
+                              "Section":  2,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  37379,
+                              "End":  37679
+                          }
+                      ],
+        "FirstPage":  26
+    },
+    {
+        "ID":  "C05",
+        "Title":  "Vừa — DOI [P1] đang là DOI cả sách",
+        "Body":  "**Nhận xét:** V3 dẫn chương pp.85–92 bằng DOI có hậu tố **_11**. **Đề xuất:** dùng **10.1007/978-3-031-93816-0_11** cho bài/chương cụ thể; ISBN và DOI sách có thể giữ riêng, không thay DOI chương. **Nguồn:** Clean reference [28]; V3 hardware source note.",
+        "Quote":  "“10.1007/978-3-031-93816-0”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  843,
+                              "Text":  "[P1] Dang Thi Thu Ha, Nguyen Dinh Van, Nguyen Duc Hoa, Nguyen Van Duy, “Design and analysis of a Volatile Organic Compounds mixture dataset for indoor air quality monitoring”, MMMS2024 – The Fourth International Conference on Material, Machines, and Methods for Sustainable Development, vol. 1, pp. 85-92, 2025, https://doi.org/10.1007/978-3-031-93816-0. ISSN 2195-4364, ISBN 978-3-031-93815-3. (Scopus)",
+                              "Page":  27,
+                              "PrintedPage":  1,
+                              "StartPage":  27,
+                              "StartPrintedPage":  1,
+                              "Section":  3,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  38147,
+                              "End":  38551
+                          }
+                      ],
+        "FirstPage":  27
+    },
+    {
+        "ID":  "C06",
+        "Title":  "Vừa — Năm của [P5] không khớp thông tin volume/issue",
+        "Body":  "**Nhận xét:** V3 ghi volume/issue này là **Feb. 2026**. “2025” trong DOI hoặc early access không tự là năm của số tạp chí. **Đề xuất:** dùng năm 2026 nếu dẫn bản volume/issue; nếu muốn ghi early access 2025, ghi rõ và thống nhất bibliographic form. **Nguồn đối chiếu:** Clean reference [30].",
+        "Quote":  "“vol. 26, no. 3, pp. 4739–4748, 2025”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  847,
+                              "Text":  "[P5] Dang Thi Thu Ha, NguyenDinh Van, NguyenDuc Hoa, “Image-Based Hybrid Autoencoder–LSTM for Mixed-Gas Estimation in Electronic Nose”, IEEE Sens. J., vol. 26, no. 3, pp. 4739–4748, 2025, doi: 10.1109/JSEN.2025.3642226. (Scopus Q1, IF:4.5). ",
+                              "Page":  27,
+                              "PrintedPage":  1,
+                              "StartPage":  27,
+                              "StartPrintedPage":  1,
+                              "Section":  3,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  39661,
+                              "End":  39903
+                          }
+                      ],
+        "FirstPage":  27
+    },
+    {
+        "ID":  "C07",
+        "Title":  "Vừa — Trang [P9] mâu thuẫn DOI",
+        "Body":  "**Nhận xét:** Có hai dải trang khác nhau trong cùng trích dẫn. **Đề xuất:** kiểm tra bài trên journal để xác định trang; không lấy chuỗi DOI làm bằng chứng tuyệt đối rằng trang phải là 126–134. Chuẩn hóa số tập/số và pp. **Trạng thái:** cần xác minh; DOI chưa truy cập thành công trong lần rà soát này.",
+        "Quote":  "“112. 164-171” và DOI kết thúc “112.2026.126-134”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  851,
+                              "Text":  "[P9] Dang Thi Thu Ha, Nguyen Dinh Van, Nguyen Duc Hoa “Unsupervised deep learning-based anomaly detection in mixed gases using sensor array”, Journal of Military Science and Technology, 112. 164-171, 2026, ISSN:1859-1043, https://doi.org/10.54939/1859-1043.j.mst.112.2026.126-134.",
+                              "Page":  27,
+                              "PrintedPage":  1,
+                              "StartPage":  27,
+                              "StartPrintedPage":  1,
+                              "Section":  3,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  40708,
+                              "End":  40989
+                          }
+                      ],
+        "FirstPage":  27
+    },
+    {
+        "ID":  "C08",
+        "Title":  "Vừa — Bài đang review nằm trong “đã công bố”",
+        "Body":  "**Nhận xét:** “Đang phản biện” không đồng nghĩa đã công bố. **Đề xuất:** tách danh mục đã công bố và đang phản biện; ghi tên journal **IEEE Sensors Journal** đúng theo V3, dùng tựa bản V3 hiện tại nếu đây là cùng manuscript. Không tự cập nhật acceptance khi chưa có bằng chứng. Các Q/IF cần năm và nguồn nếu yêu cầu đưa vào danh mục.",
+        "Quote":  "“được công bố”; “Third--round review”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  842,
+                              "Text":  "DANH MỤC CÁC CÔNG TRÌNH ĐÃ CÔNG BỐ CỦA LUẬN ÁN",
+                              "Page":  27,
+                              "PrintedPage":  1,
+                              "StartPage":  27,
+                              "StartPrintedPage":  1,
+                              "Section":  3,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  38099,
+                              "End":  38147
+                          },
+                          {
+                              "P":  853,
+                              "Text":  "[P11] Nguyen Dinh Van, Dang Thi Thu Ha, Nguyen Thu Huong, Nguyen Duc Hoa “Sensor-aware self-supervised transfer learning for label-efficient multigas electronic nose calibration”, IEEE Sensors, 2026. (Third--round review Scopus Q1, IF:4.5).",
+                              "Page":  27,
+                              "PrintedPage":  1,
+                              "StartPage":  27,
+                              "StartPrintedPage":  1,
+                              "Section":  3,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  41297,
+                              "End":  41538
+                          }
+                      ],
+        "FirstPage":  27
+    },
+    {
+        "ID":  "C19",
+        "Title":  "Nhẹ — Năm ở danh mục “đã công bố” và thông tin bibliographic cần rà soát riêng",
+        "Body":  "**Nhận xét:** Hai mã có thể là eISSN và print ISSN, không nên coi mặc nhiên là số sai. **Đề xuất:** ghi nhãn eISSN/ISSN hoặc chọn quy ước thống nhất. Phân biệt năm hội nghị 2025 và proceedings 2026 ở SOICT/REV-ECIT; không sửa năm chỉ theo tên sự kiện.",
+        "Quote":  "Sensor Review ISSN “1758-6828” vs “0260-2288”.",
+        "OriginalLocator":  null,
+        "Locations":  [
+                          {
+                              "P":  848,
+                              "Text":  "[P6] Dang Thi Thu Ha, NguyenDinh Van, NguyenDuc Hoa, “Electronic Nose in Gas Sensing: From Sensors to AI – A Review”, Sensor Review, 2026, https://doi.org/10.1108/SR-01-2026-0051, ISSN: 0260-2288, (Scopus Q3).",
+                              "Page":  27,
+                              "PrintedPage":  1,
+                              "StartPage":  27,
+                              "StartPrintedPage":  1,
+                              "Section":  3,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  39903,
+                              "End":  40113
+                          }
+                      ],
+        "FirstPage":  27
+    },
+    {
+        "ID":  "D32",
+        "Title":  "Nhẹ — Chính tả viết thiếu hoặc trình bày",
+        "Body":  "**Lỗi và gợi ý chỉnh sửa:** Dư một dấu phẩy. “Xgboost” trong tiêu đề: đối chiếu tựa đã công bố trước khi chuẩn hóa thành XGBoost.",
+        "Quote":  null,
+        "OriginalLocator":  "TT P850: “REV-ECIT 2025, , ISBN”",
+        "Locations":  [
+                          {
+                              "P":  850,
+                              "Text":  "[P8] Đặng Thị Thu Hà, Nguyễn Đình Văn và Nguyễn Đức Hoà, “Tăng Cường Dự Đoán Nồng Độ Hỗn Hợp Khí Bằng Bộ Lọc Savitzky–Golay và Mô Hình Lai Autoencoder–Xgboost”, 319-324, 2026, Hội nghị Quốc gia lần thứ XXVIII về điện tử, truyền thông và công nghệ thông tin REV-ECIT 2025, , ISBN:978-604-45-2224-3.",
+                              "Page":  27,
+                              "PrintedPage":  1,
+                              "StartPage":  27,
+                              "StartPrintedPage":  1,
+                              "Section":  3,
+                              "Method":  "normalized source text in Word",
+                              "Story":  "main",
+                              "Start":  40410,
+                              "End":  40708
+                          }
+                      ],
+        "FirstPage":  27
+    }
+]
