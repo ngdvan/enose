@@ -25,8 +25,17 @@ def text(p):
 def replace(p,value,reason):
     old=p.text
     rpr=deepcopy(p.runs[0]._r.rPr) if p.runs and p.runs[0]._r.rPr is not None else None
+    # Anchored graphics may share the paragraph whose prose is replaced.
+    graphics=[]
+    for child in p._p:
+        if child.xpath('.//w:drawing | .//w:pict'):
+            graphic=deepcopy(child)
+            for node in graphic.iter(qn('w:t')):
+                node.text=''
+            graphics.append(graphic)
     for child in list(p._p):
         if child.tag!=qn('w:pPr'):p._p.remove(child)
+    for graphic in graphics:p._p.append(graphic)
     r=p.add_run(value)
     if rpr is not None:r._r.insert(0,rpr)
     mark(p)

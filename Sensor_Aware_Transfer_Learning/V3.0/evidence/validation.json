@@ -41,5 +41,7 @@
     "renderer": "Archived LibreOffice 25.2.7.2",
     "limitation": "Word/publisher pagination may differ."
   },
-  "abstract_update": "2026-10-13: first-page layout reviewed after abstract replacement"
+  "abstract_update": "2026-10-13: first-page layout reviewed after abstract replacement",
+  "abstract_graphic_restored": true,
+  "abstract_graphic_check": "2026-10-13: original V2.2 rId8 drawing restored; clean/highlighted XML equality verified after removing highlights; both PDFs retain 10 pages."
 }

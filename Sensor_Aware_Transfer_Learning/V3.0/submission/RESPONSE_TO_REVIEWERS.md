@@ -1,6 +1,6 @@
 # Response to reviewers — Revision 3.0
 
-We thank the reviewer for the detailed assessment. This revision clarifies the acquisition limitations, makes label-budget comparisons explicit, narrows the title and full-budget claims, and adds uncertainty and compute evidence. Existing predictive results are retained; additional statistical analyses and representative timing runs are identified separately. Responses below address Comments to Author-250926 and the additional title/abstract explanation supplied by the author. Locations use section and table identifiers to remain stable across document renderers.
+We sincerely thank the reviewers for their in-depth assessment and thoughtful comments. Their substantial contributions have helped us strengthen both the study and its presentation. We would welcome the opportunity to acknowledge these contributions in the article, if the journal permits. This revision clarifies the acquisition limitations, makes label-budget comparisons explicit, narrows the title and full-budget claims, and adds uncertainty and compute evidence. Existing predictive results are retained; additional statistical analyses and representative timing runs are identified separately. Responses below address Comments to Author-250926 and the additional title/abstract explanation supplied by the author. Locations use section and table identifiers to remain stable across document renderers.
 
 ## R1. Acquisition days and evaluation partitions
 
